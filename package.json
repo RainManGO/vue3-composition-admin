@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "mockjs": "^1.1.0",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
@@ -24,7 +23,6 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
-    "@types/mockjs": "^1.0.3",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -52,7 +50,8 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "webpackbar": "^5.0.0-3"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

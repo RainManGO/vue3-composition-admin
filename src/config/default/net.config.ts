@@ -31,7 +31,7 @@ export interface NetworkConfig{
     header?: {}
 }
 
-const _networkConfig: NetworkConfig = {
+const networkConfig: NetworkConfig = {
   host: process.env.VUE_APP_BASE_API,
   timeout: 10000,
   loading: false,
@@ -39,4 +39,4 @@ const _networkConfig: NetworkConfig = {
   header: _header
 }
 
-export default _networkConfig
+export default networkConfig

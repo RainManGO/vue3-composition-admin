@@ -54,7 +54,7 @@ export interface Settings{
   openFirstMenu?: boolean
 }
 
-const _settings: Settings = {
+const settings: Settings = {
   baseURL: process.env.VUE_APP_BASE_API,
   // pro版本copyright可随意修改
   copyright: 'zy',
@@ -100,4 +100,4 @@ const _settings: Settings = {
   openFirstMenu: true
 }
 
-export default _settings
+export default settings

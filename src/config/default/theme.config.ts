@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-08 09:45:59
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-08 15:20:29
+ * @LastEditTime: 2020-12-09 10:16:28
  */
 // 布局枚举
 enum Layout{
@@ -47,7 +47,7 @@ export interface Theme{
   showFullScreen?: boolean
 }
 
-const _themeConfig: Theme = {
+const themeConfig: Theme = {
   // 布局种类 horizontal vertical gallery comprehensive common
   layout: Layout.Horizontal,
   // 主题名称 default ocean green glory white
@@ -72,4 +72,4 @@ const _themeConfig: Theme = {
   showFullScreen: true
 }
 
-export default _themeConfig
+export default themeConfig

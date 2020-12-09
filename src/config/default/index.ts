@@ -6,7 +6,6 @@
  * @LastEditTime: 2020-12-08 14:56:20
  */
 
-export const vueConfig = import('./vue.default.config')
 export const netConfig = import('./net.config')
 export const settingConfig = import('./setting.config')
 export const themeConfig = import('./theme.config')
