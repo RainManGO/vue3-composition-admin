@@ -1,9 +1,9 @@
 /*
  * @Description:配置文件
- * @Autor: ZY
+ * @Author: ZY
  * @Date: 2020-12-07 11:41:22
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-09 11:48:36
+ * @LastEditTime: 2020-12-09 16:34:18
  */
 const { resolve } = require('path')
 const path = require('path')
@@ -16,7 +16,6 @@ const  {
   lintOnSave,
   transpileDependencies,
   title,
-  startMessage,
   abbreviation,
   devPort,
   providePlugin,
