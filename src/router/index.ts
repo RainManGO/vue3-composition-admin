@@ -1,25 +1,43 @@
+/*
+ * @Description:
+ * @Author: ZY
+ * @Date: 2020-12-07 10:30:20
+ * @LastEditors: ZY
+ * @LastEditTime: 2020-12-21 13:55:10
+ */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import Layout from '@/layout/Index.vue'
+const files = require.context('./modules', true, /\.ts$/)
+let modules: Array<RouteRecordRaw> = []
+files.keys().forEach((key) => {
+  if (key === './index.ts') return
+  modules = modules.concat(files(key).default)
+})
 
-const routes: Array<RouteRecordRaw> = [
+const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Index.vue'),
+        name: 'Dashboard',
+        meta: {
+          title: 'dashboard',
+          icon: 'dashboard',
+          affix: true
+        }
+      }
+    ]
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  ...modules
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes: constantRoutes
 })
 
 export default router

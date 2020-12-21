@@ -21,6 +21,7 @@ const router = new koaRouter();
 const port = 3000;
 const log4 = log4js.getLogger();
 log4.level = "debug";
+
 //日志打印
 app.use(logger(info => {
   log4.debug(info);
@@ -31,10 +32,9 @@ app.use( async (ctx,next)=>{
   log4.debug(chalk.green('请求body:  ') + JSON.stringify(ctx.request.body));
   log4.debug(chalk.green('返回数据:  ')+ JSON.stringify(ctx.body));
 })
+
 app.use(koaBody());
-
 app.use(ResultHandler());
-
 //加载路由
 addRouter(router);
 //启动路由
