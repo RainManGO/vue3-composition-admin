@@ -3,23 +3,20 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:52:19
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 11:54:42
+ * @LastEditTime: 2020-12-21 16:34:56
 -->
 <template>
-  <div />
+  <div>导航栏{{ device }}</div>
 </template>
 
 <script>
-import { reactive, toRefs } from '@vue/composition-api'
-
+// import { reactive, toRefs } from 'vue'
+import Resize from '@/layout/resize'
 export default {
   setup() {
-    const state = reactive({
-      count: 0
-    })
+    console.log(Resize.device)
 
     return {
-      ...toRefs(state)
     }
   }
 }

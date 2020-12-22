@@ -3,19 +3,25 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 11:55:58
+ * @LastEditTime: 2020-12-21 15:41:41
 -->
 <template>
-  <div>
-    layout
+  <div
+    :class="classObj"
+    class="app-wrapper"
+  >
+    <navigation-bar />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import NavigationBar from '@/layout/components/navigation_bar/Index.vue'
 export default defineComponent({
   name: 'Layout',
+  components: {
+    'navigation-bar': NavigationBar
+  },
   setup() {
     return {
 
@@ -30,6 +36,7 @@ export default defineComponent({
   position: relative;
   height: 100%;
   width: 100%;
+  background: red;
 }
 
 .drawer-bg {

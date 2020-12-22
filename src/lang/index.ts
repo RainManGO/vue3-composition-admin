@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-18 15:23:57
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 14:28:26
+ * @LastEditTime: 2020-12-21 14:56:25
  */
 import { createI18n } from 'vue-i18n' // import from runtime only
 

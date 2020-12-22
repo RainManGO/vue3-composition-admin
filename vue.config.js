@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-07 11:41:22
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 14:12:56
+ * @LastEditTime: 2020-12-21 14:58:56
  */
 const { resolve } = require('path')
 const path = require('path')
@@ -48,7 +48,7 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        // path.resolve(__dirname, 'src/styles/_variables.scss'),
+        path.resolve(__dirname, 'src/styles/_variables.scss'),
         path.resolve(__dirname, 'src/styles/_mixins.scss')
       ]
     }

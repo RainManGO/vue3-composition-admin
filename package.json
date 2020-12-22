@@ -74,6 +74,7 @@
     "style-resources-loader": "^1.4.1",
     "ts-node-dev": "^1.0.0",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-style-resources-loader": "^0.1.4",
     "vue-jest": "^5.0.0-0",
     "webpackbar": "^5.0.0-3"
   },
