@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 15:41:41
+ * @LastEditTime: 2020-12-22 13:56:53
 -->
 <template>
   <div
@@ -36,7 +36,6 @@ export default defineComponent({
   position: relative;
   height: 100%;
   width: 100%;
-  background: red;
 }
 
 .drawer-bg {

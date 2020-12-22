@@ -26,13 +26,15 @@
     "koa-router": "^10.0.0",
     "log4js": "^6.3.0",
     "moment": "^2.29.1",
+    "path-to-regexp": "^6.2.0",
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "vuex-persistedstate": "^4.0.0-beta.1"
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^2.0.0-beta.2",

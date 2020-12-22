@@ -3,9 +3,10 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 17:28:06
+ * @LastEditTime: 2020-12-22 09:53:44
  */
 import { createStore } from 'vuex'
+
 // import { InjectionKey } from 'vue'
 import appModule, { AppState } from './modules/app'
 export interface RootState {
