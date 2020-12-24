@@ -3,26 +3,31 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-22 09:53:44
+ * @LastEditTime: 2020-12-23 14:35:45
  */
-import { createStore } from 'vuex'
+import { createStore, createLogger } from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
+import { store as app, AppStore, AppState } from '@/store/modules/app'
 
-// import { InjectionKey } from 'vue'
-import appModule, { AppState } from './modules/app'
 export interface RootState {
-    appState: AppState
+    app: AppState
 }
 
-// eslint-disable-next-line symbol-description
-// export const key: InjectionKey<Store<RootState>> = Symbol()
+export type Store = AppStore<Pick<RootState, 'app'>>
+
+// Plug in logger when in development environment
+const debug = process.env.NODE_ENV !== 'production'
+const plugins = debug ? [createLogger({})] : []
+// Plug in session storage based persistence
+plugins.push(createPersistedState({ storage: window.sessionStorage }))
 
 export const store = createStore({
+  plugins,
   modules: {
-    appModule
+    app
   }
 })
 
-// define your own `useStore` composition function
-// export function useStore() {
-//   return baseUseStore(key)
-// }
+export function useStore(): Store {
+  return store as Store
+}

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-22 11:02:14
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-22 17:32:58
+ * @LastEditTime: 2020-12-23 16:19:01
 -->
 <template>
   <a-breadcrumb
@@ -17,11 +17,11 @@
         <span
           v-if="item.redirect === 'noredirect' || index === breadcrumbs.length-1"
           class="no-redirect"
-        >{{ item.meta.title }}</span>
+        >{{ t(item.meta.title) }}</span>
         <a
           v-else
           @click.prevent="handleLink(item)"
-        >{{ item.meta.title }}</a>
+        >{{ t(item.meta.title) }}</a>
       </a-breadcrumb-item>
     </transition-group>
   </a-breadcrumb>
@@ -31,7 +31,7 @@
 import { defineComponent, onBeforeMount, reactive, toRefs, watch } from 'vue'
 import { useRoute, RouteLocationMatched, useRouter } from 'vue-router'
 import { compile } from 'path-to-regexp'
-
+import { useI18n } from 'vue-i18n'
 export default defineComponent({
   setup() {
     const pathCompile = (path: string) => {
@@ -39,6 +39,8 @@ export default defineComponent({
       const toPath = compile(path)
       return toPath(params)
     }
+
+    const { t } = useI18n()
     const state = reactive({
       breadcrumbs: [] as Array<RouteLocationMatched>,
       getBreadcrumb: () => {
@@ -46,7 +48,7 @@ export default defineComponent({
         const frist = matched[0]
 
         if (!state.isDashboard(frist)) {
-          matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as RouteLocationMatched].concat(matched)
+          matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as any].concat(matched)
         }
         state.breadcrumbs = matched.filter((item) => {
           return item.meta && item.meta.title && item.meta.breadcrumb !== false
@@ -85,6 +87,7 @@ export default defineComponent({
     })
 
     return {
+      t,
       ...toRefs(state)
     }
   }

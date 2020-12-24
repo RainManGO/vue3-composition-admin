@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-18 15:23:57
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 14:56:25
+ * @LastEditTime: 2020-12-23 10:12:29
  */
 import { createI18n } from 'vue-i18n' // import from runtime only
 
@@ -14,16 +14,16 @@ import antdEnLocale from 'ant-design-vue/es/locale/en_US'
 import antdZhLocale from 'ant-design-vue/es/locale/zh_CN'
 
 // User defined lang
-// import enLocale from './en.json'
-// import zhLocale from './zh.json'
+import enLocale from './en.json'
+import zhLocale from './zh.json'
 
 const messages = {
   en: {
-    // ...enLocale,
+    ...enLocale,
     ...antdEnLocale
   },
   zh: {
-    // ...zhLocale,
+    ...zhLocale,
     ...antdZhLocale
   }
 }
@@ -33,6 +33,7 @@ export const getLocale = () => {
   if (cookieLanguage) {
     return cookieLanguage
   }
+  console.log(cookieLanguage)
 
   const language = navigator.language.toLowerCase()
   const locales = Object.keys(messages)
@@ -47,8 +48,8 @@ export const getLocale = () => {
 }
 
 const i18n = createI18n({
-  locale: getLocale()
-  // messages: messages
+  locale: getLocale(),
+  messages: messages
 })
 
 export default i18n

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-22 13:56:53
+ * @LastEditTime: 2020-12-23 21:05:33
 -->
 <template>
   <div
@@ -17,14 +17,24 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import NavigationBar from '@/layout/components/navigation_bar/Index.vue'
+import { useI18n } from 'vue-i18n'
+import { useStore } from '@/store'
+import { AppActionTypes } from '@/store/modules/app/action-types'
 export default defineComponent({
   name: 'Layout',
   components: {
     'navigation-bar': NavigationBar
   },
   setup() {
+    const { t, locale } = useI18n()
+    const store = useStore()
+    const onChange = (e: any) => {
+      store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, e.target.value)
+    }
     return {
-
+      t,
+      locale,
+      onChange
     }
   }
 })

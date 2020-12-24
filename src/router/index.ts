@@ -3,10 +3,11 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-22 15:37:28
+ * @LastEditTime: 2020-12-23 08:45:37
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
+
 const files = require.context('./modules', true, /\.ts$/)
 let modules: Array<RouteRecordRaw> = []
 files.keys().forEach((key) => {

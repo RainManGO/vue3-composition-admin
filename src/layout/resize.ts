@@ -3,16 +3,45 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:37:56
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-21 17:29:08
+ * @LastEditTime: 2020-12-23 16:11:43
  */
 // refer to Bootstrap's responsive design
 
-import { useStore } from 'vuex'
-// const WIDTH = 992
+import { useStore } from '@/store'
+import { AppActionTypes } from '@/store/modules/app/action-types'
+import { DeviceType } from '@/store/modules/app/state'
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+const store = useStore()
+const WIDTH = 992 // refer to Bootstrap's responsive design
 
-console.log(useStore())
+export default function() {
+  const watchRouter = watch(useRoute(), () => {
+    console.log('router change')
+    if (store.state.app.device === DeviceType.Mobile && store.state.app.sidebar.opened) {
+      store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
+    }
+  })
 
-export default class Resize {
+  const isMobile = () => {
+    const rect = document.body.getBoundingClientRect()
+    return rect.width - 1 < WIDTH
+  }
 
-  // static device = useStore().state.appState.device
+  const resizeHandler = () => {
+    if (!document.hidden) {
+      store.dispatch(AppActionTypes.ACTION_TOGGLE_DEVICE, isMobile() ? DeviceType.Mobile : DeviceType.Desktop)
+      if (isMobile()) {
+        store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, true)
+      }
+    }
+  }
+  const addEventListenerOnResize = () => {
+    window.addEventListener('resize', resizeHandler)
+  }
+
+  return {
+    addEventListenerOnResize,
+    watchRouter
+  }
 }
