@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:52:19
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 20:46:28
+ * @LastEditTime: 2020-12-24 09:58:22
 -->
 <template>
   <div class="navbar">
@@ -20,6 +20,7 @@
     <div class="right-menu">
       <template v-if="device!=='mobile'">
         <Screenfull class="right-menu-item hover-effect" />
+        <size-select class="right-menu-item hover-effect" />
         <LangSelect class="right-menu-item hover-effect" />
       </template>
     </div>

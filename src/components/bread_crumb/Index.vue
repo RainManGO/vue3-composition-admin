@@ -3,14 +3,15 @@
  * @Author: ZY
  * @Date: 2020-12-22 11:02:14
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 16:19:01
+ * @LastEditTime: 2020-12-25 08:58:01
 -->
 <template>
-  <a-breadcrumb
+  <el-breadcrumb
     class="app-breadcrumb"
+    separator-class="el-icon-arrow-right"
   >
     <transition-group name="breadcrumb">
-      <a-breadcrumb-item
+      <el-breadcrumb-item
         v-for="(item, index) in breadcrumbs"
         :key="item.path"
       >
@@ -22,9 +23,9 @@
           v-else
           @click.prevent="handleLink(item)"
         >{{ t(item.meta.title) }}</a>
-      </a-breadcrumb-item>
+      </el-breadcrumb-item>
     </transition-group>
-  </a-breadcrumb>
+  </el-breadcrumb>
 </template>
 
 <script lang="ts">
@@ -97,8 +98,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
 
-.app-breadcrumb{
+.app-breadcrumb.el-breadcrumb {
   display: inline-block;
   font-size: 14px;
   line-height: 50px;

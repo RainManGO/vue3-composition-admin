@@ -11,7 +11,7 @@ const vueDefaultConfig = {
     assetsDir: 'static',
     lintOnSave: true,
     transpileDependencies: ['vue-echarts', 'resize-detector'],
-    title: 'vue3-ts-antd-admin-template',
+    title: 'vue3-ts-composition-admin-template',
     titleSeparator: ' - ',
     titleReverse: false,
     devPort: '9999',
@@ -19,7 +19,7 @@ const vueDefaultConfig = {
     abbreviation: 'vt2at',
     providePlugin: {},
     build7z: false,
-    startMessage:'欢迎使用vue3-ts-antd-admin-template,使用composition API和TS 玩转最潮技术'
+    startMessage:'欢迎使用vue3-ts-composition-admin-template,使用composition API和TS 玩转最潮技术'
 }
 
 module.exports = vueDefaultConfig

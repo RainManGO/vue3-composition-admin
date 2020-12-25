@@ -3,15 +3,14 @@
  * @Author: ZY
  * @Date: 2020-12-18 15:23:57
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 10:12:29
+ * @LastEditTime: 2020-12-25 09:39:07
  */
 import { createI18n } from 'vue-i18n' // import from runtime only
 
 import { getLanguage } from '@/utils/cookies'
 
-// antdv built-in lang
-import antdEnLocale from 'ant-design-vue/es/locale/en_US'
-import antdZhLocale from 'ant-design-vue/es/locale/zh_CN'
+import elementEnLocale from 'element-plus/lib/locale/lang/en'
+import elementZhLocale from 'element-plus/lib/locale/lang/zh-cn'
 
 // User defined lang
 import enLocale from './en.json'
@@ -20,11 +19,11 @@ import zhLocale from './zh.json'
 const messages = {
   en: {
     ...enLocale,
-    ...antdEnLocale
+    ...elementEnLocale
   },
   zh: {
     ...zhLocale,
-    ...antdZhLocale
+    ...elementZhLocale
   }
 }
 

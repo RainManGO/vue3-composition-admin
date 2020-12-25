@@ -1,13 +1,13 @@
 <!--
- * @Description:
+ * @Description: 主视图
  * @Author: ZY
- * @Date: 2020-12-17 16:05:05
+ * @Date: 2020-12-24 10:36:58
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-24 10:38:36
+ * @LastEditTime: 2020-12-24 10:37:55
 -->
 <template>
   <div>
-    setting
+    App main
   </div>
 </template>
 

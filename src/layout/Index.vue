@@ -3,38 +3,105 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 21:05:33
+ * @LastEditTime: 2020-12-25 09:00:09
 -->
 <template>
   <div
     :class="classObj"
     class="app-wrapper"
   >
-    <navigation-bar />
+    <div
+      v-if="classObj.mobile && sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
+    <Sidebar class="sidebar-container" />
+    <div
+      :class="{hasTagsView: showTagsView}"
+      class="main-container"
+    >
+      <div :class="{'fixed-header': fixedHeader}">
+        <Navbar />
+        <TagsView v-if="showTagsView" />
+      </div>
+      <AppMain />
+      <Settings />
+
+      <!-- <RightPanel v-if="showSettings">
+        <Settings />
+      </RightPanel> -->
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import NavigationBar from '@/layout/components/navigation_bar/Index.vue'
+import { DeviceType } from '@/store/modules/app/state'
+import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
+import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
+// import RightPanel from '@/components/right_panel/Index'
+import resize from './resize'
 export default defineComponent({
   name: 'Layout',
   components: {
-    'navigation-bar': NavigationBar
+    AppMain,
+    Navbar,
+    // RightPanel,
+    Settings,
+    Sidebar,
+    TagsView
   },
   setup() {
-    const { t, locale } = useI18n()
+    const { t } = useI18n()
     const store = useStore()
-    const onChange = (e: any) => {
-      store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, e.target.value)
-    }
+    const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = resize()
+    const state = reactive({
+      handleClickOutside: () => {
+        store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
+      }
+    })
+
+    const classObj = computed(() => {
+      return {
+        hideSidebar: sidebar.value.opened,
+        openSidebar: sidebar.value.opened,
+        withoutAnimation: sidebar.value.withoutAnimation,
+        mobile: device.value === DeviceType.Mobile
+      }
+    })
+
+    const showSettings = computed(() => {
+      console.log('showSettings')
+    })
+    const showTagsView = computed(() => {
+      console.log('showTagsView')
+    })
+    const fixedHeader = computed(() => {
+      console.log('fixedHeader')
+    })
+
+    watchRouter()
+    onBeforeMount(() => {
+      addEventListenerOnResize()
+    })
+
+    onMounted(() => {
+      resizeMounted()
+    })
+
+    onBeforeUnmount(() => {
+      removeEventListenerResize()
+    })
     return {
       t,
-      locale,
-      onChange
+      classObj,
+      sidebar,
+      showSettings,
+      showTagsView,
+      fixedHeader,
+      ...toRefs(state)
     }
   }
 })
@@ -70,7 +137,7 @@ export default defineComponent({
   width: $sideBarWidth !important;
   height: 100%;
   position: fixed;
-  font-size: 0px;
+  // font-size: 0px;
   top: 0;
   bottom: 0;
   left: 0;

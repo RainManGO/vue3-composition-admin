@@ -1,13 +1,13 @@
 <!--
  * @Description:
  * @Author: ZY
- * @Date: 2020-12-17 16:05:05
+ * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-24 10:38:36
+ * @LastEditTime: 2020-12-24 10:38:26
 -->
 <template>
   <div>
-    setting
+    tags view
   </div>
 </template>
 

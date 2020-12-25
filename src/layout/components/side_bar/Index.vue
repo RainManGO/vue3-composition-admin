@@ -1,13 +1,15 @@
 <!--
  * @Description:
  * @Author: ZY
- * @Date: 2020-12-17 16:05:05
+ * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-24 10:38:36
+ * @LastEditTime: 2020-12-24 17:01:31
 -->
 <template>
   <div>
-    setting
+    <div class="bg">
+      {{ "xxx" }}
+    </div>
   </div>
 </template>
 
@@ -22,5 +24,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
+.bg{
+    color: red;
+    height: 100%;
+}
 </style>

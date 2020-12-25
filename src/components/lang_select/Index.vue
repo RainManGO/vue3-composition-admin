@@ -3,11 +3,11 @@
  * @Author: ZY
  * @Date: 2020-12-23 20:06:29
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 21:25:29
+ * @LastEditTime: 2020-12-25 10:11:46
 -->
 <template>
   <div>
-    <a-dropdown>
+    <el-dropdown>
       <svg
         class="icon"
         aria-hidden="true"
@@ -15,48 +15,57 @@
       >
         <use xlink:href="#iconlanguage" />
       </svg>
-      <template #overlay>
-        <a-menu>
-          <a-menu-item
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item
             v-for="item in languages"
             :key="item.value"
+            :disabled="language===item.value"
           >
-            <a @click="handleSetLanguage(item.value)">{{ item.name }}</a>
-          </a-menu-item>
-        </a-menu>
+            <span @click="handleSetLanguage(item.value)">{{ item.name }}</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
       </template>
-    </a-dropdown>
+    </el-dropdown>
   </div>
 </template>
 
 <script lang="ts">
 import { useStore } from '@/store'
-import { defineComponent, reactive, toRefs } from 'vue'
-import { message } from 'ant-design-vue'
+import { computed, defineComponent, reactive, toRefs } from 'vue'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
-
+import { ElMessage } from 'element-plus'
 type Language = {
     name: string
     value: string
 }
 
 export default defineComponent({
+  created() {
+    console.log(this)
+  },
   setup() {
     const store = useStore()
     const { locale } = useI18n()
+
     const state = reactive({
       languages: [{ name: 'en', value: 'en' }, { name: '中文', value: 'zh-CN' }] as Array<Language>,
-      language: store.state.app.language,
       handleSetLanguage: (lang: string) => {
         locale.value = lang
         store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang)
-        message.success('Switch Language Success')
+        ElMessage({
+          message: 'Switch Language Success',
+          type: 'success'
+        })
       }
     })
-
+    const language = computed(() => {
+      return store.state.app.language
+    })
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      language
     }
   }
 })

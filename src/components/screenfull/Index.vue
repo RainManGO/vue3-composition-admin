@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 18:11:46
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 19:55:41
+ * @LastEditTime: 2020-12-25 10:14:19
 -->
 
 <template>
@@ -38,16 +38,19 @@
 <script lang="ts">
 import screenfull from 'screenfull'
 import { defineComponent, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
-import { message } from 'ant-design-vue'
-const sf = screenfull
+import { ElMessage } from 'element-plus'
 
+const sf = screenfull
 export default defineComponent({
   setup() {
     const state = reactive({
       isFullscreen: false,
       click: () => {
         if (!sf.isEnabled) {
-          message.warning('you browser can not work')
+          ElMessage({
+            message: 'you browser can not work',
+            type: 'warning'
+          })
           return false
         }
         sf.toggle()

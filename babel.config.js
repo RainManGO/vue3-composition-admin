@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-19 14:51:58
+ * @LastEditTime: 2020-12-25 08:38:48
  */
 module.exports = {
   presets: [
@@ -15,8 +15,14 @@ module.exports = {
       // This plugin can significantly increase the speed of hot updates, when you have a large number of pages.
       // https://panjiachen.github.io/vue-element-admin-site/guide/advanced/lazy-loading.html
       plugins: [
-        'dynamic-import-node'
-        // ['import', { libraryName: 'ant-design-vue', libraryDirectory: 'lib', style: true }]
+        'dynamic-import-node',
+        [
+          'component',
+          {
+            libraryName: 'element-plus',
+            styleLibraryName: 'theme-chalk'
+          }
+        ]
       ]
     }
   }
