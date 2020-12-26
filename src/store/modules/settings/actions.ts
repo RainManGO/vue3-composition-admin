@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 11:25:46
+ * @LastEditTime: 2020-12-26 14:19:03
  */
 import { ActionTree, ActionContext } from 'vuex'
 
@@ -27,7 +27,7 @@ export interface Actions {
   ): void
 }
 
-export const actions: ActionTree<SettingsActionTypes, RootState> & Actions = {
+export const actions: ActionTree<SettingsState, RootState> & Actions = {
   [SettingsActionTypes.ACTION_CHANGE_SETTING](
     { commit }: AugmentedActionContext,
     payload: {key: string, value: any}

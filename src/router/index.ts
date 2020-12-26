@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 08:45:37
+ * @LastEditTime: 2020-12-25 15:01:48
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -15,7 +15,7 @@ files.keys().forEach((key) => {
   modules = modules.concat(files(key).default)
 })
 
-const constantRoutes: Array<RouteRecordRaw> = [
+export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: Layout,
@@ -36,6 +36,9 @@ const constantRoutes: Array<RouteRecordRaw> = [
   ...modules
 ]
 
+export const asyncRoutes: Array<RouteRecordRaw> = [
+
+]
 const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes

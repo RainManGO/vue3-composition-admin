@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 08:45:49
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 09:44:27
+ * @LastEditTime: 2020-12-26 16:00:00
  */
 
 import {
@@ -18,7 +18,7 @@ import {
   ElPopover,
   ElMessage
 } from 'element-plus'
-
+import '@/styles/element-variables.scss'
 export default function loadComponent(app: any) {
   app.use(ElButton)
   app.use(ElSelect)
