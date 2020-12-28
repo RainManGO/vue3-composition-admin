@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-09 17:02:35
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-10 15:13:35
+ * @LastEditTime: 2020-12-28 16:00:47
  */
 
 import Koa, { Context } from "koa";
@@ -26,6 +26,9 @@ log4.level = "debug";
 app.use(logger(info => {
   log4.debug(info);
 }));
+
+app.use(koaBody());
+
 app.use( async (ctx,next)=>{
   await next()
   // log4.debug(chalk.green('请求路径:  ') + ctx.request.url);
@@ -33,7 +36,6 @@ app.use( async (ctx,next)=>{
   log4.debug(chalk.green('返回数据:  ')+ JSON.stringify(ctx.body));
 })
 
-app.use(koaBody());
 app.use(ResultHandler());
 //加载路由
 addRouter(router);
