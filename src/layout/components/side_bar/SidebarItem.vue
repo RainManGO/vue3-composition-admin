@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:00
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-26 16:42:07
+ * @LastEditTime: 2020-12-28 17:26:35
 -->
 
 <template>
@@ -30,7 +30,7 @@
           </svg>
           <span
             v-if="theOnlyOneChild.meta.title"
-          >{{ t(theOnlyOneChild.meta.title) }}</span>
+          >{{ t('route.' + theOnlyOneChild.meta.title) }}</span>
         </el-menu-item>
       </SidebarItemLink>
     </template>
@@ -50,7 +50,7 @@
         </svg>
         <span
           v-if="item.meta && item.meta.title"
-        >{{ t(item.meta.title) }}</span>
+        >{{ t('route.' +item.meta.title) }}</span>
       </template>
       <template v-if="item.children">
         <sidebar-item

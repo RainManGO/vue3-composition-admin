@@ -3,14 +3,18 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 14:38:23
+ * @LastEditTime: 2021-01-04 16:41:56
  */
 import { ActionTree, ActionContext } from 'vuex'
-import { RootState } from '@/store'
-import { UserState } from './state'
+import { RootState, useStore } from '@/store'
+import { state, UserState } from './state'
 import { Mutations } from './mutations'
 import { UserMutationTypes } from './mutation-types'
 import { UserActionTypes } from './action-types'
+import { loginRequest, userInfoRequest } from '@/apis/user'
+import { removeToken, setToken } from '@/utils/cookies'
+import { PermissionActionType } from '../permission/action-types'
+import router from '@/router'
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
@@ -27,56 +31,80 @@ export interface Actions {
   [UserActionTypes.ACTION_RESET_TOKEN](
     { commit }: AugmentedActionContext
   ): void
-  [UserActionTypes.ACTION_GET_USER_INFO](
+   [UserActionTypes.ACTION_GET_USER_INFO](
     { commit }: AugmentedActionContext
   ): void
   [UserActionTypes.ACTION_CHANGE_ROLES](
-    { commit }: AugmentedActionContext): void
-    role: string
+    { commit }: AugmentedActionContext, role: string
+    ): void
   [UserActionTypes.ACTION_LOGIN_OUT](
     { commit }: AugmentedActionContext,
   ): void
 }
 
 export const actions: ActionTree<UserState, RootState> & Actions = {
-  [UserActionTypes.ACTION_LOGIN](
+  async [UserActionTypes.ACTION_LOGIN](
     { commit }: AugmentedActionContext,
     userInfo: { username: string, password: string}
   ) {
     let { username, password } = userInfo
     username = username.trim()
-    const { data } = await login({ username, password })
-    setToken(data.accessToken)
-    this.SET_TOKEN(data.accessToken)
+    loginRequest({ username, password }).then((res) => {
+      if (res?.code === 0 && res.data.accessToken) {
+        setToken(res.data.accessToken)
+        commit(UserMutationTypes.SET_TOKEN, res.data.accessToken)
+      }
+    }).catch((err) => {
+      console.log(err)
+    })
   },
-  [UserActionTypes.ACTION_SET_NAME](
-    { commit }: AugmentedActionContext,
-    name: string
-  ) {
-    commit(UserMutationTypes.SET_NAME, name)
+
+  [UserActionTypes.ACTION_RESET_TOKEN](
+    { commit }: AugmentedActionContext) {
+    removeToken()
+    commit(UserMutationTypes.SET_TOKEN, '')
+    commit(UserMutationTypes.SET_ROLES, [])
   },
-  [UserActionTypes.ACTION_SET_AVATAR](
-    { commit }: AugmentedActionContext,
-    avatar: string
+
+  async [UserActionTypes.ACTION_GET_USER_INFO](
+    { commit }: AugmentedActionContext
   ) {
-    commit(UserMutationTypes.SET_AVATAR, avatar)
+    if (state.token === '') {
+      throw Error('token is undefined!')
+    }
+    userInfoRequest().then(async(res) => {
+      if (res?.code === 0) {
+        commit(UserMutationTypes.SET_ROLES, res.data.roles)
+        commit(UserMutationTypes.SET_NAME, res.data.name)
+        commit(UserMutationTypes.SET_AVATAR, res.data.avatar)
+        commit(UserMutationTypes.SET_INTRODUCTION, res.data.introduction)
+        commit(UserMutationTypes.SET_EMAIL, res.data.email)
+        return await res
+      } else {
+        throw Error('Verification failed, please Login again.')
+      }
+    })
   },
-  [UserActionTypes.ACTION_SET_INTRODUCTION](
+
+  async [UserActionTypes.ACTION_CHANGE_ROLES](
     { commit }: AugmentedActionContext,
-    introduction: string
+    role: string
   ) {
-    commit(UserMutationTypes.SET_INTRODUCTION, introduction)
+    const token = role + '-token'
+    const store = useStore()
+    commit(UserMutationTypes.SET_TOKEN, token)
+    setToken(token)
+    await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
+    store.dispatch(PermissionActionType.ACTION_SET_ROUTES, state.roles)
+    store.state.permission.dynamicRoutes.forEach((item) => {
+      router.addRoute(item)
+    })
   },
-  [UserActionTypes.ACTION_SET_ROLES](
-    { commit }: AugmentedActionContext,
-    roles: string[]
+
+  [UserActionTypes.ACTION_LOGIN_OUT](
+    { commit }: AugmentedActionContext
   ) {
-    commit(UserMutationTypes.SET_ROLES, roles)
-  },
-  [UserActionTypes.ACTION_SET_EMAIL](
-    { commit }: AugmentedActionContext,
-    email: string
-  ) {
-    commit(UserMutationTypes.SET_EMAIL, email)
+    console.log(commit)
   }
+
 }

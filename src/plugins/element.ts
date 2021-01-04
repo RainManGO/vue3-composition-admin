@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 08:45:49
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-26 16:00:00
+ * @LastEditTime: 2021-01-04 10:29:47
  */
 
 import {
@@ -16,7 +16,13 @@ import {
   ElDropdownMenu,
   ElDropdownItem,
   ElPopover,
-  ElMessage
+  ElMessage,
+  ElForm,
+  ElFormItem,
+  ElLoading,
+  ElInput,
+  ElTooltip,
+  ElDialog
 } from 'element-plus'
 import '@/styles/element-variables.scss'
 export default function loadComponent(app: any) {
@@ -29,7 +35,12 @@ export default function loadComponent(app: any) {
   app.use(ElDropdownMenu)
   app.use(ElDropdownItem)
   app.use(ElPopover)
-  app.use(ElMessage)
+  app.use(ElForm)
+  app.use(ElFormItem)
+  app.use(ElLoading)
+  app.use(ElInput)
+  app.use(ElTooltip)
+  app.use(ElDialog)
 
   app.config.globalProperties.$message = ElMessage
 }

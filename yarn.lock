@@ -1410,6 +1410,13 @@
   dependencies:
     "@types/koa" "*"
 
+"@types/koa2-cors@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/@types/koa2-cors/-/koa2-cors-2.0.1.tgz#76a635cadc9c10e9d29a209fa2db28529dfc765a"
+  integrity sha512-8DaO8CkGJGAVWPeODHeGW6T9grKunnfAg0LAyayMrqP/ggPTiHxwrvrk7UJ+NNZ7aQo4Cn0fHSMKhucj+PcquA==
+  dependencies:
+    "@types/koa" "*"
+
 "@types/koa@*", "@types/koa@^2.11.6":
   version "2.11.6"
   resolved "https://registry.npm.taobao.org/@types/koa/download/@types/koa-2.11.6.tgz#b7030caa6b44af801c2aea13ba77d74aff7484d5"
@@ -2605,9 +2612,9 @@ aws4@^1.8.0:
   integrity sha1-1h9G2DslGSUOJ4Ta9bCUeai0HFk=
 
 axios-mapper@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/axios-mapper/-/axios-mapper-0.4.1.tgz#243956a8137279cd8861f022fd057e778d7a42b4"
-  integrity sha512-GrjZzEZgMGk2r5hWu+YZKAmmhwcaykMX3hmsv2QgrNG0Jw6o6YvR20tmtwLGhoe/XXYh/a7T/OlMnfGEurTVSA==
+  version "0.4.4"
+  resolved "https://registry.npmjs.org/axios-mapper/-/axios-mapper-0.4.4.tgz#a68f6e5b9889c0455d216fef11a427fbb45cfaff"
+  integrity sha512-dx7RakHf9wHQKztitU2f6xyz2kPu6bnYsWCYhclc3fiw8G7tsDUXMaC8iAVZ3biAe0QmTB9kiZqDbLuCrNzM8Q==
   dependencies:
     "@types/qs" "^6.9.5"
     axios "^0.21.0"
@@ -7775,6 +7782,11 @@ koa-router@^10.0.0:
     koa-compose "^4.1.0"
     methods "^1.1.2"
     path-to-regexp "^6.1.0"
+
+koa2-cors@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/koa2-cors/-/koa2-cors-2.0.6.tgz#9ad23df3a0b9bb84530b46f5944f3fb576086554"
+  integrity sha512-JRCcSM4lamM+8kvKGDKlesYk2ASrmSTczDtGUnIadqMgnHU4Ct5Gw7Bxt3w3m6d6dy3WN0PU4oMP43HbddDEWg==
 
 koa@^2.13.0:
   version "2.13.0"

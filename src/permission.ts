@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:12:46
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 14:17:33
+ * @LastEditTime: 2021-01-04 15:49:27
  */
 
 import NProgress from 'nprogress'
@@ -12,6 +12,10 @@ import { useI18n } from 'vue-i18n'
 import router from '@/router'
 import { RouteLocationNormalized } from 'vue-router'
 import { useStore } from './store'
+import { UserActionTypes } from './store/modules/user/action-types'
+import { PermissionActionType } from './store/modules/permission/action-types'
+import { ElMessage } from 'element-plus'
+import whiteList from './config/default/whitelist'
 
 NProgress.configure({ showSpinner: false })
 
@@ -30,6 +34,8 @@ const getPageTitle = (key: string) => {
 router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   // Start progress bar
   NProgress.start()
+  const store = useStore()
+  console.log(useStore().state.user.token)
 
   // Determine whether the user has logged in
   if (useStore().state.user.token) {
@@ -39,22 +45,24 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       NProgress.done()
     } else {
       // Check whether the user has obtained his permission roles
-      if (useStore().state.user.roles.length === 0) {
+      if (store.state.user.roles.length === 0) {
         try {
           // Note: roles must be a object array! such as: ['admin'] or ['developer', 'editor']
-          await UserModule.GetUserInfo()
-          const roles = UserModule.roles
+          await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
+          const roles = store.state.user.roles
           // Generate accessible routes map based on role
-          PermissionModule.GenerateRoutes(roles)
+          store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
           // Dynamically add accessible routes
-          router.addRoutes(PermissionModule.dynamicRoutes)
+          store.state.permission.dynamicRoutes.forEach((route) => {
+            router.addRoute(route)
+          })
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
           next({ ...to, replace: true })
         } catch (err) {
           // Remove token and redirect to login page
-          UserModule.ResetToken()
-          Message.error(err || 'Has Error')
+          store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
+          ElMessage.error(err || 'Has Error')
           next(`/login?redirect=${to.path}`)
           NProgress.done()
         }
@@ -75,7 +83,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   }
 })
 
-router.afterEach((to: Route) => {
+router.afterEach((to: RouteLocationNormalized) => {
   // Finish progress bar
   // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
   NProgress.done()

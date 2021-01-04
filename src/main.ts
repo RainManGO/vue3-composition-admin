@@ -3,7 +3,7 @@
  * @Autor: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 13:59:52
+ * @LastEditTime: 2021-01-04 10:33:47
  */
 import { createApp, Directive } from 'vue'
 import App from './App.vue'
@@ -11,10 +11,11 @@ import './pwa/registerServiceWorker'
 import router from './router'
 import { store } from './store'
 import { loadAllPlugins } from './plugins'
-import { useStore } from 'vuex'
 import '@/assets/iconfont/iconfont.css'
+import '@/styles/index.scss'
 import 'normalize.css'
 import * as directives from '@/directives'
+import '@/permission'
 
 const app = createApp(App)
 // 加载所有插件
@@ -26,4 +27,3 @@ Object.keys(directives).forEach(key => {
 })
 
 app.use(store).use(router).mount('#app')
-console.log(useStore())

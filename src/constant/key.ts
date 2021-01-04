@@ -7,10 +7,11 @@
  */
 
 class Keys {
-  static sidebarStatusKey = 'vue3_typescript_admin_sidebarStatusKey'
-  static languageKey = 'vue3_typescript_admin_languageKey'
-  static sizeKey = 'vue3_typescript_admin_sizeKey'
-  static tokenKey = 'vue3_typescript_admin_access_token'
+  static sidebarStatusKey = 'vue3-typescript-admin-sidebarStatusKey'
+  static languageKey = 'vue3-typescript-admin-languageKey'
+  static sizeKey = 'vue3-typescript-admin-sizeKey'
+  static tokenKey = 'vue3-typescript-admin-access-token'
+  static aseKey = 'vue3-typescript-admin-ase-key'
 }
 
 export default Keys

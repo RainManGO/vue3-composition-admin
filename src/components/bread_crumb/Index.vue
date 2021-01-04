@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-22 11:02:14
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 08:58:01
+ * @LastEditTime: 2020-12-28 17:23:33
 -->
 <template>
   <el-breadcrumb
@@ -18,11 +18,11 @@
         <span
           v-if="item.redirect === 'noredirect' || index === breadcrumbs.length-1"
           class="no-redirect"
-        >{{ t(item.meta.title) }}</span>
+        >{{ t('route.' + item.meta.title) }}</span>
         <a
           v-else
           @click.prevent="handleLink(item)"
-        >{{ t(item.meta.title) }}</a>
+        >{{ t('route.' + item.meta.title) }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>

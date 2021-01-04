@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-18 15:23:57
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 09:39:07
+ * @LastEditTime: 2021-01-04 15:26:24
  */
 import { createI18n } from 'vue-i18n' // import from runtime only
 
@@ -13,8 +13,8 @@ import elementEnLocale from 'element-plus/lib/locale/lang/en'
 import elementZhLocale from 'element-plus/lib/locale/lang/zh-cn'
 
 // User defined lang
-import enLocale from './en.json'
-import zhLocale from './zh.json'
+import enLocale from './en'
+import zhLocale from './zh-CN'
 
 const messages = {
   en: {

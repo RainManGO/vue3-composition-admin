@@ -3,7 +3,7 @@
  * @Autor: ZY
  * @Date: 2020-11-11 13:59:28
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 16:26:24
+ * @LastEditTime: 2020-12-29 09:04:03
  */
 import log from '../utils/logger'
 import { MiddleWare } from '../type'
@@ -23,6 +23,7 @@ export const ResultHandler: MiddleWare = () => async (ctx, next) => {
   try {
     const data:any = await next();
     r.code = 0;
+    r.msg = 'success'
     r.data = data;
   } catch (err) {
     log.error(err);

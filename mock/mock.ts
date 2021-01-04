@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-09 17:02:35
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 16:00:47
+ * @LastEditTime: 2020-12-29 11:51:20
  */
 
 import Koa, { Context } from "koa";
@@ -14,8 +14,11 @@ import logger from "koa-logger";
 import log4js from "log4js";
 import {ResultHandler} from './middleware/resultHandler'
 import chalk from "chalk";
+import cors from "koa2-cors";
+
 
 const app = new Koa();
+app.use(cors());
 const router = new koaRouter();
 
 const port = 3000;
@@ -57,6 +60,7 @@ app.on("error", (err, ctx: Context) => {
     ctx.res.end(err.stack); //finish the response
   }
 });
+
 
 app.listen(port, () => {
   log4.debug("mock server running at: http://localhost:%d", port);
