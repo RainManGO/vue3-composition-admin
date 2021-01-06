@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-30 16:11:14
+ * @LastEditTime: 2021-01-05 15:39:49
  */
 import {
   Store as VuexStore,
@@ -21,7 +21,7 @@ import type { TagsViewState } from './state'
 
 export { TagsViewState }
 
-export type AppStore<S = TagsViewState> = Omit<VuexStore<S>, 'getters' | 'commit' | 'dispatch'>
+export type TagsStore<S = TagsViewState> = Omit<VuexStore<S>, 'getters' | 'commit' | 'dispatch'>
 & {
   commit<K extends keyof Mutations, P extends Parameters<Mutations[K]>[1]>(
     key: K,

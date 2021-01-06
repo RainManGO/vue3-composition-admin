@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-26 11:42:19
+ * @LastEditTime: 2021-01-05 16:01:17
 -->
 
 <template>
@@ -43,6 +43,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import settings from '@/config/default/setting.config'
 export default defineComponent({
   props: {
     collapse: {
@@ -51,8 +52,7 @@ export default defineComponent({
     }
   },
   setup() {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { title } = require('@/config/default/vue.custom.config')
+    const title = settings.title
     return {
       title
     }

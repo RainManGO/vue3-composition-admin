@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:52:19
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-24 09:58:22
+ * @LastEditTime: 2021-01-05 17:54:17
 -->
 <template>
   <div class="navbar">
@@ -18,36 +18,101 @@
       class="breadcrumb-container"
     />
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
+      <template v-if="device !== 'mobile'">
+        <header-search class="right-menu-item" />
+        <error-log class="errLog-container right-menu-item hover-effect" />
         <Screenfull class="right-menu-item hover-effect" />
-        <size-select class="right-menu-item hover-effect" />
+        <el-tooltip
+          :content="t('navbar.size')"
+          effect="dark"
+          placement="bottom"
+        >
+          <SizeSelect class="right-menu-item hover-effect" />
+        </el-tooltip>
         <LangSelect class="right-menu-item hover-effect" />
       </template>
+      <el-dropdown
+        class="avatar-container right-menu-item hover-effect"
+        trigger="click"
+      >
+        <div class="avatar-wrapper">
+          <img
+            :src="avatar + '?imageView2/1/w/80/h/80'"
+            class="user-avatar"
+          >
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <router-link to="/profile/">
+              <el-dropdown-item>
+                {{ t("navbar.profile") }}
+              </el-dropdown-item>
+            </router-link>
+            <router-link to="/">
+              <el-dropdown-item>
+                {{ t("navbar.dashboard") }}
+              </el-dropdown-item>
+            </router-link>
+            <a
+              target="_blank"
+              href="https://github.com/armour/vue-typescript-admin-template/"
+            >
+              <el-dropdown-item>
+                {{ t("navbar.github") }}
+              </el-dropdown-item>
+            </a>
+            <a
+              target="_blank"
+              href="https://armour.github.io/vue-typescript-admin-docs/"
+            >
+              <el-dropdown-item>Docs</el-dropdown-item>
+            </a>
+            <el-dropdown-item
+              divided
+              @click="logout"
+            >
+              <span style="display:block;">
+                {{ t("navbar.logOut") }}
+              </span>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
 
 <script>
-// import { reactive, toRefs } from 'vue'
-// import Resize from '@/layout/resize'
-import BreadCrumb from '@/components/bread_crumb/Index'
-import Hamburger from '@/components/hamburger/Index'
-import Screenfull from '@/components/screenfull/Index'
-import LangSelect from '@/components/lang_select/Index'
+import BreadCrumb from '@/components/bread_crumb/Index.vue'
+import Hamburger from '@/components/hamburger/Index.vue'
+import Screenfull from '@/components/screenfull/Index.vue'
+import LangSelect from '@/components/lang_select/Index.vue'
+import SizeSelect from '@/components/size_select/Index.vue'
 
-import { reactive, ref, toRefs } from 'vue'
+import { computed, reactive, toRefs } from 'vue'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
+import { useI18n } from 'vue-i18n'
 export default {
   components: {
     BreadCrumb,
     Hamburger,
     Screenfull,
-    LangSelect
+    LangSelect,
+    SizeSelect
   },
   setup() {
     const store = useStore()
-    const sidebar = ref(store.state.app.sidebar)
+    const { t } = useI18n()
+    const sidebar = computed(() => {
+      return store.state.app.sidebar
+    })
+    const device = computed(() => {
+      return store.state.app.device.toString()
+    })
+    const avatar = computed(() => {
+      return store.state.user.avatar
+    })
     const state = reactive({
       toggleSideBar: () => {
         store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
@@ -55,7 +120,10 @@ export default {
     })
     return {
       sidebar,
-      ...toRefs(state)
+      device,
+      avatar,
+      ...toRefs(state),
+      t
     }
   }
 }
@@ -67,7 +135,7 @@ export default {
   overflow: hidden;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {
     line-height: 46px;
@@ -75,11 +143,11 @@ export default {
     float: left;
     padding: 0 15px;
     cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
+    transition: background 0.3s;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, .025)
+      background: rgba(0, 0, 0, 0.025);
     }
   }
 
@@ -111,19 +179,19 @@ export default {
 
       &.hover-effect {
         cursor: pointer;
-        transition: background .3s;
+        transition: background 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, 0.025);
         }
       }
     }
 
     .avatar-container {
-      margin-right: 30px;
-
       .avatar-wrapper {
         margin-top: 5px;
+        margin-right: 16px;
+        margin-left: 16px;
         position: relative;
 
         .user-avatar {

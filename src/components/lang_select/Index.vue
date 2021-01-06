@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 20:06:29
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 10:11:46
+ * @LastEditTime: 2021-01-05 16:07:39
 -->
 <template>
   <div>
@@ -42,9 +42,6 @@ type Language = {
 }
 
 export default defineComponent({
-  created() {
-    console.log(this)
-  },
   setup() {
     const store = useStore()
     const { locale } = useI18n()

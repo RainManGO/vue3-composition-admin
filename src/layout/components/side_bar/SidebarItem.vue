@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:00
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 17:26:35
+ * @LastEditTime: 2021-01-05 11:06:41
 -->
 
 <template>
@@ -24,7 +24,7 @@
             v-if="theOnlyOneChild.meta.icon"
             class="icon"
             aria-hidden="true"
-            font-size="20px"
+            font-size="16px"
           >
             <use :xlink:href="theOnlyOneChild.meta.icon" />
           </svg>
@@ -206,12 +206,12 @@ export default defineComponent({
 </style>
 
 <style lang="scss" scoped>
-.svg-icon {
+svg {
   margin-right: 16px;
 }
 
 .simple-mode {
-  .svg-icon {
+  svg {
     margin-left: 20px;
   }
 }

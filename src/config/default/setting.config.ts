@@ -3,12 +3,15 @@
  * @Author: ZY
  * @Date: 2020-12-08 09?:45?:47
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-08 15:19:34
+ * @LastEditTime: 2021-01-04 17:15:39
  */
 
 import { Language, Environment, RouterSource, RouterMode, TokenStorageName } from '@/constant/settings'
 
 export interface Settings{
+  //项目中页面显示的名称
+  title:string
+  //基础url
   baseURL?: string
   // pro版本copyright可随意修改
   copyright?: string
@@ -55,6 +58,9 @@ export interface Settings{
 }
 
 const settings: Settings = {
+  //项目中页面显示的名称
+  title:'Vue3管理后台',
+  //基础url
   baseURL: process.env.VUE_APP_BASE_API,
   // pro版本copyright可随意修改
   copyright: 'zy',

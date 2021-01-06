@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 10:31:11
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 10:33:51
+ * @LastEditTime: 2021-01-04 16:55:16
  */
 
 interface LayoutSettings {
@@ -24,7 +24,7 @@ interface LayoutSettings {
     showSettings: true,
     showTagsView: true,
     fixedHeader: false,
-    showSidebarLogo: false,
+    showSidebarLogo: true,
     sidebarTextTheme: true,
   }
   

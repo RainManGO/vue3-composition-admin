@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:12:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-04 15:49:27
+ * @LastEditTime: 2021-01-05 13:49:42
  */
 
 import NProgress from 'nprogress'
@@ -49,7 +49,11 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
         try {
           // Note: roles must be a object array! such as: ['admin'] or ['developer', 'editor']
           await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
+          console.log('1111')
+
           const roles = store.state.user.roles
+          console.log(roles)
+
           // Generate accessible routes map based on role
           store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
           // Dynamically add accessible routes

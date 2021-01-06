@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-04 16:41:56
+ * @LastEditTime: 2021-01-05 15:59:02
  */
 import { ActionTree, ActionContext } from 'vuex'
 import { RootState, useStore } from '@/store'
@@ -15,6 +15,7 @@ import { loginRequest, userInfoRequest } from '@/apis/user'
 import { removeToken, setToken } from '@/utils/cookies'
 import { PermissionActionType } from '../permission/action-types'
 import router from '@/router'
+import { RouteRecordRaw } from 'vue-router'
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
@@ -72,14 +73,14 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
     if (state.token === '') {
       throw Error('token is undefined!')
     }
-    userInfoRequest().then(async(res) => {
+    await userInfoRequest().then((res) => {
       if (res?.code === 0) {
         commit(UserMutationTypes.SET_ROLES, res.data.roles)
         commit(UserMutationTypes.SET_NAME, res.data.name)
         commit(UserMutationTypes.SET_AVATAR, res.data.avatar)
         commit(UserMutationTypes.SET_INTRODUCTION, res.data.introduction)
         commit(UserMutationTypes.SET_EMAIL, res.data.email)
-        return await res
+        return res
       } else {
         throw Error('Verification failed, please Login again.')
       }
@@ -96,7 +97,7 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
     setToken(token)
     await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
     store.dispatch(PermissionActionType.ACTION_SET_ROUTES, state.roles)
-    store.state.permission.dynamicRoutes.forEach((item) => {
+    store.state.permission.dynamicRoutes.forEach((item: RouteRecordRaw) => {
       router.addRoute(item)
     })
   },

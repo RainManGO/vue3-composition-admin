@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 09:00:09
+ * @LastEditTime: 2021-01-05 19:48:44
 -->
 <template>
   <div
@@ -65,7 +65,7 @@ export default defineComponent({
 
     const classObj = computed(() => {
       return {
-        hideSidebar: sidebar.value.opened,
+        hideSidebar: !sidebar.value.opened,
         openSidebar: sidebar.value.opened,
         withoutAnimation: sidebar.value.withoutAnimation,
         mobile: device.value === DeviceType.Mobile
@@ -76,7 +76,7 @@ export default defineComponent({
       console.log('showSettings')
     })
     const showTagsView = computed(() => {
-      console.log('showTagsView')
+      return true
     })
     const fixedHeader = computed(() => {
       console.log('fixedHeader')
@@ -137,7 +137,7 @@ export default defineComponent({
   width: $sideBarWidth !important;
   height: 100%;
   position: fixed;
-  // font-size: 0px;
+  font-size: 0px;
   top: 0;
   bottom: 0;
   left: 0;

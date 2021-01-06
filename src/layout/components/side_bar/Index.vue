@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 08:51:16
+ * @LastEditTime: 2021-01-05 09:56:40
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -53,7 +53,6 @@ export default defineComponent({
       return store.state.app.sidebar
     })
     const routes = computed(() => {
-      console.log('xxx' + store.state.permission.routes)
       return store.state.permission.routes
     })
     const showLogo = computed(() => {
@@ -77,9 +76,7 @@ export default defineComponent({
       return path
     })
 
-    const isCollapse = computed(() => {
-      return sidebar.value.opened
-    })
+    const isCollapse = sidebar.value.opened
 
     return {
       sidebar,

@@ -3,19 +3,37 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 15:01:48
+ * @LastEditTime: 2021-01-05 18:27:10
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 
-const files = require.context('./modules', true, /\.ts$/)
-let modules: Array<RouteRecordRaw> = []
-files.keys().forEach((key) => {
+const constantFiles = require.context('./constantModules', true, /\.ts$/)
+let constantModules: Array<RouteRecordRaw> = []
+constantFiles.keys().forEach((key) => {
   if (key === './index.ts') return
-  modules = modules.concat(files(key).default)
+  constantModules = constantModules.concat(constantFiles(key).default)
+})
+
+const asyncFiles = require.context('./permissionModules', true, /\.ts$/)
+let permissionModules: Array<RouteRecordRaw> = []
+asyncFiles.keys().forEach((key) => {
+  if (key === './index.ts') return
+  permissionModules = permissionModules.concat(asyncFiles(key).default)
 })
 
 export const constantRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/redirect',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/Index.vue')
+      }
+    ]
+  },
   {
     path: '/',
     component: Layout,
@@ -27,17 +45,17 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'Dashboard',
         meta: {
           title: 'dashboard',
-          icon: 'dashboard',
+          icon: '#icondashboard',
           affix: true
         }
       }
     ]
   },
-  ...modules
+  ...constantModules
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [
-
+  ...permissionModules
 ]
 const router = createRouter({
   history: createWebHashHistory(),
