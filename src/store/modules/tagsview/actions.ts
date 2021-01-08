@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-30 16:10:43
+ * @LastEditTime: 2021-01-08 14:38:39
  */
 import { ActionTree, ActionContext } from 'vuex'
 
@@ -39,6 +39,10 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     view: TagView
   ): void
+  [TagsActionTypes.ACTION_DEL_OTHER_VIEW](
+    { commit }: AugmentedActionContext,
+    view: TagView
+  ): void
   [TagsActionTypes.ACTION_DEL_CACHED_VIEW](
     { commit }: AugmentedActionContext,
     view: TagView
@@ -70,6 +74,10 @@ export const actions: ActionTree<TagsViewState, RootState> & Actions = {
   [TagsActionTypes.ACTION_DEL_VIEW]({ commit }, view: TagView) {
     commit(TagsMutationTypes.DEL_VISITED_VIEW, view)
     commit(TagsMutationTypes.DEL_CACHED_VIEW, view)
+  },
+  [TagsActionTypes.ACTION_DEL_OTHER_VIEW]({ commit }, view: TagView) {
+    commit(TagsMutationTypes.DEL_OTHERS_VISITED_VIEWS, view)
+    commit(TagsMutationTypes.DEL_OTHERS_CACHED_VIEWS, view)
   },
   [TagsActionTypes.ACTION_DEL_CACHED_VIEW]({ commit }, view: TagView) {
     commit(TagsMutationTypes.DEL_CACHED_VIEW, view)

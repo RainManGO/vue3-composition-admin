@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 20:06:29
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 16:07:39
+ * @LastEditTime: 2021-01-06 17:31:14
 -->
 <template>
   <div>
@@ -47,7 +47,7 @@ export default defineComponent({
     const { locale } = useI18n()
 
     const state = reactive({
-      languages: [{ name: 'en', value: 'en' }, { name: '中文', value: 'zh-CN' }] as Array<Language>,
+      languages: [{ name: 'en', value: 'en' }, { name: '中文', value: 'zh-cn' }] as Array<Language>,
       handleSetLanguage: (lang: string) => {
         locale.value = lang
         store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang)

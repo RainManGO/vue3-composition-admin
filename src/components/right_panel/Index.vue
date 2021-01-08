@@ -3,12 +3,12 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:44:01
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-24 10:44:13
+ * @LastEditTime: 2021-01-08 19:43:59
 -->
 
 <template>
   <div
-    ref="rightPanel"
+    ref="rightPanelRef"
     :class="{show: show}"
     class="rightPanel-container"
   >
@@ -29,67 +29,83 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
-import { addClass, removeClass } from '@/utils'
-import { SettingsModule } from '@/store/modules/settings'
+import { useStore } from '@/store'
+// import { addClass, removeClass } from '@/utils'
+import { computed, defineComponent, ref, onMounted, onBeforeUnmount, reactive, watch, toRefs } from 'vue'
+export default defineComponent({
+  props: {
+    clickNotClose: {
+      type: Boolean,
+      default: false
+    },
+    buttonTop: {
+      type: Number,
+      default: 250
+    }
+  },
+  setup(props) {
+    const state = reactive({
+      show: false
+    })
+    const rightPanelRef = ref(null)
+    const theme = computed(() => {
+      return useStore().state.settings.theme
+    })
 
-@Component({
-  name: 'RightPanel'
+    const closeSidebar = (ev: MouseEvent) => {
+      const parent = (ev.target as HTMLElement).closest('.rightPanel')
+      if (parent) {
+        state.show = false
+        window.removeEventListener('click', closeSidebar)
+      }
+    }
+
+    const addEventClick = () => {
+      window.addEventListener('click', closeSidebar)
+    }
+
+    watch(() => state.show, (value) => {
+      if (value && !props.clickNotClose) {
+        addEventClick()
+      }
+      // if (value) {
+      //   addClass(document.body, 'showRightPanel')
+      // } else {
+      //   removeClass(document.body, 'showRightPanel')
+      // }
+    })
+
+    const insertToBody = () => {
+      const elx = rightPanelRef.value
+      if (elx) {
+        const body = document.querySelector('body')
+        if (body) {
+          body.insertBefore(elx, body.firstChild)
+        }
+      }
+    }
+
+    onMounted(() => {
+      insertToBody()
+    })
+
+    onBeforeUnmount(() => {
+      const elx = rightPanelRef.value as any
+      if (elx) {
+        elx.remove()
+      }
+    })
+
+    return {
+      ...toRefs(state),
+      rightPanelRef,
+      theme
+    }
+  }
 })
-export default class extends Vue {
-  @Prop({ default: false }) private clickNotClose!: boolean
-  @Prop({ default: 250 }) private buttonTop!: number
-
-  private show = false
-
-  get theme() {
-    return SettingsModule.theme
-  }
-
-  @Watch('show')
-  private onShowChange(value: boolean) {
-    if (value && !this.clickNotClose) {
-      this.addEventClick()
-    }
-    if (value) {
-      addClass(document.body, 'showRightPanel')
-    } else {
-      removeClass(document.body, 'showRightPanel')
-    }
-  }
-
-  mounted() {
-    this.insertToBody()
-  }
-
-  beforeDestroy() {
-    const elx = this.$refs.rightPanel as Element
-    elx.remove()
-  }
-
-  private addEventClick() {
-    window.addEventListener('click', this.closeSidebar)
-  }
-
-  private closeSidebar(ev: MouseEvent) {
-    const parent = (ev.target as HTMLElement).closest('.rightPanel')
-    if (!parent) {
-      this.show = false
-      window.removeEventListener('click', this.closeSidebar)
-    }
-  }
-
-  private insertToBody() {
-    const elx = this.$refs.rightPanel as Element
-    const body = document.querySelector('body')
-    if (body) {
-      body.insertBefore(elx, body.firstChild)
-    }
-  }
-}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .showRightPanel {
   overflow: hidden;
   position: relative;

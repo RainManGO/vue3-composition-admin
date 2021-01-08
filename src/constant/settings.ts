@@ -3,12 +3,12 @@
  * @Author: ZY
  * @Date: 2020-12-08 10:28:32
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-08 14:36:59
+ * @LastEditTime: 2021-01-07 08:40:47
  */
 
 export enum Language{
      En='en',
-     Zh='zh',
+     Zh='zh-cn',
 }
 
 export enum Environment{

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:37
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 16:01:17
+ * @LastEditTime: 2021-01-06 17:11:55
 -->
 
 <template>
@@ -13,7 +13,7 @@
   >
     <transition name="sidebarLogoFade">
       <router-link
-        v-if="collapse"
+        v-if="false"
         key="collapse"
         class="sidebar-logo-link"
         to="/"
@@ -87,7 +87,7 @@ export default defineComponent({
       width: 32px;
       height: 32px;
       vertical-align: middle;
-      margin-right: 12px;
+      margin-right: 0px;
     }
 
     & .sidebar-title {
@@ -104,7 +104,7 @@ export default defineComponent({
 
   &.collapse {
     .sidebar-logo {
-      margin-right: 0px;
+      margin-right: 12px;
     }
   }
 }

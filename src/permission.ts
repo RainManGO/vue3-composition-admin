@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:12:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 13:49:42
+ * @LastEditTime: 2021-01-08 20:43:38
  */
 
 import NProgress from 'nprogress'
@@ -16,13 +16,12 @@ import { UserActionTypes } from './store/modules/user/action-types'
 import { PermissionActionType } from './store/modules/permission/action-types'
 import { ElMessage } from 'element-plus'
 import whiteList from './config/default/whitelist'
-
+import settings from '@/config/default/setting.config'
 NProgress.configure({ showSpinner: false })
 
 const getPageTitle = (key: string) => {
   const i18n = useI18n()
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const { title } = require('@/config/default/vue.custom.config')
+  const title = settings.title
   const hasKey = i18n.te(`route.${key}`)
   if (hasKey) {
     const pageName = i18n.t(`route.${key}`)
@@ -35,7 +34,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   // Start progress bar
   NProgress.start()
   const store = useStore()
-  console.log(useStore().state.user.token)
+  console.log(store.state.permission.dynamicRoutes)
 
   // Determine whether the user has logged in
   if (useStore().state.user.token) {
@@ -44,16 +43,14 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       next({ path: '/' })
       NProgress.done()
     } else {
+      console.log(store.state.user.roles)
+
       // Check whether the user has obtained his permission roles
       if (store.state.user.roles.length === 0) {
         try {
           // Note: roles must be a object array! such as: ['admin'] or ['developer', 'editor']
           await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
-          console.log('1111')
-
           const roles = store.state.user.roles
-          console.log(roles)
-
           // Generate accessible routes map based on role
           store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
           // Dynamically add accessible routes

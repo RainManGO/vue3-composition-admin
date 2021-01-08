@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 09:56:40
+ * @LastEditTime: 2021-01-08 19:49:27
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -76,7 +76,9 @@ export default defineComponent({
       return path
     })
 
-    const isCollapse = sidebar.value.opened
+    const isCollapse = computed(() => {
+      return sidebar.value.opened
+    })
 
     return {
       sidebar,

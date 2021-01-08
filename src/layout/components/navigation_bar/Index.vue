@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:52:19
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 17:54:17
+ * @LastEditTime: 2021-01-07 16:52:57
 -->
 <template>
   <div class="navbar">
@@ -19,8 +19,7 @@
     />
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
-        <header-search class="right-menu-item" />
-        <error-log class="errLog-container right-menu-item hover-effect" />
+        <!-- <error-log class="errLog-container right-menu-item hover-effect" /> -->
         <Screenfull class="right-menu-item hover-effect" />
         <el-tooltip
           :content="t('navbar.size')"
@@ -93,6 +92,8 @@ import { computed, reactive, toRefs } from 'vue'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
+import { UserActionTypes } from '@/store/modules/user/action-types'
+import { useRoute, useRouter } from 'vue-router'
 export default {
   components: {
     BreadCrumb,
@@ -116,6 +117,12 @@ export default {
     const state = reactive({
       toggleSideBar: () => {
         store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
+      },
+      logout: () => {
+        useStore().dispatch(UserActionTypes.ACTION_LOGIN_OUT)
+        useRouter().push(`/login?redirect=${useRoute().fullPath}`).catch(err => {
+          console.warn(err)
+        })
       }
     })
     return {

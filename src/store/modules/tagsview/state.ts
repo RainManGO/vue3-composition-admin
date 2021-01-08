@@ -3,11 +3,11 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-30 11:27:30
+ * @LastEditTime: 2021-01-06 14:43:49
  */
-import { RouteRecord } from 'vue-router'
+import { RouteLocationNormalized } from 'vue-router'
 
-export interface TagView extends Partial<RouteRecord> {
+export interface TagView extends Partial<RouteLocationNormalized> {
   title?: string
 }
 

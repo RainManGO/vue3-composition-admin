@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 19:48:44
+ * @LastEditTime: 2021-01-08 18:07:04
 -->
 <template>
   <div
@@ -25,11 +25,9 @@
         <TagsView v-if="showTagsView" />
       </div>
       <AppMain />
-      <Settings />
-
-      <!-- <RightPanel v-if="showSettings">
+      <RightPanel v-if="showSettings">
         <Settings />
-      </RightPanel> -->
+      </RightPanel>
     </div>
   </div>
 </template>
@@ -41,14 +39,14 @@ import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
-// import RightPanel from '@/components/right_panel/Index'
+import RightPanel from '@/components/right_panel/Index.vue'
 import resize from './resize'
 export default defineComponent({
   name: 'Layout',
   components: {
     AppMain,
     Navbar,
-    // RightPanel,
+    RightPanel,
     Settings,
     Sidebar,
     TagsView
@@ -73,13 +71,13 @@ export default defineComponent({
     })
 
     const showSettings = computed(() => {
-      console.log('showSettings')
+      return store.state.settings.showSettings
     })
     const showTagsView = computed(() => {
-      return true
+      return store.state.settings.showTagsView
     })
     const fixedHeader = computed(() => {
-      console.log('fixedHeader')
+      return store.state.settings.fixedHeader
     })
 
     watchRouter()

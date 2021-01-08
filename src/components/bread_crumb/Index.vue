@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-22 11:02:14
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 17:23:33
+ * @LastEditTime: 2021-01-08 20:13:21
 -->
 <template>
   <el-breadcrumb
@@ -40,14 +40,13 @@ export default defineComponent({
       const toPath = compile(path)
       return toPath(params)
     }
-
+    const currentRoute = useRoute()
     const { t } = useI18n()
     const state = reactive({
       breadcrumbs: [] as Array<RouteLocationMatched>,
       getBreadcrumb: () => {
-        let matched = useRoute().matched.filter((item) => item.meta && item.meta.title)
+        let matched = currentRoute.matched.filter((item) => item.meta && item.meta.title)
         const frist = matched[0]
-
         if (!state.isDashboard(frist)) {
           matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as any].concat(matched)
         }

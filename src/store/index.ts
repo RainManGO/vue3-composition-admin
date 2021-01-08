@@ -3,10 +3,10 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 15:40:55
+ * @LastEditTime: 2021-01-08 20:46:07
  */
 import { createStore, createLogger } from 'vuex'
-import createPersistedState from 'vuex-persistedstate'
+// import createPersistedState from 'vuex-persistedstate'
 import { store as app, AppStore, AppState } from '@/store/modules/app'
 import { store as settings, SettingStore, SettingsState } from '@/store/modules/settings'
 import { store as permission, PermissionStore, PermissionState } from '@/store/modules/permission'
@@ -29,7 +29,7 @@ export type Store = AppStore<Pick<RootState, 'app'>> & SettingStore<Pick<RootSta
 const debug = process.env.NODE_ENV !== 'production'
 const plugins = debug ? [createLogger({})] : []
 // Plug in session storage based persistence
-plugins.push(createPersistedState({ storage: window.sessionStorage }))
+// plugins.push(createPersistedState({ storage: window.sessionStorage }))
 
 export const store = createStore({
   plugins,
