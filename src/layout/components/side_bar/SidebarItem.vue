@@ -142,9 +142,7 @@ export default defineComponent({
       if (isExternal(props.basePath)) {
         return props.basePath
       }
-
       console.log(path.resolve(props.basePath, routePath))
-
       return path.resolve(props.basePath, routePath)
     }
     const { t } = useI18n()
