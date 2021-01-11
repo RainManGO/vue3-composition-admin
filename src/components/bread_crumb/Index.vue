@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-22 11:02:14
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 20:13:21
+ * @LastEditTime: 2021-01-11 09:15:49
 -->
 <template>
   <el-breadcrumb
@@ -30,17 +30,20 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, toRefs, watch } from 'vue'
-import { useRoute, RouteLocationMatched, useRouter } from 'vue-router'
+import { useRoute, RouteLocationMatched } from 'vue-router'
 import { compile } from 'path-to-regexp'
 import { useI18n } from 'vue-i18n'
+import router from '@/router'
 export default defineComponent({
   setup() {
+    const currentRoute = useRoute()
+
     const pathCompile = (path: string) => {
-      const { params } = useRoute()
+      const { params } = currentRoute
       const toPath = compile(path)
       return toPath(params)
     }
-    const currentRoute = useRoute()
+
     const { t } = useI18n()
     const state = reactive({
       breadcrumbs: [] as Array<RouteLocationMatched>,
@@ -64,12 +67,12 @@ export default defineComponent({
       handleLink(item: any) {
         const { redirect, path } = item
         if (redirect) {
-          useRouter().push(redirect).catch((err) => {
+          router.push(redirect).catch((err) => {
             console.warn(err)
           })
           return
         }
-        useRouter().push(pathCompile(path)).catch((err) => {
+        router.push(pathCompile(path)).catch((err) => {
           console.warn(err)
         })
       }

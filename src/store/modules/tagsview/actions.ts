@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 14:38:39
+ * @LastEditTime: 2021-01-09 11:29:35
  */
 import { ActionTree, ActionContext } from 'vuex'
 
@@ -64,7 +64,7 @@ export interface Actions {
 }
 
 export const actions: ActionTree<TagsViewState, RootState> & Actions = {
-  [TagsActionTypes.ACTION_ADD_VIEW]({ commit }, view: TagView) {
+  async [TagsActionTypes.ACTION_ADD_VIEW]({ commit }, view: TagView) {
     commit(TagsMutationTypes.ADD_VISITED_VIEW, view)
     commit(TagsMutationTypes.ADD_CACHED_VIEW, view)
   },

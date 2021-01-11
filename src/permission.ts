@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:12:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 20:43:38
+ * @LastEditTime: 2021-01-11 09:47:04
  */
 
 import NProgress from 'nprogress'
@@ -35,6 +35,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   NProgress.start()
   const store = useStore()
   console.log(store.state.permission.dynamicRoutes)
+  console.log(store.state.tagViews.visitedViews)
 
   // Determine whether the user has logged in
   if (useStore().state.user.token) {

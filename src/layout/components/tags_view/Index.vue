@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 20:18:21
+ * @LastEditTime: 2021-01-11 09:44:55
 -->
 <template>
   <div
@@ -64,8 +64,9 @@ import path from 'path'
 import { useStore } from '@/store'
 import { TagsActionTypes } from '@/store/modules/tagsview/action-types'
 import { TagView } from '@/store/modules/tagsview/state'
-import { computed, defineComponent, getCurrentInstance, nextTick, onMounted, reactive, ref, toRefs, watch } from 'vue'
-import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
+import { computed, defineComponent, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, toRefs, watch } from 'vue'
+import { RouteRecordRaw, useRoute } from 'vue-router'
+import router from '@/router'
 import { useI18n } from 'vue-i18n'
 import ScrollPane from './ScrollPane.vue'
 export default defineComponent({
@@ -83,19 +84,19 @@ export default defineComponent({
 
     const toLastView = (visitedViews: TagView[], view: TagView) => {
       const latestView = visitedViews.slice(-1)[0]
-      if (latestView.path) {
-        useRouter().push(latestView.path).catch(err => {
+      if (latestView !== undefined && latestView.fullPath !== undefined) {
+        router.push(latestView.fullPath).catch(err => {
           console.warn(err)
         })
       } else {
       // Default redirect to the home page if there is no tags-view, adjust it if you want
         if (view.name === 'Dashboard') {
         // to reload home page
-          useRouter().push({ path: '/redirect' + view.fullPath }).catch(err => {
+          router.push({ path: '/redirect' + view.fullPath }).catch(err => {
             console.warn(err)
           })
         } else {
-          useRouter().push('/').catch(err => {
+          router.push('/').catch(err => {
             console.warn(err)
           })
         }
@@ -118,7 +119,7 @@ export default defineComponent({
         store.dispatch(TagsActionTypes.ACTION_DEL_CACHED_VIEW, view)
         const { fullPath } = view
         nextTick(() => {
-          useRouter().replace({ path: '/redirect' + fullPath }).catch(err => {
+          router.replace({ path: '/redirect' + fullPath }).catch(err => {
             console.warn(err)
           })
         })
@@ -131,7 +132,7 @@ export default defineComponent({
       },
       closeOthersTags: () => {
         if (state.selectedTag.fullPath !== currentRoute.path && state.selectedTag.fullPath !== undefined) {
-          useRouter().push(state.selectedTag.fullPath).catch(err => {
+          router.push(state.selectedTag.fullPath).catch(err => {
             console.log(err)
           })
         }
@@ -240,7 +241,7 @@ export default defineComponent({
     // })
 
     // life cricle
-    onMounted(() => {
+    onBeforeMount(() => {
       initTags()
       addTags()
     })

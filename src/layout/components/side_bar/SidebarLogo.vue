@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:37
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-06 17:11:55
+ * @LastEditTime: 2021-01-09 17:30:30
 -->
 
 <template>
@@ -44,6 +44,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import settings from '@/config/default/setting.config'
+
 export default defineComponent({
   props: {
     collapse: {
@@ -75,7 +76,7 @@ export default defineComponent({
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background: #2b2f3a;
+  background: $menuBg;
   text-align: center;
   overflow: hidden;
 

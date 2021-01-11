@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 19:49:27
+ * @LastEditTime: 2021-01-11 10:00:11
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -13,13 +13,11 @@
     />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
+        :unique-opened="false"
         :default-active="activeMenu"
-        :collapse="isCollapse"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
-        :active-text-color="menuActiveTextColor"
-        :unique-opened="false"
-        :collapse-transition="false"
+        :active-text-color="variables.menuActiveText"
         mode="vertical"
       >
         <SidebarItem
