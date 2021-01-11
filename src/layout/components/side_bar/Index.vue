@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 10:00:11
+ * @LastEditTime: 2021-01-11 10:04:59
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -13,6 +13,7 @@
     />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
+        :collapse="!isCollapse"
         :unique-opened="false"
         :default-active="activeMenu"
         :background-color="variables.menuBg"

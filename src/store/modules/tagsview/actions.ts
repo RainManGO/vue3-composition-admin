@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-09 11:29:35
+ * @LastEditTime: 2021-01-11 11:19:12
  */
 import { ActionTree, ActionContext } from 'vuex'
 
@@ -31,7 +31,7 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     view: TagView
   ): void
-  [TagsActionTypes.ACTION_VISITED_VIEW](
+  [TagsActionTypes.ACTION_ADD_VISITED_VIEW](
     { commit }: AugmentedActionContext,
     view: TagView
   ): void
@@ -51,8 +51,8 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     view: TagView
   ): void
-  [TagsActionTypes.ACTION_ALL_VIEWS](
-    { commit }: NoAugmentedActionContext,
+  [TagsActionTypes.ACTION_DEL_ALL_VIEWS](
+    { commit }: NoAugmentedActionContext
   ): void
   [TagsActionTypes.ACTION_DEL_ALL_CACHED_VIEWS](
     { commit }: NoAugmentedActionContext,
@@ -68,7 +68,7 @@ export const actions: ActionTree<TagsViewState, RootState> & Actions = {
     commit(TagsMutationTypes.ADD_VISITED_VIEW, view)
     commit(TagsMutationTypes.ADD_CACHED_VIEW, view)
   },
-  [TagsActionTypes.ACTION_VISITED_VIEW]({ commit }, view: TagView) {
+  [TagsActionTypes.ACTION_ADD_VISITED_VIEW]({ commit }, view: TagView) {
     commit(TagsMutationTypes.ADD_VISITED_VIEW, view)
   },
   [TagsActionTypes.ACTION_DEL_VIEW]({ commit }, view: TagView) {
@@ -86,7 +86,7 @@ export const actions: ActionTree<TagsViewState, RootState> & Actions = {
     commit(TagsMutationTypes.DEL_OTHERS_VISITED_VIEWS, view)
     commit(TagsMutationTypes.DEL_OTHERS_CACHED_VIEWS, view)
   },
-  [TagsActionTypes.ACTION_ALL_VIEWS]({ commit }) {
+  [TagsActionTypes.ACTION_DEL_ALL_VIEWS]({ commit }) {
     commit(TagsMutationTypes.DEL_ALL_VISITED_VIEWS)
     commit(TagsMutationTypes.DEL_ALL_CACHED_VIEWS)
   },

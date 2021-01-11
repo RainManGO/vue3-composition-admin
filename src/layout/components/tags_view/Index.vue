@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 09:44:55
+ * @LastEditTime: 2021-01-11 11:54:19
 -->
 <template>
   <div
@@ -139,7 +139,7 @@ export default defineComponent({
         store.dispatch(TagsActionTypes.ACTION_DEL_OTHER_VIEW, state.selectedTag as TagView)
       },
       closeAllTags: (view: TagView) => {
-        store.dispatch(TagsActionTypes.ACTION_ALL_VIEWS, undefined)
+        store.dispatch(TagsActionTypes.ACTION_DEL_ALL_VIEWS, undefined)
         if (state.affixTags.some(tag => tag.path === currentRoute.path)) {
           return
         }
@@ -168,11 +168,15 @@ export default defineComponent({
       }
     })
 
-    const visitedViews = computed(() => store.state.tagViews.visitedViews)
+    const visitedViews = computed(() => {
+      console.log('xxx')
+
+      return store.state.tagViews.visitedViews
+    })
     const routes = computed(() => store.state.permission.routes)
 
     const filterAffixTags = (routes: RouteRecordRaw[], basePath = '/') => {
-      const tags: TagView[] = []
+      let tags: TagView[] = []
 
       routes.forEach(route => {
         if (route.meta && route.meta.affix) {
@@ -188,7 +192,7 @@ export default defineComponent({
         if (route.children) {
           const childTags = filterAffixTags(route.children, route.path)
           if (childTags.length >= 1) {
-            // tags = tags.concat(childTags)
+            tags = tags.concat(childTags)
           }
         }
       })
@@ -200,7 +204,7 @@ export default defineComponent({
       for (const tag of state.affixTags) {
         // Must have tag name
         if (tag.name) {
-          store.dispatch(TagsActionTypes.ACTION_ADD_VIEW, tag as TagView)
+          store.dispatch(TagsActionTypes.ACTION_ADD_VISITED_VIEW, tag as TagView)
         }
       }
     }
@@ -242,6 +246,7 @@ export default defineComponent({
 
     // life cricle
     onBeforeMount(() => {
+      console.log('onBeforeMount')
       initTags()
       addTags()
     })

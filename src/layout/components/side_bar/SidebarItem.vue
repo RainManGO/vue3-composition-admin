@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:00
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 09:28:58
+ * @LastEditTime: 2021-01-11 10:07:11
 -->
 
 <template>
@@ -142,6 +142,9 @@ export default defineComponent({
       if (isExternal(props.basePath)) {
         return props.basePath
       }
+
+      console.log(path.resolve(props.basePath, routePath))
+
       return path.resolve(props.basePath, routePath)
     }
     const { t } = useI18n()
