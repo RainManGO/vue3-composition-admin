@@ -90,7 +90,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 .scroll-container {
   .el-scrollbar__bar {
     bottom: 0px;

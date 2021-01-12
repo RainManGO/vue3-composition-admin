@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 15:03:52
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-30 16:13:15
+ * @LastEditTime: 2021-01-11 21:05:18
  */
 
 import { ActionTree, ActionContext } from 'vuex'
@@ -25,8 +25,9 @@ type AugmentedActionContext = {
 const hasPermission = (roles: string[], route: RouteRecordRaw) => {
   if (route.meta && route.meta.roles) {
     return roles.some(role => {
-      if (route.meta?.roles === undefined) return
-      route.meta.roles.includes(role)
+      if (route.meta?.roles !== undefined) {
+        return route.meta.roles.includes(role)
+      }
     })
   } else {
     return true

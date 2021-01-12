@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 11:54:19
+ * @LastEditTime: 2021-01-11 14:10:49
 -->
 <template>
   <div
@@ -262,7 +262,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 // Reset element css of el-icon-close
 .tags-view-wrapper {
   .tags-view-item {

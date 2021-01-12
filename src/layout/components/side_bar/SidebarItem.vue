@@ -159,7 +159,8 @@ export default defineComponent({
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 .el-submenu.is-active > .el-submenu__title {
   color: $subMenuActiveText !important;
 }

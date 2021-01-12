@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 15:59:02
+ * @LastEditTime: 2021-01-11 19:11:09
  */
 import { ActionTree, ActionContext } from 'vuex'
 import { RootState, useStore } from '@/store'
@@ -25,7 +25,7 @@ type AugmentedActionContext = {
 } & Omit<ActionContext<UserState, RootState>, 'commit'>
 
 export interface Actions {
-  [UserActionTypes.ACTION_LOGIN](
+   [UserActionTypes.ACTION_LOGIN](
     { commit }: AugmentedActionContext,
     userInfo: { username: string, password: string}
     ): void
@@ -50,7 +50,7 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
   ) {
     let { username, password } = userInfo
     username = username.trim()
-    loginRequest({ username, password }).then((res) => {
+    await loginRequest({ username, password }).then(async(res) => {
       if (res?.code === 0 && res.data.accessToken) {
         setToken(res.data.accessToken)
         commit(UserMutationTypes.SET_TOKEN, res.data.accessToken)
