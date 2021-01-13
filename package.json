@@ -18,6 +18,7 @@
   "dependencies": {
     "@types/faker": "^5.1.5",
     "@types/koa2-cors": "^2.0.1",
+    "@types/lodash": "^4.14.167",
     "axios-mapper": "^0.4.4",
     "chalk": "^4.1.0",
     "clipboard": "^2.0.6",
@@ -30,6 +31,7 @@
     "koa-logger": "^3.2.1",
     "koa-router": "^10.0.0",
     "koa2-cors": "^2.0.6",
+    "lodash": "^4.17.20",
     "log4js": "^6.3.0",
     "moment": "^2.29.1",
     "normalize.css": "^8.0.1",

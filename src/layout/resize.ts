@@ -25,7 +25,6 @@ export default function() {
   })
 
   const watchRouter = watch(useRoute(), () => {
-    console.log('router change')
     if (store.state.app.device === DeviceType.Mobile && store.state.app.sidebar.opened) {
       store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
     }
