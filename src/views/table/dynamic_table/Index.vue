@@ -380,7 +380,7 @@ import {
   updateArticle,
   defaultArticleData
 } from '@/apis/articles'
-import { IArticleData } from '../../../apis/types'
+import { ArticleData } from '../../../apis/types'
 import { exportJson2Excel } from '@/utils/excel'
 import { formatJson } from '@/utils'
 // import Pagination from '@/components/Pagination/index.vue'
@@ -406,7 +406,7 @@ export default defineComponent({
     const dataForm = ref({})
     const dataMap = reactive({
       tableKey: 0,
-      list: Array<IArticleData>(),
+      list: Array<ArticleData>(),
       total: 0,
       listLoading: true,
       listQuery: {

@@ -6,11 +6,11 @@
  * @LastEditTime: 2021-01-13 10:06:30
  */
 import https from '@/utils/https'
-import { IArticleData, Article, articleId, pageviews } from './types'
+import { ArticleData, Article, articleId, pageviews } from './types'
 import { RootObject } from '@/model/rootObject'
 import { ContentType, Method } from 'axios-mapper'
 
-export const defaultArticleData: IArticleData = {
+export const defaultArticleData: ArticleData = {
   id: 0,
   status: 'draft',
   title: '',
@@ -29,11 +29,11 @@ export const defaultArticleData: IArticleData = {
 }
 
 export const getArticles = (params: any) => {
-  return https().request<RootObject<Article<IArticleData[]>>>('table/articles', Method.POST, params, ContentType.json)
+  return https().request<RootObject<Article<ArticleData[]>>>('table/articles', Method.POST, params, ContentType.json)
 }
 
 export const getArticle = (id: number, params: any) => {
-  return https().request<RootObject<IArticleData>>(`articles/${id}`, Method.GET, params, ContentType.json)
+  return https().request<RootObject<ArticleData>>(`articles/${id}`, Method.GET, params, ContentType.json)
 }
 
 export const createArticle = (data: any) => {
@@ -45,7 +45,7 @@ export const updateArticle = (id: number, data: any) => {
 }
 
 export const deleteArticle = (id: number) => {
-  return https().request<RootObject<IArticleData>>(`articles/${id}`, Method.POST, undefined, ContentType.json)
+  return https().request<RootObject<ArticleData>>(`articles/${id}`, Method.POST, undefined, ContentType.json)
 }
 
 export const getPageviews = (params: any) => {

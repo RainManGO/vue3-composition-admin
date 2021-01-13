@@ -5,7 +5,7 @@
  * @LastEditors: scy😊
  * @LastEditTime: 2021-01-13 09:36:01
  */
-export interface IArticleData {
+export interface ArticleData {
 
     id: number
     status: string
