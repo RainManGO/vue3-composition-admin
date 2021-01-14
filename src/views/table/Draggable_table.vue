@@ -80,7 +80,7 @@
         width="110"
       >
         <template #default="{row}">
-          <el-tag :type="row.status ">
+          <el-tag :type="row.status">
             {{ row.status }}
           </el-tag>
         </template>
@@ -113,13 +113,7 @@
 </template>
 
 <script lang="ts">
-import {
-  reactive,
-  defineComponent,
-  nextTick,
-  onMounted,
-  toRefs
-} from 'vue'
+import { reactive, defineComponent, nextTick, onMounted, toRefs } from 'vue'
 import { ArticleData } from '@/apis/types'
 import Sortable from 'sortablejs'
 import { getArticles } from '@/apis/articles'
@@ -171,67 +165,12 @@ export default defineComponent({
         })
       }
     })
-
     onMounted(() => {
       dataMap.getList()
     })
-
     return { sortable, ...toRefs(dataMap) }
   }
 })
-
-// @Component({
-//   name: 'DraggableTable'
-// })
-// export default class extends Vue {
-//   private list: ArticleData[] = []
-//   private listLoading = true
-//   private total = []
-//   private oldList: number[] = []
-//   private newList: number[] = []
-//   private listQuery = {
-//     page: 1,
-//     limit: 10
-//   }
-
-//   private sortable: Sortable | null = null
-
-//   created() {
-//     this.getList()
-//   }
-
-//   private async getList() {
-//     this.listLoading = true
-//     const { data } = await getArticles(this.listQuery)
-//     this.list = data.items
-//     // Just to simulate the time of the request
-//     setTimeout(() => {
-//       this.listLoading = false
-//     }, 0.5 * 1000)
-//     this.total = data.total
-//     this.oldList = this.list.map((v) => v.id)
-//     this.newList = this.oldList.slice()
-//     this.$nextTick(() => {
-//       this.setSort()
-//     })
-//   }
-
-//   private setSort() {
-//     const el = (this.$refs.draggableTable as Vue).$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0] as HTMLElement
-//     this.sortable = Sortable.create(el, {
-//       ghostClass: 'sortable-ghost', // Class name for the drop placeholder
-//       onEnd: evt => {
-//         if (typeof (evt.oldIndex) !== 'undefined' && typeof (evt.newIndex) !== 'undefined') {
-//           const targetRow = this.list.splice(evt.oldIndex, 1)[0]
-//           this.list.splice(evt.newIndex, 0, targetRow)
-//           // for show the changes, you can delete in you code
-//           const tempIndex = this.newList.splice(evt.oldIndex, 1)[0]
-//           this.newList.splice(evt.newIndex, 0, tempIndex)
-//         }
-//       }
-//     })
-//   }
-// }
 </script>
 
 <style lang="scss">

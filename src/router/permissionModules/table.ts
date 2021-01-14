@@ -22,7 +22,7 @@ const tableRouter: Array<RouteRecordRaw> = [
       {
         path: 'dynamic-table',
         component: () => import(/* webpackChunkName: "dynamic-table" */ '@/views/table/dynamic_table/Index.vue'),
-        name: 'DynamicTable',
+        name: 'ComplexTable',
         meta: { title: 'complexTable' }
       },
       {
@@ -40,7 +40,7 @@ const tableRouter: Array<RouteRecordRaw> = [
       {
         path: 'Complex_table',
         component: () => import(/* webpackChunkName: "complex-table" */ '@/views/table/Complex_table.vue'),
-        name: 'ComplexTable',
+        name: 'DynamicTable',
         meta: { title: 'dynamicTable' }
       }
     ]
