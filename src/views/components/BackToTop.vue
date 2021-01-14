@@ -1,140 +1,140 @@
 <!--
  * @Description:
- * @Autor: WJM
- * @Date: 2021-01-11 15:37:42
- * @LastEditors: WJM
- * @LastEditTime: 2021-01-13 18:50:39
+ * @Author: ZY
+ * @Date: 2021-01-13 21:28:05
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-14 09:19:18
 -->
 <template>
-  <div>
+  <div class="components-container">
+    <aside>{{ t('components.backToTopTips1') }}</aside>
+    <aside>{{ t('components.backToTopTips2') }}</aside>
     <div class="placeholder-container">
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
-      <div>1111</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
+      <div>placeholder</div>
     </div>
-    <BackToTop
-      :custom-style="BackToTopStyle"
-      :visibility-height="300"
-      :back-position="50"
-      transition-name="fade"
+    <!-- you can add element-ui's tooltip -->
+    <Test
+      :customStyle="myBackToTopStyle"
+      :visibilityHeight="300"
+      :backPosition="50"
+      transitionName="fade"
     />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import BackToTop from '@/components/back_to_top/Index.vue'
+import { useI18n } from 'vue-i18n'
+// import BackToTop from '@/components/backtop/Index.vue'
+import Test from '@/components/backtop/test.vue'
+
 export default defineComponent({
   components: {
-    BackToTop
+    Test
   },
   setup() {
-    const BackToTopStyle = {
+    const { t } = useI18n()
+    const myBackToTopStyle = {
       right: '50px',
       bottom: '50px',
       width: '40px',
       height: '40px',
       'border-radius': '4px',
-      'line-height': '45px',
+      'line-height': '45px', // Please keep consistent with height to make it center vertically
       background: '#e7eaf1'
     }
     return {
-      BackToTopStyle
+      t,
+      myBackToTopStyle
     }
   }
 })
