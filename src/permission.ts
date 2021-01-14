@@ -34,9 +34,6 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   // Start progress bar
   NProgress.start()
   const store = useStore()
-  console.log(store.state.permission.dynamicRoutes)
-  console.log(store.state.tagViews.visitedViews)
-
   // Determine whether the user has logged in
   if (useStore().state.user.token) {
     if (to.path === '/login') {
@@ -44,8 +41,6 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       next({ path: '/' })
       NProgress.done()
     } else {
-      console.log(store.state.user.roles)
-
       // Check whether the user has obtained his permission roles
       if (store.state.user.roles.length === 0) {
         try {

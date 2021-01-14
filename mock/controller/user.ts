@@ -14,7 +14,6 @@ export default class User {
     
  @post('/login')
  async login(ctx:any) {
-   console.log(ctx.request.body );
    const {username} = ctx.request.body   
    for (const user of userList) {
     if (user.username === username) {
