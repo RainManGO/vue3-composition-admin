@@ -156,7 +156,6 @@ export default defineComponent({
 
         ElMessage.success({
           message: 'The title has been restored to the original value',
-
           type: 'success'
         })
       },
