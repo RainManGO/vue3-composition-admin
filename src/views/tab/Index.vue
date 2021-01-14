@@ -65,7 +65,6 @@ export default defineComponent({
       showCreatedTimes() {
         dataMap.createdTimes = dataMap.createdTimes + 1
       }
-
     })
     onMounted(() => {
       const tab = useRoute().query.tab as string
