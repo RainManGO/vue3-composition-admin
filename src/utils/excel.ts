@@ -1,7 +1,7 @@
 import { saveAs } from 'file-saver'
 import XLSX, { WorkBook, WorkSheet } from 'xlsx'
 
-interface ICell {
+interface Cell {
   v: Date | number | boolean | string
   t: string
   z: string
@@ -90,7 +90,7 @@ const sheetFromDataArray = (data: any) => {
       if (range.s.c > C) range.s.c = C
       if (range.e.r < R) range.e.r = R
       if (range.e.c < C) range.e.c = C
-      const cell: ICell = {
+      const cell: Cell = {
         v: data[R][C],
         t: '',
         z: ''
