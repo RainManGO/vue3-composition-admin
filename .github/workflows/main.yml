@@ -14,10 +14,9 @@ jobs:
     - name: Install and Build
       run: |
         npm install
-        npm run-script build
+        npm run build:prod
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: build
+      uses: maxheld83/ghpages@v0.3.0
+        env:
+        BUILD_DIR: dist/
+        GH_PAT: ${{ secrets.ACCESS_TOKEN }}
