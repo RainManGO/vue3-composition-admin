@@ -62,7 +62,6 @@ export default defineComponent({
       }
     }
     onMounted(() => {
-      console.log('onMounted')
       if (sf.isEnabled) {
         sf.on('change', change)
       }

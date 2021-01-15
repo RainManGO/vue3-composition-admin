@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:32:52
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 20:30:22
+ * @LastEditTime: 2021-01-13 09:46:57
  */
 
 import { RouteRecordRaw } from 'vue-router'
@@ -41,7 +41,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
       },
       {
         path: 'role',
-        component: () => import(/* webpackChunkName: "permission-role" */ '@/views/permission/Role.vue'),
+        component: () => import(/* webpackChunkName: "permission-role" */ '@/views/permission/role/Role.vue'),
         name: 'RolePermission',
         meta: {
           title: 'rolePermission',
