@@ -4,19 +4,36 @@ on:
   push:
     branches:
     - master
-
+      
 jobs:
-  build-deploy:
+  publish:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Install and Build
-      run: |
-          npm install
-          npm run build:prod
-    - name: Deploy
-      uses: maxheld83/ghpages@v0.3.0
-      env:
-        BUILD_DIR: dist/
-        GH_PAT: ${{ secrets.ACCESS_TOKEN }}
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Gen dummy page
+        run: |
+          mkdir public
+          cat > public/index.html <<EOL
+          <!doctype html>
+          <html>
+            <head>
+              <title>GitHub Pages deployed!</title>
+            </head>
+            <body>
+              <p>GitHub Pages with <strong>${{ github.sha }}</strong> commit ID has been deployed through <a href="https://github.com/marketplace/actions/github-pages">GitHub Pages action</a> successfully.</p>
+            </body>
+          </html>
+          EOL
+      -
+        name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
