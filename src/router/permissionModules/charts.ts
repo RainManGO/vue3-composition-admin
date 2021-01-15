@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:21:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 19:45:48
+ * @LastEditTime: 2021-01-15 09:09:13
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -23,7 +23,7 @@ const chartsRouter: Array<RouteRecordRaw> = [
         path: 'bar-chart',
         component: () =>
           import(
-            /* webpackChunkName: "BarChart" */ '@/views/charts/BarChart.vue'
+            /* webpackChunkName: "BarChart" */ '@/views/charts/BarChartDemo.vue'
           ),
         name: 'BarChartDemo',
         meta: {
@@ -35,7 +35,7 @@ const chartsRouter: Array<RouteRecordRaw> = [
         path: 'line-chart',
         component: () =>
           import(
-            /* webpackChunkName: "LineChart" */ '@/views/charts/LineChart.vue'
+            /* webpackChunkName: "LineChart" */ '@/views/charts/LineChartDemo.vue'
           ),
         name: 'LineChartDemo',
         meta: {
@@ -47,7 +47,7 @@ const chartsRouter: Array<RouteRecordRaw> = [
         path: 'mixed-chart',
         component: () =>
           import(
-            /* webpackChunkName: "MixedChat" */ '@/views/charts/MixedChat.vue'
+            /* webpackChunkName: "MixedChat" */ '@/views/charts/MixedChatDemo.vue'
           ),
         name: 'MixedChartDemo',
         meta: {
