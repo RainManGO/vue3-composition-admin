@@ -33,7 +33,7 @@ export const getArticles = (params: any) => {
 }
 
 export const getArticle = (id: number, params: any) => {
-  return https().request<RootObject<ArticleData>>(`articles/${id}`, Method.GET, params, ContentType.json)
+  return https().request<RootObject<articleId>>(`articles/${id}`, Method.GET, params, ContentType.json)
 }
 
 export const createArticle = (data: any) => {

@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2020-12-29 15:57:00
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-29 15:57:53
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-15 09:33:11
  */
 
 // {
@@ -34,4 +34,8 @@ export interface UserInfoModel {
   email: string
   phone: string
   roles: string[]
+}
+
+export interface Users {
+  items:any
 }
