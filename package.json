@@ -23,6 +23,7 @@
     "echarts": "^5.0.0",
     "element-plus": "^1.0.1-beta.14",
     "faker": "^5.1.0",
+    "file-saver": "^2.0.5",
     "js-cookie": "^2.2.1",
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
@@ -38,13 +39,15 @@
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.7.1",
     "screenfull": "^5.0.2",
+    "sortablejs": "^1.13.0",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-i18n": "^9.0.0-beta.16",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
-    "vuex-persistedstate": "^4.0.0-beta.1"
+    "vuex-persistedstate": "^4.0.0-beta.1",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "@types/clipboard": "^2.0.1",
