@@ -2,12 +2,13 @@
  * @Description:
  * @Author: ZY
  * @Date: 2021-01-14 09:11:22
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-14 09:18:50
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-16 10:44:21
 -->
 
 <template>
   <div
+    v-if="visible"
     :style="customStyle"
     class="back-to-ceiling"
     @click="backToTop"
@@ -91,6 +92,26 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.back-to-ceiling {
+  position: fixed;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  :hover {
+    background: #d5dbe7;
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.back-to-ceiling .backTopIcon {
+  fill: #9aaabf;
+  background: none;
+}
 </style>

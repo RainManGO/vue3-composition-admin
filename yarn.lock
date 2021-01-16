@@ -2724,9 +2724,9 @@ babel-preset-jest@^24.9.0:
     "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
     babel-plugin-jest-hoist "^24.9.0"
 
-babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@^6.11.6, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
-  resolved "https://registry.npm.taobao.org/babel-runtime/download/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
   dependencies:
     core-js "^2.4.0"
@@ -12242,6 +12242,13 @@ vue-i18n@^9.0.0-beta.16:
     "@intlify/shared" "9.0.0-beta.16"
     "@vue/devtools-api" "^6.0.0-beta.2"
 
+vue-image-crop-upload@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/vue-image-crop-upload/-/vue-image-crop-upload-2.5.0.tgz#2dcf499e5b4944bc5077fc30b5f24d5e977f313c"
+  integrity sha512-AV+ZwPuaZ8tKdSopaSOCk4v0JqKZjFu6uLQg5D06pzt2GLcIR8NgrFz+/S0YN25RgkC4vHvUr9+XcNSUTk28ng==
+  dependencies:
+    babel-runtime "^6.11.6"
+
 vue-jest@^3.0.5:
   version "3.0.7"
   resolved "https://registry.npm.taobao.org/vue-jest/download/vue-jest-3.0.7.tgz?cache=0&sync_timestamp=1606792330282&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-jest%2Fdownload%2Fvue-jest-3.0.7.tgz#a6d29758a5cb4d750f5d1242212be39be4296a33"
@@ -12321,6 +12328,11 @@ vue@^3.0.0:
     "@vue/compiler-dom" "3.0.4"
     "@vue/runtime-dom" "3.0.4"
     "@vue/shared" "3.0.4"
+
+vuex-module-decorators@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-1.0.1.tgz#d34dafb5428a3636f1c26d3d014c15fc9659ccd0"
+  integrity sha512-FLWZsXV5XAtl/bcKUyQFpnSBtpc3wK/7zSdy9oKbyp71mZd4ut5y2zSd219wWW9OG7WUOlVwac4rXFFDVnq7ug==
 
 vuex-persistedstate@^4.0.0-beta.1:
   version "4.0.0-beta.1"
