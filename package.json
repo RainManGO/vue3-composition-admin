@@ -2,6 +2,7 @@
   "name": "vue3-typescript-admin-template",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://RainManGO.github.io/vue3-composition-admin",
   "scripts": {
     "start": "concurrently \"npm run mock\" \"npm run serve:dev\"",
     "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
@@ -52,6 +53,7 @@
   "devDependencies": {
     "@types/clipboard": "^2.0.1",
     "@types/faker": "^5.1.5",
+    "@types/file-saver": "^2.0.1",
     "@types/jest": "^24.0.19",
     "@types/js-cookie": "^2.2.6",
     "@types/koa": "^2.11.6",
@@ -61,6 +63,7 @@
     "@types/lodash": "^4.14.167",
     "@types/node": "^14.14.11",
     "@types/nprogress": "^0.2.0",
+    "@types/sortablejs": "^1.10.6",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
