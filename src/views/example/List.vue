@@ -24,7 +24,7 @@
         label="Date"
       >
         <template #default="{row}">
-          <span>{{ row.timestamp | parseTime }}</span>
+          <span>{{ row.timestamp }}</span>
         </template>
       </el-table-column>
 
@@ -58,7 +58,7 @@
         width="110"
       >
         <template #default="{row}">
-          <el-tag :type="row.status | articleStatusFilter">
+          <el-tag :type="row.status ">
             {{ row.status }}
           </el-tag>
         </template>

@@ -37,5 +37,5 @@ export interface UserInfoModel {
 }
 
 export interface Users {
-  items:any
+  items: any
 }
