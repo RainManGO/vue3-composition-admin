@@ -3,12 +3,11 @@
  * @Author: ZY
  * @Date: 2021-01-14 09:11:22
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-16 10:44:21
+ * @LastEditTime: 2021-01-18 15:35:09
 -->
 
 <template>
   <div
-    v-if="visible"
     :style="customStyle"
     class="back-to-ceiling"
     @click="backToTop"
@@ -18,7 +17,7 @@
       aria-hidden="true"
       font-size="20px"
     >
-      <use xlink:href="#iconlanguage" />
+      <use xlink:href="#iconbacktotop" />
     </svg>
   </div>
 </template>

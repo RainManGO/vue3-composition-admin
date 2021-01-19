@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-14 09:11:22
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-16 16:31:05
+ * @LastEditTime: 2021-01-19 17:14:03
 -->
 
 <template>
@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import Avatar from '@/components/avatar/avatar.vue'
 
 export default defineComponent({
@@ -48,29 +48,30 @@ export default defineComponent({
     Avatar
   },
   setup() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const showImageUpload = false
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const image = 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191'
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const params = { someParams: 'your_params_goes_here' }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const headers = { smail: '*_~' }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function toggleShow(this: any) {
-      this.showImageUpload = !this.showImageUpload
+    const state = reactive({
+      showImageUpload: false,
+      image: 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191',
+      params: { someParams: 'your_params_goes_here' },
+      headers: { smail: '*_~' }
+    })
+    const stateAsRefs = toRefs(state)
+    const toggleShow = () => {
+      state.showImageUpload = !state.showImageUpload
+    }
+    const onCropUploadSuccess = (jsonData: any, field: string) => {
+      state.showImageUpload = false
+      state.image = jsonData.files[field]
+    }
+    const onClose = () => {
+      state.showImageUpload = false
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function onCropUploadSuccess(this: any, jsonData: any, field: string) {
-      this.showImageUpload = false
-      this.image = jsonData.files[field]
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function onClose(this: any) {
-      this.showImageUpload = false
+    return {
+      toggleShow,
+      onCropUploadSuccess,
+      onClose,
+      ...state,
+      ...stateAsRefs
     }
   }
 })
