@@ -3,12 +3,17 @@
  * @Author: ZY
  * @Date: 2020-12-07 11:41:22
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-09 16:17:24
+ * @LastEditTime: 2021-01-18 16:21:35
  */
 const { resolve } = require('path')
 const path = require('path')
 const webpack = require('webpack');
 const WebpackBar = require('webpackbar');
+const dayjs = require('dayjs')
+const date = dayjs().format('YYYY_M_D')
+const time = dayjs().format('YYYY-M-D HH:mm:ss')
+process.env.VUE_APP_UPDATE_TIME = time
+
 const  {
   publicPath,
   assetsDir,
@@ -16,10 +21,7 @@ const  {
   lintOnSave,
   transpileDependencies,
   title,
-  abbreviation,
   devPort,
-  providePlugin,
-  build7z
 } = require('./src/config/default/vue.custom.config')
 module.exports = {
   publicPath,
