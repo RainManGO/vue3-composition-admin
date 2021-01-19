@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-01-13 10:06:30
  */
 import https from '@/utils/https'
-import { ArticleData, Article, articleId, pageviews } from './types'
+import { ArticleData, Article, ArticleId, pageviews } from './types'
 import { RootObject } from '@/model/rootObject'
 import { ContentType, Method } from 'axios-mapper'
 
@@ -37,11 +37,11 @@ export const getArticle = (id: number, params: any) => {
 }
 
 export const createArticle = (data: any) => {
-  return https().request<RootObject<articleId>>('articles', Method.POST, data, ContentType.json)
+  return https().request<RootObject<ArticleId>>('articles', Method.POST, data, ContentType.json)
 }
 
 export const updateArticle = (id: number, data: any) => {
-  return https().request<RootObject<articleId>>(`articles/${id}`, Method.PUT, data, ContentType.json)
+  return https().request<RootObject<ArticleId>>(`articles/${id}`, Method.PUT, data, ContentType.json)
 }
 
 export const deleteArticle = (id: number) => {
