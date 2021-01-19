@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tinymce/tinymce-vue": "^4.0.0",
+    "@dragndrop/vue-dropzone": "0.0.4",
     "@types/faker": "^5.1.5",
     "@types/koa2-cors": "^2.0.1",
     "axios-mapper": "^0.4.4",
@@ -47,6 +48,7 @@
     "vue-image-crop-upload": "^2.5.0",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.0-0",
+    "vue3-count-to": "^1.0.7",
     "vuex": "^4.0.0-0",
     "vuex-module-decorators": "^1.0.1",
     "vuex-persistedstate": "^4.0.0-beta.1"
@@ -96,7 +98,7 @@
     "ts-node-dev": "^1.0.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-style-resources-loader": "^0.1.4",
-    "vue-jest": "^5.0.0-0",
+    "vue-jest": "^5.0.0-alpha.8",
     "webpackbar": "^5.0.0-3"
   },
   "gitHooks": {

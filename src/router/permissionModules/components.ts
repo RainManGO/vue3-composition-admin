@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-11 15:13:20
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-12 15:44:38
+ * @LastEditTime: 2021-01-19 18:32:14
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -50,10 +50,22 @@ const componentsRouter: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: 'dropzone',
+        component: () =>
+          import(
+            /* webpackChunkName: "AvatarUpload" */ '@/views/components/DropzoneDemo.vue'
+          ),
+        name: 'DropzoneDemo',
+        meta: {
+          title: 'dropzone',
+          noCache: true
+        }
+      },
+      {
         path: 'count-to',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/CountTo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components/CountToDemo.vue'
           ),
         name: 'CountToDemo',
         meta: {
@@ -72,6 +84,30 @@ const componentsRouter: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components/DraggableKanBan.vue'),
         name: 'DraggableKanbanDemo',
         meta: { title: 'draggableKanban' }
+      },
+      {
+        path: 'draggable-list',
+        component: () =>
+          import(
+            /* webpackChunkName: "CountTo" */ '@/views/components/DraggableListDemo.vue'
+          ),
+        name: 'DraggableListDemo',
+        meta: {
+          title: 'draggableList',
+          noCache: true
+        }
+      },
+      {
+        path: 'draggable-select',
+        component: () =>
+          import(
+            /* webpackChunkName: "CountTo" */ '@/views/components/DraggableSelectDemo.vue'
+          ),
+        name: 'DraggableSelectDemo',
+        meta: {
+          title: 'draggableSelect',
+          noCache: true
+        }
       }
     ]
   }
