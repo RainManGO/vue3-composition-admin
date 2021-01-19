@@ -169,8 +169,6 @@ export default defineComponent({
     })
 
     const visitedViews = computed(() => {
-      console.log('xxx')
-
       return store.state.tagViews.visitedViews
     })
     const routes = computed(() => store.state.permission.routes)
@@ -246,7 +244,6 @@ export default defineComponent({
 
     // life cricle
     onBeforeMount(() => {
-      console.log('onBeforeMount')
       initTags()
       addTags()
     })
