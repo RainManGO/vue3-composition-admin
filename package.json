@@ -16,6 +16,7 @@
     "mock": "cd mock && ts-node-dev mock.ts"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^4.0.0",
     "@types/faker": "^5.1.5",
     "@types/koa2-cors": "^2.0.1",
     "axios-mapper": "^0.4.4",
@@ -38,6 +39,7 @@
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.7.1",
     "screenfull": "^5.0.2",
+    "tinymce": "5.6.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-i18n": "^9.0.0-beta.16",
@@ -57,6 +59,7 @@
     "@types/koa-router": "^7.4.1",
     "@types/node": "^14.14.11",
     "@types/nprogress": "^0.2.0",
+    "@types/tinymce": "^4.6.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",

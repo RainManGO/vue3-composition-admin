@@ -1161,6 +1161,11 @@
   resolved "https://registry.npm.taobao.org/@soda/get-current-script/download/@soda/get-current-script-1.0.2.tgz#a53515db25d8038374381b73af20bb4f2e508d87"
   integrity sha1-pTUV2yXYA4N0OBtzryC7Ty5QjYc=
 
+"@tinymce/tinymce-vue@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npm.taobao.org/@tinymce/tinymce-vue/download/@tinymce/tinymce-vue-4.0.0.tgz?cache=0&sync_timestamp=1610428833329&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tinymce%2Ftinymce-vue%2Fdownload%2F%40tinymce%2Ftinymce-vue-4.0.0.tgz#694e214f071370dfad1ac199056373048578e6ee"
+  integrity sha1-aU4hTwcTcN+tGsGZBWNzBIV45u4=
+
 "@types/accepts@*":
   version "1.3.5"
   resolved "https://registry.npm.taobao.org/@types/accepts/download/@types/accepts-1.3.5.tgz#c34bec115cfc746e04fe5a059df4ce7e7b391575"
@@ -1352,6 +1357,13 @@
   dependencies:
     jest-diff "^24.3.0"
 
+"@types/jquery@*":
+  version "3.5.5"
+  resolved "https://registry.npm.taobao.org/@types/jquery/download/@types/jquery-3.5.5.tgz#2c63f47c9c8d96693d272f5453602afd8338c903"
+  integrity sha1-LGP0fJyNlmk9Jy9UU2Aq/YM4yQM=
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/js-cookie@^2.2.6":
   version "2.2.6"
   resolved "https://registry.npmjs.org/@types/js-cookie/-/js-cookie-2.2.6.tgz#f1a1cb35aff47bc5cfb05cb0c441ca91e914c26f"
@@ -1477,7 +1489,7 @@
     "@types/mime" "*"
     "@types/node" "*"
 
-"@types/sizzle@2.3.2":
+"@types/sizzle@*", "@types/sizzle@2.3.2":
   version "2.3.2"
   resolved "https://registry.npm.taobao.org/@types/sizzle/download/@types/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
   integrity sha1-qBG4wY4rq6t9VCszZYh64uTZ3kc=
@@ -1506,6 +1518,13 @@
   version "1.0.6"
   resolved "https://registry.npm.taobao.org/@types/tapable/download/@types/tapable-1.0.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Ftapable%2Fdownload%2F%40types%2Ftapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
   integrity sha1-qcpLcKGLJwzLK8Cqr+/R1Ia36nQ=
+
+"@types/tinymce@^4.6.0":
+  version "4.6.0"
+  resolved "https://registry.npm.taobao.org/@types/tinymce/download/@types/tinymce-4.6.0.tgz?cache=0&sync_timestamp=1605057946292&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Ftinymce%2Fdownload%2F%40types%2Ftinymce-4.6.0.tgz#20b3b4944c5e2bfa232e91ea465a2cf349178c0d"
+  integrity sha1-ILO0lExeK/ojLpHqRlos80kXjA0=
+  dependencies:
+    "@types/jquery" "*"
 
 "@types/uglify-js@*":
   version "3.11.1"
@@ -11657,6 +11676,11 @@ tiny-emitter@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
   integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
+
+tinymce@5.6.2:
+  version "5.6.2"
+  resolved "https://registry.npm.taobao.org/tinymce/download/tinymce-5.6.2.tgz#4c20c22e328c5d0baab204928dbc2b0ecbed18b4"
+  integrity sha1-TCDCLjKMXQuqsgSSjbwrDsvtGLQ=
 
 tmp@0.1.0:
   version "0.1.0"

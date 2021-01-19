@@ -20,6 +20,12 @@ const componentsRouter: Array<RouteRecordRaw> = [
     },
     children: [
       {
+        path: 'tinymce',
+        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components/tinymceModules.vue'),
+        name: 'TinymceDemo',
+        meta: { title: 'tinymce' }
+      },
+      {
         path: 'back-to-top',
         component: () =>
           import(
