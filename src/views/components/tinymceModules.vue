@@ -18,8 +18,9 @@
     <div>
       <Tinymce
         v-if="tinymceActive"
-        v-model="content"
+        v-model:value="content"
         :height="400"
+        @input="input"
       />
     </div>
     <!-- eslint-disable vue/no-v-html -->
@@ -41,7 +42,10 @@ export default defineComponent({
   setup() {
     const dataMap = reactive({
       content: '<h1 style="text-align: center;">Welcome to the TinyMCE demo!</h1><p style="text-align: center; font-size: 15px;"><img title="Logo" src="./favicon.ico" alt="Logo" width="100" height="100" /><ul><li>Our <a href="//www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li><li>Have a specific question? Visit the <a href="https://community.tinymce.com/forum/">Community Forum</a>.</li><li>We also offer enterprise grade support as part of <a href="https://tinymce.com/pricing">TinyMCE premium subscriptions</a>.</li></ul>',
-      tinymceActive: true
+      tinymceActive: true,
+      input(value: any) {
+        dataMap.content = value
+      }
     })
     onActivated(() => {
       dataMap.tinymceActive = false
@@ -49,6 +53,7 @@ export default defineComponent({
     onDeactivated(() => {
       dataMap.tinymceActive = true
     })
+
     return { ...toRefs(dataMap) }
   }
 })

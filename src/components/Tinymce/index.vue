@@ -6,7 +6,7 @@
   >
     <TinymceEditor
       :id="id"
-      v-model="tinymceContent"
+      v-model:value="tinymceContent"
       :init="initOptions"
     />
     <div class="editor-custom-btn-container">
@@ -152,8 +152,8 @@ export default defineComponent({
         menubar: props.menubar,
         plugins: plugins,
         // eslint-disable-next-line @typescript-eslint/camelcase
-        language_url: store.state.app.language === 'en' ? '' : `${process.env.BASE_URL}/tinymce/langs/${store.state.app.language}.js`,
-        language: store.state.app.language,
+        language_url: store.state.app.language === 'en' ? '' : `${process.env.BASE_URL}tinymce/langs/${store.state.app.language}.js`,
+        language: 'zh_CN',
         // eslint-disable-next-line @typescript-eslint/camelcase
         // eslint-disable-next-line @typescript-eslint/camelcase
         skin_url: `${process.env.BASE_URL}/tinymce/skins/`,
@@ -216,14 +216,13 @@ export default defineComponent({
           tinymceInstance.destroy()
         }
         nextTick(() => {
-          console.log('-----------------------------------------------------------')
+          tinymceManager.init(initOptions)
         })
       }
     )
 
-    watch(() => props.value, (value) => {
+    watch(() => dataMap.tinymceContent, (value) => {
       console.log(value)
-      ctx.emit('input', value)
     })
 
     const imageSuccessCBK = (arr: UploadObject[]) => {
@@ -232,6 +231,9 @@ export default defineComponent({
         tinymce.insertContent(`<img class="wscnph" src="${v.url}" >`)
       })
     }
+
+    console.log(store.state.app.language, 'store.state.app.languagestore.state.app.languagestore.state.app.languagestore.state.app.languagestore.state.app.language')
+    console.log(initOptions)
     return { ...toRefs(dataMap), imageSuccessCBK, initOptions }
   }
 })
@@ -249,8 +251,8 @@ export default defineComponent({
 
 .editor-custom-btn-container {
   position: absolute;
-  right: 6px;
-  top: 6px;
+  right: 50px;
+  top: 186px;
   z-index: 1002;
 }
 
@@ -264,7 +266,7 @@ export default defineComponent({
 }
 
 textarea {
-  z-index: -1;
   visibility: hidden;
+  z-index: -1;
 }
 </style>

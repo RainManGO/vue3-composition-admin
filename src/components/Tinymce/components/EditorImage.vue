@@ -7,7 +7,7 @@
       type="primary"
       @click="dialogVisible = true"
     >
-      upload
+      上传
     </el-button>
     <el-dialog
       v-model:visible="dialogVisible"
@@ -67,7 +67,7 @@ export default defineComponent({
   setup(_, ctx) {
     let listObj: { [key: string]: UploadObject } = {}
     const dataMap = reactive({
-      dialogVisible: false,
+      dialogVisible: true,
       defaultFileList: [],
       checkAllSuccess: () => {
         return Object.keys(listObj).every(item => listObj[item].hasSuccess)
