@@ -12240,6 +12240,11 @@ vue-cli-plugin-style-resources-loader@^0.1.4:
   resolved "https://registry.npmjs.org/vue-cli-plugin-style-resources-loader/-/vue-cli-plugin-style-resources-loader-0.1.4.tgz#6087a86132ea8125aa89e5f8e0a978fbc8cf6f59"
   integrity sha512-aK2TyVThZO6oVPZJpCckha8ALcg1RXKYLNqtuy1fNv+24x6zGWKpSK+FHAo47B7yeRlFS9DbKo+cvUFMqWaZ7Q==
 
+vue-draggable-next@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/vue-draggable-next/download/vue-draggable-next-2.0.1.tgz#bb64efb302c7b8e759fd3f21427871789b624c67"
+  integrity sha1-u2TvswLHuOdZ/T8hQnhxeJtiTGc=
+
 vue-eslint-parser@^7.0.0, vue-eslint-parser@^7.2.0:
   version "7.2.0"
   resolved "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.2.0.tgz?cache=0&sync_timestamp=1606963529116&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.2.0.tgz#1e17ae94ca71e617025e05143c8ac5593aacb6ef"

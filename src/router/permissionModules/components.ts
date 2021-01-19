@@ -74,6 +74,18 @@ const componentsRouter: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: 'draggable-dialog',
+        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components/draggableDialog.vue'),
+        name: 'DraggableDialogDemo',
+        meta: { title: 'draggableDialog' }
+      },
+      {
+        path: 'draggable-kanban',
+        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components/DraggableKanBan.vue'),
+        name: 'DraggableKanbanDemo',
+        meta: { title: 'draggableKanban' }
+      },
+      {
         path: 'draggable-list',
         component: () =>
           import(
