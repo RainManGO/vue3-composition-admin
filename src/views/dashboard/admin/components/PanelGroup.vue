@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-18 10:48:43
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 14:49:48
+ * @LastEditTime: 2021-01-19 16:18:27
 -->
 <template>
   <el-row
@@ -34,6 +34,7 @@
             New Visits
           </div>
           <CountTo
+            ref="myCount"
             :start-val="0"
             :end-val="102400"
             :duration="2600"
@@ -142,7 +143,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 import { CountTo } from 'vue3-count-to'
 
 export default defineComponent({
@@ -154,8 +155,15 @@ export default defineComponent({
     const handleSetLineChartData = (type: string) => {
       emit('handle-set-line-chart-data', type)
     }
+
+    const myCount = ref(null)
+    onMounted(() => {
+      console.log((myCount.value as any).value)
+    })
+
     return {
-      handleSetLineChartData
+      handleSetLineChartData,
+      myCount
     }
   }
 })

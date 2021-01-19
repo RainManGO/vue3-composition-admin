@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-19 10:33:47
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-19 14:09:08
+ * @LastEditTime: 2021-01-19 16:05:14
  */
 
 declare module '*.svg'
@@ -15,3 +15,4 @@ declare module '*.bmp'
 declare module '*.tiff'
 declare module '*.yaml'
 declare module '*.json'
+declare module 'vue-count-to'

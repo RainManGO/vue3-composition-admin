@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 16:05:05
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 19:15:16
+ * @LastEditTime: 2021-01-19 19:33:10
 -->
 <template>
   <div class="drawer-container">
@@ -14,7 +14,7 @@
 
       <div class="drawer-item">
         <span>{{ $t('settings.theme') }}</span>
-        <theme-picker
+        <ThemePicker
           style="float: right;height: 26px;margin: -3px 8px 0 0;"
           @change="themeChange"
         />
@@ -59,7 +59,12 @@
 import { useStore } from '@/store'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
 import { defineComponent, reactive, toRefs } from 'vue'
+import ThemePicker from '@/components/theme-picker/Index.vue'
+
 export default defineComponent({
+  components: {
+    ThemePicker
+  },
   setup() {
     const store = useStore()
     const state = reactive({

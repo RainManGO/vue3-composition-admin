@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-15 18:44:25
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 08:34:36
+ * @LastEditTime: 2021-01-19 10:18:13
 -->
 <template>
   <div class="dashboard-editor-container">
@@ -137,9 +137,13 @@ export default {
     }
 
     const lineChartData = ref(data.newVisitis)
-    console.log(lineChartData.value)
+    const handleSetLineChartData = (type) => {
+      lineChartData.value = data[type]
+    }
+
     return {
-      lineChartData
+      lineChartData,
+      handleSetLineChartData
     }
   }
 }
