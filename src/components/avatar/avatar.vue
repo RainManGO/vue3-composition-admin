@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-13 21:30:42
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-16 17:06:14
+ * @LastEditTime: 2021-01-19 18:16:24
 -->
 <template>
   <ImageCropUpload
@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent, getCurrentInstance, watch } from 'vue'
 import ImageCropUpload from 'vue-image-crop-upload'
 import { AppModule } from '@/store/modules/app/app'
 
@@ -62,40 +62,41 @@ export default defineComponent({
       default: () => null
     }
   },
-  emits: ['src-file-set', 'crop-success', 'crop-upload-success', 'crop-upload-fail', 'input'],
-  setup() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props) {
+    const { ctx } = getCurrentInstance() as any
     const languageTypeList: { [key: string]: string } = {
       en: 'en',
       zh: 'zh'
     }
-
+    const show = computed(() => {
+      return props.value
+    })
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function language(this: any) {
-      return this.languageTypeList[AppModule.language]
+    watch(() => show, (value) => {
+      ctx.emit('input', props.value)
+    })
+    const language = computed(() => {
+      return languageTypeList[AppModule.language]
+    })
+    const srcFileSet = (fileName: string, fileType: string, fileSize: number) => {
+      ctx.emit('src-file-set', fileName, fileType, fileSize)
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function show(this: any, value: undefined) {
-      this.$emit('input', value)
+    const cropSuccess = (imgDataUrl: string, field: string) => {
+      ctx.emit('crop-success', imgDataUrl, field)
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function srcFileSet(this: any, fileName: string, fileType: string, fileSize: number) {
-      this.$emit('src-file-set', fileName, fileType, fileSize)
+    const cropUploadSuccess = (jsonData: any, field: string) => {
+      ctx.emit('crop-upload-success', jsonData, field)
     }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function cropSuccess(this: any, imgDataUrl: string, field: string) {
-      this.$emit('crop-success', imgDataUrl, field)
+    const cropUploadFail = (status: boolean, field: string) => {
+      ctx.emit('crop-upload-fail', status, field)
     }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function cropUploadSuccess(this: any, jsonData: any, field: string) {
-      this.$emit('crop-upload-success', jsonData, field)
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function cropUploadFail(this: any, status: boolean, field: string) {
-      this.$emit('crop-upload-fail', status, field)
+    return {
+      show,
+      language,
+      srcFileSet,
+      cropSuccess,
+      cropUploadSuccess,
+      cropUploadFail
     }
   }
 })
