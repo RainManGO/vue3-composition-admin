@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-12 11:07:17
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 21:53:49
+ * @LastEditTime: 2021-01-20 08:56:52
  */
 export interface ArticleData {
 
@@ -37,17 +37,6 @@ interface ArticleIdInfo {
   id?: number | 0
   timestamp?: any
 }
-export interface RoleData {
-  key: string
-  name: string
-  description: string
-  routes: any
-}
-
-export interface TransactionData {
-  orderId: string
-  timestamp: string | number
-  username: string
-  price: number
-  status: string
+interface Pageviews{
+  pageviews: any
 }
