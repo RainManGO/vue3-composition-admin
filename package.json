@@ -17,8 +17,8 @@
     "mock": "cd mock && ts-node-dev mock.ts"
   },
   "dependencies": {
-    "@tinymce/tinymce-vue": "^4.0.0",
     "@dragndrop/vue-dropzone": "0.0.4",
+    "@tinymce/tinymce-vue": "^4.0.0",
     "@types/faker": "^5.1.5",
     "@types/koa2-cors": "^2.0.1",
     "axios-mapper": "^0.4.4",
@@ -44,8 +44,8 @@
     "reflect-metadata": "^0.1.13",
     "register-service-worker": "^1.7.1",
     "screenfull": "^5.0.2",
-    "tinymce": "5.6.2",
     "sortablejs": "^1.13.0",
+    "tinymce": "5.6.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-draggable-next": "^2.0.1",
