@@ -3,10 +3,10 @@
  * @Autor: scy😊
  * @Date: 2021-01-12 11:31:47
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-13 10:06:30
+ * @LastEditTime: 2021-01-20 09:39:06
  */
 import https from '@/utils/https'
-import { ArticleData, Article, articleId, pageviews } from './types'
+import { ArticleData, Article, ArticleId, Pageviews } from './types'
 import { RootObject } from '@/model/rootObject'
 import { ContentType, Method } from 'axios-mapper'
 
@@ -37,11 +37,11 @@ export const getArticle = (id: number, params: any) => {
 }
 
 export const createArticle = (data: any) => {
-  return https().request<RootObject<articleId>>('articles', Method.POST, data, ContentType.json)
+  return https().request<RootObject<ArticleId>>('articles', Method.POST, data, ContentType.json)
 }
 
 export const updateArticle = (id: number, data: any) => {
-  return https().request<RootObject<articleId>>(`articles/${id}`, Method.PUT, data, ContentType.json)
+  return https().request<RootObject<ArticleId>>(`articles/${id}`, Method.PUT, data, ContentType.json)
 }
 
 export const deleteArticle = (id: number) => {
@@ -49,5 +49,5 @@ export const deleteArticle = (id: number) => {
 }
 
 export const getPageviews = (params: any) => {
-  return https().request<RootObject<pageviews>>('pageviews', Method.GET, params, ContentType.json)
+  return https().request<RootObject<Pageviews>>('pageviews', Method.GET, params, ContentType.json)
 }
