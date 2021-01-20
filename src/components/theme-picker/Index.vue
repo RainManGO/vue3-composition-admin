@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-19 11:06:36
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 21:46:48
+ * @LastEditTime: 2021-01-20 08:47:06
 -->
 
 <template>
@@ -73,13 +73,13 @@ export default defineComponent({
       return clusters
     }
 
-    const getCSSString = (url: string, variable: string) => {
-      return new Promise(resolve => {
+    const getCSSString = async(url: string, variable: string) => {
+      return await new Promise(resolve => {
         const xhr = new XMLHttpRequest()
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4 && xhr.status === 200) {
             (ctx as any)[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
-            resolve()
+            await resolve()
           }
         }
         xhr.open('GET', url)
