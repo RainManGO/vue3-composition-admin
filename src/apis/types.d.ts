@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-12 11:07:17
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 09:04:24
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-20 09:29:18
  */
 export interface ArticleData {
 
