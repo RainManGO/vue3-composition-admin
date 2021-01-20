@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-12 11:07:17
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-13 09:36:01
+ * @LastEditTime: 2021-01-20 09:29:18
  */
 export interface ArticleData {
 
@@ -30,39 +30,13 @@ export interface Article<T> {
   items: T
 }
 
-interface articleId {
+export interface ArticleId {
   article: any
 }
-interface articleIdInfo {
+export interface ArticleIdInfo {
   id?: number | 0
   timestamp?: any
 }
-interface pageviews　{
+export interface Pageviews{
   pageviews: any
-}
-export interface IRoleData {
-  key: string
-  name: string
-  description: string
-  routes: any
-}
-
-export interface ITransactionData {
-  orderId: string
-  timestamp: string | number
-  username: string
-  price: number
-  status: string
-}
-
-export interface IUserData {
-  id: number
-  username: string
-  password: string
-  name: string
-  email: string
-  phone: string
-  avatar: string
-  introduction: string
-  roles: string[]
 }
