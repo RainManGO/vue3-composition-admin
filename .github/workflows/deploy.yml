@@ -1,0 +1,22 @@
+name: vue3-composition-admin
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install and Build
+      run: |
+          npm install
+          npm run build:prod
+    - name: Deploy
+      uses: maxheld83/ghpages@v0.3.0
+      env:
+        BUILD_DIR: dist/
+        GH_PAT: ${{ secrets.ACCESS_TOKEN }}
