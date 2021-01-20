@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 16:05:05
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 19:33:10
+ * @LastEditTime: 2021-01-20 17:09:25
 -->
 <template>
   <div class="drawer-container">
@@ -58,7 +58,7 @@
 <script lang="ts">
 import { useStore } from '@/store'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent, reactive, toRefs, watch } from 'vue'
 import ThemePicker from '@/components/theme-picker/Index.vue'
 
 export default defineComponent({
@@ -75,8 +75,26 @@ export default defineComponent({
       themeChange: (value: string) => {
         store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'theme', value })
       }
-
     })
+
+    watch(() => state.fixedHeader, (value) => {
+      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'fixedHeader', value })
+    })
+
+    watch(() => state.showTagsView, (value) => {
+      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'showTagsView', value })
+    })
+
+    watch(() => state.showSidebarLogo, (value) => {
+      console.log(value)
+
+      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'showSidebarLogo', value })
+    })
+
+    watch(() => state.sidebarTextTheme, (value) => {
+      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'sidebarTextTheme', value })
+    })
+
     return {
       ...toRefs(state)
     }

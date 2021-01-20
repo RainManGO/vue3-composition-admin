@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-12 11:07:17
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 08:56:52
+ * @LastEditTime: 2021-01-20 09:04:24
  */
 export interface ArticleData {
 
@@ -30,13 +30,13 @@ export interface Article<T> {
   items: T
 }
 
-interface ArticleId {
+export interface ArticleId {
   article: any
 }
-interface ArticleIdInfo {
+export interface ArticleIdInfo {
   id?: number | 0
   timestamp?: any
 }
-interface Pageviews{
+export interface Pageviews{
   pageviews: any
 }

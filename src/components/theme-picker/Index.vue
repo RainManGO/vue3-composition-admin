@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-19 11:06:36
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 08:47:06
+ * @LastEditTime: 2021-01-20 15:58:27
 -->
 
 <template>
@@ -18,14 +18,17 @@
 <script lang="ts">
 import { useStore } from '@/store'
 import { computed, defineComponent, getCurrentInstance, reactive, toRefs, watch } from 'vue'
-import { ElMessage } from 'element-plus'
+import Loading from '@/utils/loading'
+import { useI18n } from 'vue-i18n'
 const version = require('element-plus/package.json').version // element-ui version from node_modules
 const ORIGINAL_THEME = '#409EFF' // default color
 
 export default defineComponent({
-
-  setup() {
+  emits: ['change'],
+  setup(_, context) {
+    const { loading } = Loading()
     const store = useStore()
+    const { t } = useI18n()
     const ctx = getCurrentInstance() as any
     const state = reactive({
       chalk: '',
@@ -73,13 +76,13 @@ export default defineComponent({
       return clusters
     }
 
-    const getCSSString = async(url: string, variable: string) => {
-      return await new Promise(resolve => {
+    const getCSSString = (url: string, variable: string) => {
+      return new Promise(resolve => {
         const xhr = new XMLHttpRequest()
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4 && xhr.status === 200) {
             (ctx as any)[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
-            await resolve()
+            resolve()
           }
         }
         xhr.open('GET', url)
@@ -95,27 +98,20 @@ export default defineComponent({
       return newStyle
     }
 
-    watch(() => state.theme, (value: string) => {
+    watch(() => state.theme, async(value: string) => {
       if (value) {
         const oldValue = state.chalk ? state.theme : ORIGINAL_THEME
-        const themeCluster = getThemeCluster(ORIGINAL_THEME.replace('#', ''))
+        const themeCluster = getThemeCluster(value.replace('#', ''))
         const originalCluster = getThemeCluster(oldValue.replace('#', ''))
-        const message = ElMessage({
-          message: '  Compiling the theme',
-          customClass: 'theme-message',
-          type: 'success',
-          duration: 0,
-          iconClass: 'el-icon-loading'
-        })
+        const loadingInstance = loading(t('theme.loading'))
         if (!state.chalk) {
           const url = `https://unpkg.com/element-plus@${version}/lib/theme-chalk/index.css`
-          getCSSString(url, 'chalk')
+          await getCSSString(url, 'chalk')
         }
         const getHandler = (variable: string, id: string) => {
           return () => {
             const originalCluster = getThemeCluster(ORIGINAL_THEME.replace('#', ''))
             const newStyle = updateStyle((ctx as any)[variable], originalCluster, themeCluster)
-
             let styleTag = document.getElementById(id)
             if (!styleTag) {
               styleTag = document.createElement('style')
@@ -141,8 +137,8 @@ export default defineComponent({
           style.innerText = updateStyle(innerText, originalCluster, themeCluster)
         })
 
-        ctx.$emit('change', value)
-        message.close()
+        context.emit('change', value)
+        loadingInstance.close()
       }
     })
 
