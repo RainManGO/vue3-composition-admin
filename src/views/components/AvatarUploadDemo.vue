@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-14 09:11:22
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 16:20:36
+ * @LastEditTime: 2021-01-21 17:18:31
 -->
 
 <template>
@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import Avatar from '@/components/avatar/Avatar.vue'
+import Avatar from '@/components/avatar/Index.vue'
 
 export default defineComponent({
   components: {
@@ -65,7 +65,6 @@ export default defineComponent({
     const onClose = () => {
       state.showImageUpload = false
     }
-
     return {
       toggleShow,
       onCropUploadSuccess,

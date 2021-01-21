@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-18 17:28:28
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-20 19:51:46
+ * @LastEditTime: 2021-01-21 17:25:35
 -->
 <template>
   <div class="components-container">
@@ -21,7 +21,6 @@
         :value="item.value"
       />
     </draggable-select>
-
     <div style="margin-top:30px;">
       <el-tag
         v-for="item of value"
@@ -35,7 +34,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import draggableSelect from '@/components/draggableselect/index.vue'
+import draggableSelect from '@/components/draggableselect/Index.vue'
 
 export default defineComponent({
   components: {
@@ -70,13 +69,9 @@ export default defineComponent({
         state.value = val
       }
     })
-
     return {
       ...toRefs(state)
     }
   }
 })
 </script>
-<style lang="scss" scoped>
-
-</style>

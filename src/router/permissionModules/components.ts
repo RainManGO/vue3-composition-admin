@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-11 15:13:20
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 13:48:57
+ * @LastEditTime: 2021-01-21 17:12:40
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -21,7 +21,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'tinymce',
-        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components/tinymceModules.vue'),
+        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components/TinymceModulesDemo.vue'),
         name: 'TinymceDemo',
         meta: { title: 'tinymce' }
       },
@@ -37,30 +37,30 @@ const componentsRouter: Array<RouteRecordRaw> = [
           noCache: true
         }
       },
-      {
-        path: 'avatar-upload',
-        component: () =>
-          import(
-            /* webpackChunkName: "AvatarUpload" */ '@/views/components/AvatarUpload.vue'
-          ),
-        name: 'AvatarUploadDemo',
-        meta: {
-          title: 'avatarUpload',
-          noCache: true
-        }
-      },
-      {
-        path: 'dropzone',
-        component: () =>
-          import(
-            /* webpackChunkName: "AvatarUpload" */ '@/views/components/DropzoneDemo.vue'
-          ),
-        name: 'DropzoneDemo',
-        meta: {
-          title: 'dropzone',
-          noCache: true
-        }
-      },
+      // {
+      //   path: 'avatar-upload',
+      //   component: () =>
+      //     import(
+      //       /* webpackChunkName: "AvatarUpload" */ '@/views/components/AvatarUploadDemo.vue'
+      //     ),
+      //   name: 'AvatarUploadDemo',
+      //   meta: {
+      //     title: 'avatarUpload',
+      //     noCache: true
+      //   }
+      // },
+      // {
+      //   path: 'dropzone',
+      //   component: () =>
+      //     import(
+      //       /* webpackChunkName: "AvatarUpload" */ '@/views/components/DropzoneDemo.vue'
+      //     ),
+      //   name: 'DropzoneDemo',
+      //   meta: {
+      //     title: 'dropzone',
+      //     noCache: true
+      //   }
+      // },
       {
         path: 'count-to',
         component: () =>
@@ -87,13 +87,13 @@ const componentsRouter: Array<RouteRecordRaw> = [
       },
       {
         path: 'draggable-dialog',
-        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components/draggableDialog.vue'),
+        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components/DraggableDialogDemo.vue'),
         name: 'DraggableDialogDemo',
         meta: { title: 'draggableDialog' }
       },
       {
         path: 'draggable-kanban',
-        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components/DraggableKanBan.vue'),
+        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components/DraggableKanBanDemo.vue'),
         name: 'DraggableKanbanDemo',
         meta: { title: 'draggableKanban' }
       },

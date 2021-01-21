@@ -1,3 +1,10 @@
+<!--
+ * @Description:
+ * @Autor: WJM
+ * @Date: 2021-01-20 10:12:44
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-21 17:23:59
+-->
 <template>
   <div class="components-container board">
     <DraggableKanban
@@ -25,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import DraggableKanban from '@/components/DraggableKanban/index.vue'
+import DraggableKanban from '@/components/DraggableKanban/Index.vue'
 import { defineComponent, reactive, toRefs } from 'vue'
 export default defineComponent({
   components: {
@@ -40,20 +47,17 @@ export default defineComponent({
         { name: 'Mission', id: 3 },
         { name: 'Mission', id: 4 }
       ],
-
       list2: [
         { name: 'Mission', id: 5 },
         { name: 'Mission', id: 6 },
         { name: 'Mission', id: 7 }
       ],
-
       list3: [
         { name: 'Mission', id: 8 },
         { name: 'Mission', id: 9 },
         { name: 'Mission', id: 10 }
       ]
     })
-
     return { ...toRefs(dataMap) }
   }
 })
@@ -66,13 +70,11 @@ export default defineComponent({
       background: #4A9FF9;
     }
   }
-
   &.working {
     .board-column-header {
       background: #f9944a;
     }
   }
-
   &.done {
     .board-column-header {
       background: #2ac06d;
@@ -80,7 +82,6 @@ export default defineComponent({
   }
 }
 </style>
-
 <style lang="scss" scoped>
 .board {
   width: 1000px;

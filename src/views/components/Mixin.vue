@@ -3,7 +3,6 @@
     <el-row>
       <el-card class="box-card">
         <div
-          slot="header"
           class="clearfix"
         >
           <span>Buttons</span>
@@ -78,7 +77,6 @@
         </div>
       </el-card>
     </el-row>
-
     <el-row
       :gutter="20"
       style="margin-top:50px;"
@@ -86,7 +84,6 @@
       <el-col :span="6">
         <el-card class="box-card">
           <div
-            slot="header"
             class="clearfix"
           >
             <span>Material Design 的input</span>
@@ -111,11 +108,9 @@
           </div>
         </el-card>
       </el-col>
-
       <el-col :span="6">
         <el-card class="box-card">
           <div
-            slot="header"
             class="clearfix"
           >
             <span>图片hover效果</span>
@@ -131,11 +126,9 @@
           </div>
         </el-card>
       </el-col>
-
       <el-col :span="6">
         <el-card class="box-card">
           <div
-            slot="header"
             class="clearfix"
           >
             <span>水波纹 waves v-directive</span>
@@ -150,11 +143,9 @@
           </div>
         </el-card>
       </el-col>
-
       <el-col :span="6">
         <el-card class="box-card">
           <div
-            slot="header"
             class="clearfix"
           >
             <span>hover text</span>
@@ -168,7 +159,6 @@
         </el-card>
       </el-col>
     </el-row>
-
     <el-row
       :gutter="20"
       style="margin-top:50px;"
@@ -176,7 +166,6 @@
       <el-col :span="8">
         <el-card class="box-card">
           <div
-            slot="header"
             class="clearfix"
           >
             <span>Share</span>
@@ -202,9 +191,7 @@ import { defineComponent, reactive, toRefs } from 'vue'
 export default defineComponent({
   setup() {
     const dataMap = reactive({
-
     })
-
     return { ...toRefs(dataMap) }
   }
 })
@@ -230,15 +217,12 @@ export default defineComponent({
 //       callback()
 //     }
 //   }
-
 //   private demo = {
 //     title: ''
 //   }
-
 //   private demoRules = {
 //     title: [{ validator: this.validateLength, trigger: 'change' }]
 //   }
-
 //   private articleList = [
 //     { title: '基础篇', href: 'https://juejin.im/post/59097cd7a22b9d0065fb61d2' },
 //     { title: '登录权限篇', href: 'https://juejin.im/post/591aa14f570c35006961acac' },
@@ -253,45 +237,35 @@ export default defineComponent({
 <style lang="scss" scoped>
 @mixin colorBtn($color) {
   background: $color;
-
   &:hover {
     color: $color;
-
     &:before,
     &:after {
       background: $color;
     }
   }
 }
-
 .blue-btn {
   @include colorBtn($blue)
 }
-
 .light-blue-btn {
   @include colorBtn($light-blue)
 }
-
 .red-btn {
   @include colorBtn($red)
 }
-
 .pink-btn {
   @include colorBtn($pink)
 }
-
 .green-btn {
   @include colorBtn($green)
 }
-
 .tiffany-btn {
   @include colorBtn($tiffany)
 }
-
 .yellow-btn {
   @include colorBtn($yellow)
 }
-
 .pan-btn {
   font-size: 14px;
   color: #fff;
@@ -302,17 +276,14 @@ export default defineComponent({
   transition: 600ms ease all;
   position: relative;
   display: inline-block;
-
   &:hover {
     background: #fff;
-
     &:before,
     &:after {
       width: 100%;
       transition: 600ms ease all;
     }
   }
-
   &:before,
   &:after {
     content: '';
@@ -323,7 +294,6 @@ export default defineComponent({
     width: 0;
     transition: 400ms ease all;
   }
-
   &::after {
     right: inherit;
     top: inherit;
@@ -331,13 +301,11 @@ export default defineComponent({
     bottom: 0;
   }
 }
-
 .mixin-components-container {
   background-color: #f0f2f5;
   padding: 30px;
   min-height: calc(100vh - 84px);
 }
-
 .component-item {
   min-height: 100px;
 }

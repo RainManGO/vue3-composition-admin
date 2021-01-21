@@ -58,7 +58,6 @@
           :picker-options="pickerOptions"
         />
       </div>
-
       <el-button
         style="margin-left: 10px"
         type="success"
@@ -66,7 +65,6 @@
         publish
       </el-button>
     </Sticky>
-
     <div class="components-container">
       <aside>Sticky header, {{ $t("components.stickyTips") }}</aside>
       <div>placeholder</div>
@@ -131,7 +129,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import Sticky from '@/components/sticky/index.vue'
+import Sticky from '@/components/sticky/Index.vue'
 
 export default defineComponent({
   components: {
@@ -160,7 +158,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .components-container div {
   margin: 10px;
 }
