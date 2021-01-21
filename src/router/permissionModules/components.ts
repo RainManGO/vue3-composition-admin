@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-11 15:13:20
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-19 18:32:14
+ * @LastEditTime: 2021-01-21 13:48:57
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -29,7 +29,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'back-to-top',
         component: () =>
           import(
-            /* webpackChunkName: "BackToTop" */ '@/views/components/BackToTop.vue'
+            /* webpackChunkName: "BackToTop" */ '@/views/components/BackToTopDemo.vue'
           ),
         name: 'BackToTopDemo',
         meta: {
@@ -70,6 +70,18 @@ const componentsRouter: Array<RouteRecordRaw> = [
         name: 'CountToDemo',
         meta: {
           title: 'countTo',
+          noCache: true
+        }
+      },
+      {
+        path: 'sticky',
+        component: () =>
+          import(
+            /* webpackChunkName: "sticky" */ '@/views/components/StickyDemo.vue'
+          ),
+        name: 'StickyDemo',
+        meta: {
+          title: 'sticky',
           noCache: true
         }
       },

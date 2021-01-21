@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 17:18:17
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 17:18:47
+ * @LastEditTime: 2021-01-20 15:18:42
  */
 
 export default {
@@ -164,7 +164,8 @@ export default {
   theme: {
     change: 'Change Theme',
     documentation: 'Theme documentation',
-    tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.'
+    tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.',
+    loading: 'Theme change loading...'
   },
   tagsView: {
     refresh: 'Refresh',

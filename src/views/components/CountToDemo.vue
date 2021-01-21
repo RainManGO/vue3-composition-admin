@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-13 21:28:05
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-19 16:39:48
+ * @LastEditTime: 2021-01-20 16:37:37
 -->
 <template>
   <div class="components-container">
@@ -186,10 +186,10 @@ export default defineComponent({
     const countRef = ref(null)
     const startCount = () => {
       console.log(ctx.$refs)
-      ctx.$refs.count && (ctx.$refs.count as any).start()
+      // ctx.$refs.count && (ctx.$refs.count as any).start()
     }
     const pauseResume = () => {
-      countRef.value && (countRef.value as any).pauseResume()
+      // countRef.value && (countRef.value as any).pauseResume()
     }
     return {
       startVal,

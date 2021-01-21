@@ -3,55 +3,76 @@
  * @Autor: WJM
  * @Date: 2021-01-18 17:28:28
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-19 18:32:41
+ * @LastEditTime: 2021-01-20 19:51:46
 -->
 <template>
-  <div>
-    <VueDropzone
-      :id="id"
-      :options="dropzoneOptions"
-      :use-custom-slot="true"
-      @vdropzone-removed-file="dropzoneRemovedFile"
-      @vdropzone-success="dropzoneSuccess"
+  <div class="components-container">
+    <draggable-select
+      :value="value"
+      style="width:500px;"
+      multiple
+      placeholder="Please select"
+      @changeVal="changeVal"
     >
-      <div class="dropzone-custom-content">
-        <h3
-          class="dropzone-custom-title"
-          :style="{color: themeColor}"
-        >
-          Drag and drop to upload content!
-        </h3>
-        <div class="subtitle">
-          ...or click to select a file from your computer
-        </div>
-      </div>
-    </VueDropzone>
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </draggable-select>
+
+    <div style="margin-top:30px;">
+      <el-tag
+        v-for="item of value"
+        :key="item"
+        style="margin-right:15px;"
+      >
+        {{ item }}
+      </el-tag>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, getCurrentInstance } from 'vue'
-import { VueDropzone } from '@dragndrop/vue-dropzone'
+import { defineComponent, reactive, toRefs } from 'vue'
+import draggableSelect from '@/components/draggableselect/index.vue'
 
 export default defineComponent({
   components: {
-    VueDropzone
+    draggableSelect
   },
   setup() {
-    const { ctx } = getCurrentInstance() as any
-    const { $message } = ctx.root
-    const dropzoneSuccess = (file: File, response: any) => {
-      $message({ message: 'Upload success', type: 'success' })
-      console.log(file, response)
-    }
-
-    const dropzoneRemovedFile = (file: File, error: Error, xhr: XMLHttpRequest) => {
-      $message({ message: 'Delete success', type: 'success' })
-      console.log(file, error, xhr)
-    }
+    const state = reactive({
+      value: ['Apple', 'Banana', 'Orange'],
+      options: [
+        {
+          value: 'Apple',
+          label: 'Apple'
+        },
+        {
+          value: 'Banana',
+          label: 'Banana'
+        },
+        {
+          value: 'Orange',
+          label: 'Orange'
+        },
+        {
+          value: 'Pear',
+          label: 'Pear'
+        },
+        {
+          value: 'Strawberry',
+          label: 'Strawberry'
+        }
+      ],
+      changeVal: (val: any) => {
+        state.value = val
+      }
+    })
 
     return {
-      dropzoneSuccess,
-      dropzoneRemovedFile
+      ...toRefs(state)
     }
   }
 })

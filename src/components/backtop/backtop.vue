@@ -1,29 +1,32 @@
 <!--
  * @Description:
  * @Author: ZY
- * @Date: 2021-01-13 21:30:42
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-14 09:11:05
+ * @Date: 2021-01-14 09:11:22
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-21 13:47:23
 -->
+
 <template>
-  <div
-    v-show="visible"
-    :style="customStyle"
-    class="back-to-ceiling"
-    @click="backToTop"
-  >
-    <svg
-      class="icon"
-      aria-hidden="true"
-      font-size="20px"
+  <transition :name="transitionName">
+    <div
+      v-show="visible"
+      :style="customStyle"
+      class="back-to-ceiling"
+      @click="backToTop"
     >
-      <use xlink:href="#iconlanguage" />
-    </svg>
-  </div>
+      <svg
+        class="icon"
+        aria-hidden="true"
+        font-size="20px"
+      >
+        <use xlink:href="#iconbacktotop" />
+      </svg>
+    </div>
+  </transition>
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount, onMounted, toRefs } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
 
 export default defineComponent({
   props: {
@@ -43,11 +46,11 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const state = {
+    const state = reactive({
       visible: false,
       isMoving: false,
       interval: 0
-    }
+    })
     const handleScroll = () => {
       state.visible = window.pageYOffset > props.visibilityHeight
     }
@@ -91,6 +94,26 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.back-to-ceiling {
+  position: fixed;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  :hover {
+    background: #d5dbe7;
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.back-to-ceiling .backTopIcon {
+  fill: #9aaabf;
+  background: none;
+}
 </style>
