@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-20 11:49:00
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-20 20:04:44
+ * @LastEditTime: 2021-01-21 15:46:34
 -->
 <template>
   <el-select
@@ -66,12 +66,12 @@ export default defineComponent({
       })
     }
     return {
-      draggableSelect,
       sortable,
-      setSort,
-      selectVal,
+      changeselect,
       propsValue,
-      changeselect
+      selectVal,
+      draggableSelect,
+      setSort
     }
   }
 })

@@ -120,9 +120,7 @@ export default defineComponent({
       }
     }
     const pushEle = (ele: ArticleData) => {
-      console.log('ele', ele)
       for (const item of props.list2) {
-        console.log('item', item)
         if (item.id === ele.id) {
           const index = props.list2.indexOf(item)
           // eslint-disable-next-line vue/no-mutating-props
