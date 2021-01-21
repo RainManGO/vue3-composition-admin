@@ -19,7 +19,7 @@ const tabRouter: Array<RouteRecordRaw> = [
         name: 'Tab',
         meta: {
           title: 'tab',
-          icon: '#iconliebiao'
+          icon: '#icontable'
         }
       }
     ]

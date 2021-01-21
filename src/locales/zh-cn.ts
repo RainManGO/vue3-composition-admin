@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 17:18:24
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 15:18:01
+ * @LastEditTime: 2020-12-28 17:18:59
  */
 
 export default {
@@ -164,8 +164,7 @@ export default {
   theme: {
     change: '换肤',
     documentation: '换肤文档',
-    tips: 'Tips: 它区别于 navbar 上的 theme-pick, 是两种不同的换肤方法，各自有不同的应用场景，具体请参考文档。',
-    loading: '主题正在努力重置...'
+    tips: 'Tips: 它区别于 navbar 上的 theme-pick, 是两种不同的换肤方法，各自有不同的应用场景，具体请参考文档。'
   },
   tagsView: {
     refresh: '刷新',

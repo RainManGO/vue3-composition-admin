@@ -160,7 +160,7 @@
             v-for="n in +row.importance"
             :key="n"
             name="star"
-            class="iconfont iconxing"
+            class="meta-item__icon"
           />
         </template>
       </el-table-column>
@@ -243,7 +243,7 @@
 
     <el-dialog
       :title="textMap[dialogStatus]"
-      v-model="dialogFormVisible"
+      v-model:visible="dialogFormVisible"
     >
       <el-form
         ref="dataForm"
@@ -369,8 +369,7 @@ import {
   toRefs,
   ref,
   nextTick,
-  onMounted,
-  unref
+  onMounted
 } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 import { cloneDeep } from 'lodash'
@@ -404,7 +403,7 @@ export default defineComponent({
       },
       {}
     ) as { [key: string]: string }
-    const dataForm = ref(ElForm)
+    const dataForm = ref({})
     const dataMap = reactive({
       tableKey: 0,
       list: Array<ArticleData>(),
@@ -520,18 +519,17 @@ export default defineComponent({
         })
       },
       createData() {
-        const form = unref(dataForm)
-        form.validate(async(valid: any) => {
+        (dataForm.value as typeof ElForm).validate(async(valid: any) => {
           if (valid) {
             const articleData = dataMap.tempArticleData
             articleData.id = Math.round(Math.random() * 100) + 1024 // mock a id
             articleData.author = 'RCYJ_Scy'
-            const addData = await createArticle(articleData)
-
-            if (addData?.data.id) {
-              alert(addData.data.id)
-              console.log(addData)
-              dataMap.list.unshift(addData.data)
+            const data = await createArticle({ article: articleData })
+            if (data) {
+              data.data.article.timestamp = Date.parse(
+                data?.data.article.timestamp
+              )
+              dataMap.list.unshift(data.data.article)
             }
 
             dataMap.dialogFormVisible = false
@@ -614,7 +612,7 @@ export default defineComponent({
       console.log(typeof ElForm)
       dataMap.getList(null, null, 20)
     })
-    return { ...toRefs(dataMap), dataForm }
+    return { ...toRefs(dataMap) }
   }
 })
 </script>

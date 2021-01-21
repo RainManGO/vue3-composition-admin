@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 16:05:05
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 17:09:25
+ * @LastEditTime: 2021-01-08 19:15:16
 -->
 <template>
   <div class="drawer-container">
@@ -14,7 +14,7 @@
 
       <div class="drawer-item">
         <span>{{ $t('settings.theme') }}</span>
-        <ThemePicker
+        <theme-picker
           style="float: right;height: 26px;margin: -3px 8px 0 0;"
           @change="themeChange"
         />
@@ -58,13 +58,8 @@
 <script lang="ts">
 import { useStore } from '@/store'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
-import { defineComponent, reactive, toRefs, watch } from 'vue'
-import ThemePicker from '@/components/theme-picker/Index.vue'
-
+import { defineComponent, reactive, toRefs } from 'vue'
 export default defineComponent({
-  components: {
-    ThemePicker
-  },
   setup() {
     const store = useStore()
     const state = reactive({
@@ -75,26 +70,8 @@ export default defineComponent({
       themeChange: (value: string) => {
         store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'theme', value })
       }
+
     })
-
-    watch(() => state.fixedHeader, (value) => {
-      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'fixedHeader', value })
-    })
-
-    watch(() => state.showTagsView, (value) => {
-      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'showTagsView', value })
-    })
-
-    watch(() => state.showSidebarLogo, (value) => {
-      console.log(value)
-
-      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'showSidebarLogo', value })
-    })
-
-    watch(() => state.sidebarTextTheme, (value) => {
-      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'sidebarTextTheme', value })
-    })
-
     return {
       ...toRefs(state)
     }
