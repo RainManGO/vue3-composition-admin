@@ -1,18 +1,22 @@
 <template>
   <div class="createPost-container">
     <el-form
-      ref="postForm"
+      ref="postFormNode"
       :model="postForm"
       :rules="rules"
       class="form-container"
     >
-      <!-- <Sticky
+      <Sticky
         :z-index="10"
         :class-name="'sub-navbar ' + postForm.status"
       >
-        <CommentDropdown v-model="postForm.disableComment" />
-        <PlatformDropdown v-model="postForm.platforms" />
-        <SourceUrlDropdown v-model="postForm.sourceURL" />
+        <CommentDropdown
+          :value="postForm.disableComment"
+        />
+        <PlatformDropdown
+          :value="postForm.platforms"
+        />
+        <SourceUrlDropdown :value="postForm.sourceURL" />
         <el-button
           v-loading="loading"
           style="margin-left: 10px"
@@ -28,7 +32,7 @@
         >
           Draft
         </el-button>
-      </Sticky> -->
+      </Sticky>
 
       <div class="createPost-main-container">
         <el-row>
@@ -47,6 +51,12 @@
               >
                 Title
               </MaterialInput> -->
+              <div>
+                Title <input
+                  type="text"
+                  v-model="postForm.title"
+                >
+              </div>
             </el-form-item>
 
             <div class="postInfo-container">
@@ -82,10 +92,8 @@
                     class="postInfo-container-item"
                   >
                     <el-date-picker
-                      v-model="timestamp"
+                      v-model="value"
                       type="datetime"
-                      format="yyyy-MM-dd HH:mm:ss"
-                      placeholder="Select date and time"
                     />
                   </el-form-item>
                 </el-col>
@@ -127,47 +135,45 @@
           <span
             v-show="abstractContentLength"
             class="word-counter"
-          >{{ abstractContentLength }}words</span>
+          >{{ abstractContentLength() }}words</span>
         </el-form-item>
 
         <el-form-item
           prop="content"
           style="margin-bottom: 30px"
         >
-          <!-- <Tinymce
+          <Tinymce
             v-if="tinymceActive"
             ref="editor"
-            v-model="postForm.fullContent"
+            :value="postForm.fullContent"
             :height="400"
-          /> -->
+          />
         </el-form-item>
 
-        <el-form-item
+        <!-- <el-form-item
           prop="imageURL"
           style="margin-bottom: 30px"
         >
           <UploadImage v-model="postForm.imageURL" />
-        </el-form-item>
+        </el-form-item> -->
       </div>
     </el-form>
   </div>
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, onMounted, defineComponent, onDeactivated, onActivated } from 'vue'
+import { reactive, toRefs, defineComponent, onDeactivated, onActivated, onBeforeMount, ref, unref, computed } from 'vue'
 import { isValidURL } from '@/utils/validate'
 import { getArticle, defaultArticleData } from '@/apis/articles'
 import { getUsers } from '@/apis/user'
 import { TagView } from '@/store/modules/tagsview/state'
 // import MaterialInput from '@/components/MaterialInput/index.vue'
-// import Sticky from '@/components/Sticky/index.vue'
-// import Tinymce from '@/components/Tinymce/index.vue'
+import Sticky from '@/components/sticky/index.vue'
+import Tinymce from '@/components/Tinymce/index.vue'
 // import UploadImage from '@/components/UploadImage/index.vue'
 import Warning from './Warning.vue'
-// import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown'
-// import { ElForm, ElMessage } from 'element-plus'
-import { ElMessage } from 'element-plus'
-
+import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown'
+import { ElMessage, ElForm } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import { TagsActionTypes } from '@/store/modules/tagsview/action-types'
@@ -176,22 +182,23 @@ export default defineComponent({
   props: {
     isEdit: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   components: {
-    // CommentDropdown,
-    // PlatformDropdown,
-    // SourceUrlDropdown,
+    CommentDropdown,
+    PlatformDropdown,
+    SourceUrlDropdown,
+    Sticky,
     // MaterialInput,
-    // Sticky,
-    // Tinymce,
+    Tinymce,
     // UploadImage,
     Warning
   },
 
   setup(_, ctx) {
     console.log(ctx)
+    const postFormNode = ref(ElForm)
     const validateRequire = (rule: any, value: string, callback: Function) => {
       if (value === '') {
         if (rule.field === 'imageURL') {
@@ -229,6 +236,7 @@ export default defineComponent({
 
     const tempTagView: TagView = {}
     const dataMap = reactive({
+      value: '',
       router: useRouter(),
       route: useRoute(),
       postForm: Object.assign({}, defaultArticleData),
@@ -247,18 +255,16 @@ export default defineComponent({
       },
       lang() {
         return store.state.app.language
-      },
+      }
       // set and get is useful when the data
       // returned by the backend api is different from the frontend
       // e.g.: backend return => "2013-06-25 06:59:25"
       //       frontend need timestamp => 1372114765000
-      timestamp() {
-        return (+new Date(this.postForm.timestamp))
-      },
-      timestamps(value: any) {
-        this.postForm.timestamp = +new Date(value)
-      }
 
+    })
+
+    const timestamp = computed(() => {
+      return (+new Date(dataMap.postForm.timestamp))
     })
 
     const setPageTitle = (title: string) => {
@@ -275,10 +281,16 @@ export default defineComponent({
     }
     const fetchData = async(id: any) => {
       try {
-        const data = await getArticle(id, { /* Your params here */ })
+        const data = await getArticle({ id })
         if (data) {
-          dataMap.postForm = data?.data.article
+          console.log(data.data)
+
+          dataMap.postForm = data.data
+          dataMap.postForm.author = data.data.author
         }
+
+        console.log(dataMap.postForm, 'authorauthorauthorauthorauthor')
+
         // Just for test
         dataMap.postForm.title += `   Article Id:${dataMap.postForm.id}`
         dataMap.postForm.abstractContent += `   Article Id:${dataMap.postForm.id}`
@@ -293,25 +305,25 @@ export default defineComponent({
     }
 
     const submitForm = () => {
-    //   (this.$refs.postForm as Form).validate(valid => {
-    //     if (valid) {
-    //       this.loading = true
-    //       this.$notify({
-    //         title: 'Success',
-    //         message: 'The post published successfully',
-    //         type: 'success',
-    //         duration: 2000
-    //       })
-    //       this.postForm.status = 'published'
-    //       // Just to simulate the time of the request
-    //       setTimeout(() => {
-    //         this.loading = false
-    //       }, 0.5 * 1000)
-    //     } else {
-    //       console.error('Submit Error!')
-    //       return false
-    //     }
-    //   })
+      const form = unref(postFormNode)
+      form.validate((valid: any) => {
+        if (valid) {
+          dataMap.loading = true
+          ElMessage.success({
+            message: 'The post published successfully',
+            type: 'success',
+            duration: 2000
+          })
+          dataMap.postForm.status = 'published'
+          // Just to simulate the time of the request
+          setTimeout(() => {
+            dataMap.loading = false
+          }, 0.5 * 1000)
+        } else {
+          console.error('Submit Error!')
+          return false
+        }
+      })
     }
 
     const draftForm = () => {
@@ -343,19 +355,19 @@ export default defineComponent({
     onActivated(() => {
       dataMap.tinymceActive = true
     })
-    onMounted(() => {
+    onBeforeMount(() => {
       if (_.isEdit) {
         const id = dataMap.route.params && dataMap.route.params.id
-
         fetchData(id)
       }
+
       // Why need to make a copy of this.$route here?
       // Because if you enter this page and quickly switch tag, may be in the execution of this.setTagsViewTitle function, this.$route is no longer pointing to the current page
       // https://github.com/PanJiaChen/vue-element-admin/issues/1221
       // tempTagView = Object.assign({}, dataMap.route)
     })
 
-    return { ...toRefs(dataMap), validateRequire, validateSourceUrl, fetchData, submitForm, setPageTitle, setTagsViewTitle, draftForm, getRemoteUserList }
+    return { ...toRefs(dataMap), validateRequire, validateSourceUrl, fetchData, submitForm, setPageTitle, setTagsViewTitle, draftForm, getRemoteUserList, postFormNode, timestamp }
   }
 })
 

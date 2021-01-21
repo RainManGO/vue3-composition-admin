@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:46:46
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-13 09:06:54
+ * @LastEditTime: 2021-01-20 11:51:10
  */
 
 import { post, prefix, get } from "../requestDecorator";
@@ -33,8 +33,8 @@ for (let i = 0; i < articleCount; i++) {
     pageviews: faker.random.number({ min: 300, max: 500 })
   })
 }
-@prefix('/table')
-export default class Table {
+@prefix('/article')
+export default class Article {
 
   @post('/articles')
   async getArticles(ctx: any) {
@@ -56,17 +56,12 @@ export default class Table {
     }
   }
 
-  @get('/article')
+  @get('/articleInfo')
   async getArticle(ctx: any) {
-    const { id } = ctx.params
+    const { id } = ctx.query
     for (const article of articleList) {
       if (article.id.toString() === id) {
-        return {
-          code: 20000,
-          data: {
-            article
-          }
-        }
+        return article
       }
     }
     return {
@@ -78,7 +73,7 @@ export default class Table {
   @post('/createArticle')
 
   createArticle(ctx: any) {
-    const { article } = ctx.body
+    const { article } = ctx.request.body
     return {
       code: 20000,
       data: {
