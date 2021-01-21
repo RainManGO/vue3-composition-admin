@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onActivated, onDeactivated } from 'vue'
-import Tinymce from '@/components/Tinymce/Index.vue'
+import Tinymce from '@/components/tinymce/Index.vue'
 
 export default defineComponent({
   components: {

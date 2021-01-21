@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: WJM
  * @Date: 2021-01-18 17:28:28
- * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 17:25:35
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 18:48:46
 -->
 <template>
   <div class="components-container">
@@ -34,7 +34,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import draggableSelect from '@/components/draggableselect/Index.vue'
+import draggableSelect from '@/components/draggable-select/Index.vue'
 
 export default defineComponent({
   components: {

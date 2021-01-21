@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-18 09:25:19
- * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 17:35:17
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 18:51:36
 -->
 <template>
   <div class="components-container">
@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onActivated, onDeactivated } from 'vue'
-import Tinymce from '@/components/Tinymce/Index.vue'
+import Tinymce from '@/components/tinymce/Index.vue'
 
 export default defineComponent({
   components: {
