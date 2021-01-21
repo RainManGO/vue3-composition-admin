@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-13 21:28:05
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 16:19:24
+ * @LastEditTime: 2021-01-21 16:42:54
 -->
 <template>
   <div class="components-container">
@@ -114,7 +114,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import BackTop from '@/components/backtop/backtop.vue'
+import BackTop from '@/components/backtop/Index.vue'
 
 export default defineComponent({
   components: {

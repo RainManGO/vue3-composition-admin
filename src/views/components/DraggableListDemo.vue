@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-18 17:28:28
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-20 16:02:39
+ * @LastEditTime: 2021-01-21 17:24:50
 -->
 <template>
   <div class="components-container">
@@ -12,7 +12,9 @@
       <a
         href="https://github.com/SortableJS/Vue.Draggable"
         target="_blank"
-      >Vue.Draggable</a>
+      >
+        Vue.Draggable
+      </a>
     </aside>
     <div class="editor-container">
       <DraggableList
@@ -27,13 +29,11 @@
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, toRefs } from 'vue'
 import { getArticles } from '@/apis/articles'
-import DraggableList from '@/components/draggablelist/index.vue'
-
+import DraggableList from '@/components/draggablelist/Index.vue'
 export default defineComponent({
   components: {
     DraggableList
   },
-
   setup() {
     const state = reactive({
       list1: [],
@@ -55,6 +55,3 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-
-</style>

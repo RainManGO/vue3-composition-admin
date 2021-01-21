@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-13 21:28:05
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-20 16:37:37
+ * @LastEditTime: 2021-01-21 17:21:09
 -->
 <template>
   <div class="components-container">
@@ -11,7 +11,9 @@
       <a
         href="https://github.com/PanJiaChen/vue-countTo"
         target="_blank"
-      >countTo-component</a>
+      >
+        countTo-component
+      </a>
     </aside>
     <CountTo
       ref="count"

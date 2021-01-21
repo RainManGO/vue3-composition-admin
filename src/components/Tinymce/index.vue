@@ -137,7 +137,6 @@ export default defineComponent({
         }
         return width
       }
-
     })
 
     const initOptions = ref(
@@ -200,26 +199,22 @@ export default defineComponent({
             dataMap.fullscreen = e.state
           })
         }
-
       }
     )
 
-    watch(
-      () => store.state.app.language,
-      () => {
-        const tinymceManager = (window as any).tinymce
-        const tinymceInstance = tinymceManager.get(props.id)
-        if (dataMap.fullscreen) {
-          tinymceInstance.execCommand('mceFullScreen')
-        }
-        if (tinymceInstance) {
-          tinymceInstance.destroy()
-        }
-        nextTick(() => {
-          tinymceManager.init(initOptions)
-        })
+    watch(() => store.state.app.language, () => {
+      const tinymceManager = (window as any).tinymce
+      const tinymceInstance = tinymceManager.get(props.id)
+      if (dataMap.fullscreen) {
+        tinymceInstance.execCommand('mceFullScreen')
       }
-    )
+      if (tinymceInstance) {
+        tinymceInstance.destroy()
+      }
+      nextTick(() => {
+        tinymceManager.init(initOptions)
+      })
+    })
 
     watch(() => dataMap.tinymceContent, (value) => {
       console.log(value)
@@ -240,23 +235,19 @@ export default defineComponent({
 .tinymce-container {
   position: relative;
   line-height: normal;
-
   .mce-fullscreen {
     z-index: 10000;
   }
 }
-
 .editor-custom-btn-container {
-    position: absolute !important;
-    right: 6px;
-    top: 6px;
-    z-index: 1002;
+  position: absolute !important;
+  right: 6px;
+  top: 6px;
+  z-index: 1002;
 }
-
 .editor-upload-btn {
   display: inline-block;
 }
-
 textarea {
   visibility: hidden;
   z-index: -1;
