@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-14 09:11:22
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-19 17:14:03
+ * @LastEditTime: 2021-01-21 16:20:36
 -->
 
 <template>
@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import Avatar from '@/components/avatar/avatar.vue'
+import Avatar from '@/components/avatar/Avatar.vue'
 
 export default defineComponent({
   components: {

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-13 21:30:42
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-19 18:16:24
+ * @LastEditTime: 2021-01-21 15:36:03
 -->
 <template>
   <ImageCropUpload
@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, getCurrentInstance, watch } from 'vue'
+import { computed, defineComponent } from 'vue'
 import ImageCropUpload from 'vue-image-crop-upload'
 import { AppModule } from '@/store/modules/app/app'
 
@@ -34,61 +34,62 @@ export default defineComponent({
   },
   props: {
     value: {
-      type: Boolean,
-      default: true
+      type!: Array,
+      required: true
     },
     url: {
-      type: String,
-      default!: ''
+      type!: String,
+      required: true
     },
     field: {
-      type: String,
-      default!: ''
+      type!: String,
+      required: true
     },
     width: {
-      type: Number,
+      type!: Number,
       default: 300
     },
     height: {
-      type: Number,
+      type!: Number,
       default: 300
     },
     params: {
-      type: Object,
+      type!: Object,
       default: () => null
     },
     headers: {
-      type: Object,
+      type!: Object,
       default: () => null
     }
   },
-  setup(props) {
-    const { ctx } = getCurrentInstance() as any
+  emits: ['input', 'src-file-set', 'crop-success', 'crop-upload-success', 'crop-upload-fail'],
+  setup(props, contex) {
     const languageTypeList: { [key: string]: string } = {
       en: 'en',
       zh: 'zh'
     }
-    const show = computed(() => {
-      return props.value
-    })
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    watch(() => show, (value) => {
-      ctx.emit('input', props.value)
+    const show = computed({
+      get: () => {
+        return props.value
+      },
+      set: (value) => {
+        contex.emit('input', [...value])
+      }
     })
     const language = computed(() => {
       return languageTypeList[AppModule.language]
     })
     const srcFileSet = (fileName: string, fileType: string, fileSize: number) => {
-      ctx.emit('src-file-set', fileName, fileType, fileSize)
+      contex.emit('src-file-set', fileName, fileType, fileSize)
     }
     const cropSuccess = (imgDataUrl: string, field: string) => {
-      ctx.emit('crop-success', imgDataUrl, field)
+      contex.emit('crop-success', imgDataUrl, field)
     }
     const cropUploadSuccess = (jsonData: any, field: string) => {
-      ctx.emit('crop-upload-success', jsonData, field)
+      contex.emit('crop-upload-success', jsonData, field)
     }
     const cropUploadFail = (status: boolean, field: string) => {
-      ctx.emit('crop-upload-fail', status, field)
+      contex.emit('crop-upload-fail', status, field)
     }
     return {
       show,
