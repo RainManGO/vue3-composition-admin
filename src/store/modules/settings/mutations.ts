@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 10:25:37
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 10:47:17
+ * @LastEditTime: 2021-01-20 17:12:28
  */
 import { MutationTree } from 'vuex'
 import { SettingsState } from './state'
@@ -17,9 +17,27 @@ export type Mutations<S = SettingsState> = {
 export const mutations: MutationTree<SettingsState> & Mutations = {
   [SettingsMutationTypes.CHANGE_SETTING](state: SettingsState, payload: { key: string, value: any }) {
     const { key, value } = payload
-    if (Object.prototype.hasOwnProperty.call(this, key)) {
-      (this as any)[key] = value
+    switch (key) {
+      case 'theme':
+        state.theme = value
+        break
+      case 'fixedHeader':
+        state.fixedHeader = value
+        break
+      case 'showSettings':
+        state.showSettings = value
+        break
+      case 'showSidebarLogo':
+        state.showSidebarLogo = value
+        break
+      case 'showTagsView':
+        state.showTagsView = value
+        break
+      case 'sidebarTextTheme':
+        state.sidebarTextTheme = value
+        break
+      default:
+        break
     }
   }
-
 }

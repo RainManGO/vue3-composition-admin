@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2021-01-13 21:28:05
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-14 09:19:18
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-21 13:57:00
 -->
 <template>
   <div class="components-container">
@@ -102,7 +102,7 @@
       <div>placeholder</div>
     </div>
     <!-- you can add element-ui's tooltip -->
-    <Test
+    <BackTop
       :customStyle="myBackToTopStyle"
       :visibilityHeight="300"
       :backPosition="50"
@@ -114,12 +114,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-// import BackToTop from '@/components/backtop/Index.vue'
-import Test from '@/components/backtop/test.vue'
+import BackTop from '@/components/backtop/backtop.vue'
 
 export default defineComponent({
   components: {
-    Test
+    BackTop
   },
   setup() {
     const { t } = useI18n()

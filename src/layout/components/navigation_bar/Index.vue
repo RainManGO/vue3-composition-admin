@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:52:19
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-07 16:52:57
+ * @LastEditTime: 2021-01-16 16:28:47
 -->
 <template>
   <div class="navbar">
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import BreadCrumb from '@/components/bread_crumb/Index.vue'
+import BreadCrumb from '@/components/bread-crumb/Index.vue'
 import Hamburger from '@/components/hamburger/Index.vue'
 import Screenfull from '@/components/screenfull/Index.vue'
 import LangSelect from '@/components/lang_select/Index.vue'

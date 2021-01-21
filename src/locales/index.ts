@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-18 15:23:57
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-07 08:45:11
+ * @LastEditTime: 2021-01-20 11:12:08
  */
 import { createI18n } from 'vue-i18n' // import from runtime only
 
@@ -41,7 +41,7 @@ export const getLocale = () => {
   }
 
   // Default language is english
-  return 'en'
+  return 'zh'
 }
 
 const i18n = createI18n({

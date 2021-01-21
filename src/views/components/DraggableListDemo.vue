@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: WJM
  * @Date: 2021-01-18 17:28:28
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-20 09:43:09
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-20 16:02:39
 -->
 <template>
   <div class="components-container">
@@ -15,24 +15,24 @@
       >Vue.Draggable</a>
     </aside>
     <div class="editor-container">
-      <!-- <DraggableList
+      <DraggableList
         :list1="list1"
         :list2="list2"
         list1-title="List"
         list2-title="Article pool"
-      /> -->
+      />
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onBeforeMount, reactive } from 'vue'
-// import { getArticles } from '@/apis/articles'
-// import DraggableList from '@/components/draggablelist/index.vue'
+import { defineComponent, onBeforeMount, reactive, toRefs } from 'vue'
+import { getArticles } from '@/apis/articles'
+import DraggableList from '@/components/draggablelist/index.vue'
 
 export default defineComponent({
-  // components: {
-  //   DraggableList
-  // },
+  components: {
+    DraggableList
+  },
 
   setup() {
     const state = reactive({
@@ -44,12 +44,12 @@ export default defineComponent({
       fetchData()
     })
     const fetchData = async() => {
-      // const { data } = await getArticles({ /* Your params here */ })
-      // state.list1 = data.items.splice(0, 5)
-      // state.list2 = data.items
+      const res: any = await getArticles({ /* Your params here */ })
+      state.list1 = res.data.items.splice(0, 5)
+      state.list2 = res.data.items
     }
     return {
-      state,
+      ...toRefs(state),
       fetchData
     }
   }

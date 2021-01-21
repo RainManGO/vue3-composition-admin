@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 10:04:59
+ * @LastEditTime: 2021-01-20 17:11:33
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -18,7 +18,7 @@
         :default-active="activeMenu"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
-        :active-text-color="variables.menuActiveText"
+        :active-text-color="menuActiveTextColor"
         mode="vertical"
       >
         <SidebarItem
@@ -55,10 +55,14 @@ export default defineComponent({
       return store.state.permission.routes
     })
     const showLogo = computed(() => {
+      console.log('xxxx')
+
       return store.state.settings.showSidebarLogo
     })
 
     const menuActiveTextColor = computed(() => {
+      console.log(store.state.settings.sidebarTextTheme)
+
       if (store.state.settings.sidebarTextTheme) {
         return store.state.settings.theme
       } else {
