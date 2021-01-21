@@ -21,8 +21,8 @@
           <div style="position:absolute;right:0px;">
             <span
               style="float: right ;margin-top: -20px;margin-right:5px;"
-              @click="deleteEle(element)"
             >
+              <!-- @click="deleteEle(element)" -->
               <i
                 style="color:#ff4949"
                 class="el-icon-delete"
@@ -47,9 +47,9 @@
           :key="element.id"
           class="list-complete-item"
         >
+          <!-- @click="pushEle(element)" -->
           <div
             class="list-complete-item-handle2"
-            @click="pushEle(element)"
           >
             {{ element.id }} [{{ element.author }}] {{ element.title }}
           </div>
@@ -60,76 +60,89 @@
 </template>
 
 <script lang="ts">
-// import { defineComponent, reactive } from 'vue'
-// import Draggable from 'vuedraggable'
-// import { IArticleData } from '@/apis/types'
+import { defineComponent, PropType } from 'vue'
+import { VueDraggableNext } from 'vue-draggable-next'
+import { ArticleData } from '@/apis/types'
 
-// export default defineComponent({
-//   components: {
-//     Draggable
-//   },
-//   props: {
-//     list1: {
-//       type!: IArticleData[],
-//       default: () => []
-//     },
-//     list2: {
-//       type!: IArticleData[],
-//       default: () => []
-//     },
-//     list1Title: {
-//       type!: String,
-//       default: 'list1'
-//     },
-//     list2Title: {
-//       type!: String,
-//       default: 'list2'
-//     },
-//     list1width: {
-//       type!: String,
-//       default: '48%'
-//     },
-//     list2width: {
-//       type!: String,
-//       default: '48%'
-//     },
-//   },
-//   setup(props) {
-//     const state = reactive({
-//       setStartVal: 0,
-//     })
-//     const isNotInList1 = (v: IArticleData) =>{
-//       return props.list1.every((k: { id: any }) => v.id !== k.id)
-//     }
-//     const isNotInList2 = (v: IArticleData) =>{
-//       return props.list2.every((k: { id: any }) => v.id !== k.id)
-//     }
-//     const deleteEle = (ele: IArticleData) => {
-//       for (const item of this.list1) {
-//         if (item.id === ele.id) {
-//           const index = this.list1.indexOf(item)
-//           this.list1.splice(index, 1)
-//           break
-//         }
-//       }
-//       if (this.isNotInList2(ele)) {
-//         this.list2.unshift(ele)
-//       }
-//     }
-//     const pushEle = (ele: IArticleData) => {
-//       for (const item of this.list2) {
-//         if (item.id === ele.id) {
-//           const index = this.list2.indexOf(item)
-//           this.list2.splice(index, 1)
-//           break
-//         }
-//       }
-//       if (this.isNotInList1(ele)) {
-//         this.list1.push(ele)
-//       }
-//     }
-//   }
-// })
+export default defineComponent({
+  components: {
+    draggable: VueDraggableNext
+  },
+  props: {
+    list1: {
+      type: [] as PropType<Array<ArticleData>>,
+      default: () => {
+        return []
+      }
+    },
+    list2: {
+      type: [] as PropType<Array<ArticleData>>,
+      default: () => {
+        return []
+      }
+    },
+    list1Title: {
+      type: String,
+      default: 'list1'
+    },
+    list2Title: {
+      type: String,
+      default: 'list2'
+    },
+    list1width: {
+      type: String,
+      default: '48%'
+    },
+    list2width: {
+      type: String,
+      default: '48%'
+    }
+  },
+  setup(props) {
+    const isNotInList1 = (v: ArticleData) => {
+      return props.list1.every((k: any) => v.id !== k.id)
+    }
+    const isNotInList2 = (v: ArticleData) => {
+      return props.list2.every((k: any) => v.id !== k.id)
+    }
+    const deleteEle = (ele: ArticleData) => {
+      for (const item of props.list1) {
+        if (item.id === ele.id) {
+          const index = props.list1.indexOf(item)
+          // eslint-disable-next-line vue/no-mutating-props
+          props.list1.splice(index, 1)
+          break
+        }
+      }
+      if (isNotInList2(ele)) {
+        // eslint-disable-next-line vue/no-mutating-props
+        props.list2.unshift(ele)
+      }
+    }
+    const pushEle = (ele: ArticleData) => {
+      console.log('ele', ele)
+      for (const item of props.list2) {
+        console.log('item', item)
+        if (item.id === ele.id) {
+          const index = props.list2.indexOf(item)
+          // eslint-disable-next-line vue/no-mutating-props
+          props.list2.splice(index, 1)
+          break
+        }
+      }
+      if (isNotInList1(ele)) {
+        // eslint-disable-next-line vue/no-mutating-props
+        props.list1.push(ele)
+      }
+    }
+    return {
+      deleteEle,
+      pushEle,
+      isNotInList1,
+      isNotInList2
+    }
+  }
+})
 
 </script>
 
