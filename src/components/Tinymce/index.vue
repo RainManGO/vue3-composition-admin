@@ -248,9 +248,9 @@ export default defineComponent({
 
 .editor-custom-btn-container {
     position: absolute !important;
-  right: 6px;
-  top: 6px;
-  z-index: 1002;
+    right: 6px;
+    top: 6px;
+    z-index: 1002;
 }
 
 .editor-upload-btn {
