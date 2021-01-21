@@ -2,12 +2,12 @@ import { Directive } from 'vue'
 
 export const elDraggableDialog: Directive = {
   beforeMount(el, _, vnode) {
-    const dragDom = el.querySelector('.el-dialog') as HTMLElement
-    const dialogHeaderEl = el.querySelector('.el-dialog__header') as HTMLElement
+    const dragDom = document.querySelector('.el-dialog') as HTMLElement
+    const dialogHeaderEl = document.querySelector('.el-dialog__header') as HTMLElement
+    dragDom.style.backgroundColor = '#eeeeee'
     dragDom.style.cssText += ';top:0px;'
-    dialogHeaderEl.style.cssText += ';cursor:move;'
-
-    dialogHeaderEl.onmousedown = (e) => {
+    dialogHeaderEl.style.cssText += ';cursor:move'
+    dialogHeaderEl.onmousedown = (e: any) => {
       const disX = e.clientX - dialogHeaderEl.offsetLeft
       const disY = e.clientY - dialogHeaderEl.offsetTop
 
