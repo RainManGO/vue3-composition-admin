@@ -10,7 +10,7 @@
       上传
     </el-button>
     <el-dialog
-      v-model:visible="dialogVisible"
+      v-model="dialogVisible"
       :modal-append-to-body="false"
     >
       <el-upload
@@ -67,7 +67,7 @@ export default defineComponent({
   setup(_, ctx) {
     let listObj: { [key: string]: UploadObject } = {}
     const dataMap = reactive({
-      dialogVisible: true,
+      dialogVisible: false,
       defaultFileList: [],
       checkAllSuccess: () => {
         return Object.keys(listObj).every(item => listObj[item].hasSuccess)
@@ -118,6 +118,17 @@ export default defineComponent({
             height: img.height
           }
         }
+      },
+      handleSubmit() {
+        const arr = Object.keys(listObj).map(v => listObj[v])
+        if (!dataMap.checkAllSuccess()) {
+          ElMessage.warning('Please wait for all images to be uploaded successfully. If there is a network problem, please refresh the page and upload again!')
+          return
+        }
+        ctx.emit('success-callback', arr)
+        listObj = {}
+        dataMap.defaultFileList = []
+        dataMap.dialogVisible = false
       }
     })
 
