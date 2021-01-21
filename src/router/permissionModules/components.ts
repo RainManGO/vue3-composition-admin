@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: WJM
  * @Date: 2021-01-11 15:13:20
- * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 13:48:57
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 17:47:16
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -21,7 +21,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'tinymce',
-        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components/tinymceModules.vue'),
+        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components-demo/TinymceModules.vue'),
         name: 'TinymceDemo',
         meta: { title: 'tinymce' }
       },
@@ -29,7 +29,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'back-to-top',
         component: () =>
           import(
-            /* webpackChunkName: "BackToTop" */ '@/views/components/BackToTopDemo.vue'
+            /* webpackChunkName: "BackToTop" */ '@/views/components-demo/BackToTopDemo.vue'
           ),
         name: 'BackToTopDemo',
         meta: {
@@ -41,7 +41,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'avatar-upload',
         component: () =>
           import(
-            /* webpackChunkName: "AvatarUpload" */ '@/views/components/AvatarUpload.vue'
+            /* webpackChunkName: "AvatarUpload" */ '@/views/components-demo/AvatarUpload.vue'
           ),
         name: 'AvatarUploadDemo',
         meta: {
@@ -53,7 +53,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'dropzone',
         component: () =>
           import(
-            /* webpackChunkName: "AvatarUpload" */ '@/views/components/DropzoneDemo.vue'
+            /* webpackChunkName: "AvatarUpload" */ '@/views/components-demo/DropzoneDemo.vue'
           ),
         name: 'DropzoneDemo',
         meta: {
@@ -65,7 +65,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'count-to',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/CountToDemo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components-demo/CountToDemo.vue'
           ),
         name: 'CountToDemo',
         meta: {
@@ -77,7 +77,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'sticky',
         component: () =>
           import(
-            /* webpackChunkName: "sticky" */ '@/views/components/StickyDemo.vue'
+            /* webpackChunkName: "sticky" */ '@/views/components-demo/StickyDemo.vue'
           ),
         name: 'StickyDemo',
         meta: {
@@ -87,13 +87,13 @@ const componentsRouter: Array<RouteRecordRaw> = [
       },
       {
         path: 'draggable-dialog',
-        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components/draggableDialog.vue'),
+        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components-demo/DraggableDialog.vue'),
         name: 'DraggableDialogDemo',
         meta: { title: 'draggableDialog' }
       },
       {
         path: 'draggable-kanban',
-        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components/DraggableKanBan.vue'),
+        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components-demo/DraggableKanBan.vue'),
         name: 'DraggableKanbanDemo',
         meta: { title: 'draggableKanban' }
       },
@@ -101,7 +101,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'draggable-list',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/DraggableListDemo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components-demo/DraggableListDemo.vue'
           ),
         name: 'DraggableListDemo',
         meta: {
@@ -113,7 +113,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'draggable-select',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/DraggableSelectDemo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components-demo/DraggableSelectDemo.vue'
           ),
         name: 'DraggableSelectDemo',
         meta: {

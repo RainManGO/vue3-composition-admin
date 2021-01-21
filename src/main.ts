@@ -3,11 +3,11 @@
  * @Autor: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-04 10:33:47
+ * @LastEditTime: 2021-01-21 17:37:23
  */
 import { createApp, Directive } from 'vue'
 import App from './App.vue'
-import './pwa/registerServiceWorker'
+// import './pwa/registerServiceWorker'
 import router from './router'
 import { store } from './store'
 import { loadAllPlugins } from './plugins'
