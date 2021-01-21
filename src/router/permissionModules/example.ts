@@ -9,7 +9,7 @@ const ExampleRouter: Array<RouteRecordRaw> = [
     redirect: '/example/list',
     meta: {
       title: 'example',
-      icon: 'example'
+      icon: '#iconxuanzhongquanbuyangshishili'
     },
     children: [
       {

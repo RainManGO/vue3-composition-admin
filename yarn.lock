@@ -874,6 +874,36 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@dragndrop/draggable@0.1.6", "@dragndrop/draggable@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npm.taobao.org/@dragndrop/draggable/download/@dragndrop/draggable-0.1.6.tgz#6a30c280f33e9ac181f0e4b0b8cdccb07828fa91"
+  integrity sha1-ajDCgPM+msGB8OSwuM3MsHgo+pE=
+  dependencies:
+    "@material/base" "^3.1.0"
+    "@material/dom" "^3.1.0"
+    "@types/smoothscroll-polyfill" "^0.3.1"
+    smoothscroll-polyfill "^0.4.4"
+    tslib "^1.9.3"
+
+"@dragndrop/dropzone@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npm.taobao.org/@dragndrop/dropzone/download/@dragndrop/dropzone-0.1.6.tgz#41ae940ae5d5c0ee81d40b808c28cfb5574c02e2"
+  integrity sha1-Qa6UCuXVwO6B1AuAjCjPtVdMAuI=
+  dependencies:
+    "@dragndrop/draggable" "^0.1.6"
+    "@material/base" "^3.1.0"
+    "@material/dom" "^3.1.0"
+    tslib "^1.9.3"
+
+"@dragndrop/vue-dropzone@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npm.taobao.org/@dragndrop/vue-dropzone/download/@dragndrop/vue-dropzone-0.0.4.tgz#22eece68ecbdfbd4073a0feea17835a7fa263789"
+  integrity sha1-Iu7OaOy9+9QHOg/uoXg1p/omN4k=
+  dependencies:
+    "@dragndrop/draggable" "0.1.6"
+    "@dragndrop/dropzone" "0.1.6"
+    "@material/dom" "^4.0.0"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npm.taobao.org/@hapi/address/download/@hapi/address-2.1.4.tgz?cache=0&sync_timestamp=1603524710662&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Faddress%2Fdownload%2F%40hapi%2Faddress-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -1100,6 +1130,27 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
+
+"@material/base@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.npm.taobao.org/@material/base/download/@material/base-3.1.0.tgz#ab933896ab6390d4e1d2f9797b74a90f47db272a"
+  integrity sha1-q5M4lqtjkNTh0vl5e3SpD0fbJyo=
+  dependencies:
+    tslib "^1.9.3"
+
+"@material/dom@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.npm.taobao.org/@material/dom/download/@material/dom-3.1.0.tgz#1e58cad0cd5e1d9d6f6cb07422e327ad34a9d405"
+  integrity sha1-HljK0M1eHZ1vbLB0IuMnrTSp1AU=
+  dependencies:
+    tslib "^1.9.3"
+
+"@material/dom@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npm.taobao.org/@material/dom/download/@material/dom-4.0.0.tgz#f0e68c4429e555040304c958bb3e11614276fdfa"
+  integrity sha1-8OaMRCnlVQQDBMlYuz4RYUJ2/fo=
+  dependencies:
+    tslib "^1.9.3"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1503,6 +1554,11 @@
   version "2.3.2"
   resolved "https://registry.npm.taobao.org/@types/sizzle/download/@types/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
   integrity sha1-qBG4wY4rq6t9VCszZYh64uTZ3kc=
+
+"@types/smoothscroll-polyfill@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.npm.taobao.org/@types/smoothscroll-polyfill/download/@types/smoothscroll-polyfill-0.3.1.tgz#77fb3a6e116bdab4a5959122e3b8e201224dcd49"
+  integrity sha1-d/s6bhFr2rSllZEi47jiASJNzUk=
 
 "@types/sortablejs@^1.10.6":
   version "1.10.6"
@@ -8160,6 +8216,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash-es@^4.17.15:
+  version "4.17.20"
+  resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
+  integrity sha1-KfYzLu/GDoSfhpwmS8cRJq1h6Pc=
+
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/lodash._reinterpolate/download/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -11054,6 +11115,11 @@ slice-ansi@^2.1.0:
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
 
+smoothscroll-polyfill@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.npm.taobao.org/smoothscroll-polyfill/download/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
+  integrity sha1-OiWRMdxpMObKgAA+HLA7YDtpq/g=
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/snapdragon-node/download/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -11903,7 +11969,7 @@ tryer@^1.0.1:
   resolved "https://registry.npm.taobao.org/tryer/download/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
   integrity sha1-8shUBoALmw90yfdGW4HqrSQSUvg=
 
-ts-jest@^24.0.0, ts-jest@^24.2.0:
+ts-jest@^24.2.0:
   version "24.3.0"
   resolved "https://registry.npm.taobao.org/ts-jest/download/ts-jest-24.3.0.tgz?cache=0&sync_timestamp=1606403053019&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fts-jest%2Fdownload%2Fts-jest-24.3.0.tgz#b97814e3eab359ea840a1ac112deae68aa440869"
   integrity sha1-uXgU4+qzWeqEChrBEt6uaKpECGk=
@@ -11989,9 +12055,9 @@ tslib@1.10.0:
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-tslib@^1.10.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.10.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.14.1"
-  resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1602286724979&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1609887581211&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
 tslint@^5.20.1:
@@ -12343,6 +12409,11 @@ vue-cli-plugin-style-resources-loader@^0.1.4:
   resolved "https://registry.npmjs.org/vue-cli-plugin-style-resources-loader/-/vue-cli-plugin-style-resources-loader-0.1.4.tgz#6087a86132ea8125aa89e5f8e0a978fbc8cf6f59"
   integrity sha512-aK2TyVThZO6oVPZJpCckha8ALcg1RXKYLNqtuy1fNv+24x6zGWKpSK+FHAo47B7yeRlFS9DbKo+cvUFMqWaZ7Q==
 
+vue-count-to@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.npm.taobao.org/vue-count-to/download/vue-count-to-1.0.13.tgz#3e7573ea6e64c2b2972f64e0a2ab2e23c7590ff3"
+  integrity sha1-PnVz6m5kwrKXL2TgoqsuI8dZD/M=
+
 vue-draggable-next@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/vue-draggable-next/download/vue-draggable-next-2.0.1.tgz#bb64efb302c7b8e759fd3f21427871789b624c67"
@@ -12398,16 +12469,16 @@ vue-jest@^3.0.5:
     tsconfig "^7.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-jest@^5.0.0-0:
-  version "5.0.0-alpha.7"
-  resolved "https://registry.npm.taobao.org/vue-jest/download/vue-jest-5.0.0-alpha.7.tgz?cache=0&sync_timestamp=1606792330282&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-jest%2Fdownload%2Fvue-jest-5.0.0-alpha.7.tgz#e5a1eb376afae4a5b4b207218befc3614369eaa9"
-  integrity sha1-5aHrN2r65KW0sgchi+/DYUNp6qk=
+vue-jest@^5.0.0-alpha.8:
+  version "5.0.0-alpha.8"
+  resolved "https://registry.npm.taobao.org/vue-jest/download/vue-jest-5.0.0-alpha.8.tgz?cache=0&sync_timestamp=1610928115934&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-jest%2Fdownload%2Fvue-jest-5.0.0-alpha.8.tgz#45b12335dbb73c9ab8309f1e24b2fc8781d519f9"
+  integrity sha1-RbEjNdu3PJq4MJ8eJLL8h4HVGfk=
   dependencies:
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
     chalk "^2.1.0"
     convert-source-map "^1.6.0"
     extract-from-css "^0.4.4"
-    ts-jest "^24.0.0"
+    tsconfig "^7.0.0"
 
 "vue-loader-v16@npm:vue-loader@^16.0.0-beta.7":
   version "16.1.1"
@@ -12451,6 +12522,14 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
+
+vue3-count-to@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npm.taobao.org/vue3-count-to/download/vue3-count-to-1.0.7.tgz#27b15a335c2942a533246d934d94eaf5975cf1c3"
+  integrity sha1-J7FaM1wpQqUzJG2TTZTq9Zdc8cM=
+  dependencies:
+    lodash-es "^4.17.15"
+    vue-count-to "^1.0.13"
 
 vue@^3.0.0:
   version "3.0.4"

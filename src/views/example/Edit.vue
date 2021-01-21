@@ -1,5 +1,12 @@
+<!--
+ * @Description:
+ * @Autor: scy😊
+ * @Date: 2021-01-20 10:13:52
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-20 11:52:22
+-->
 <template>
-  <ArticleDetail :is-edit="true" />
+  <ArticleDetail :isEdit="true" />
 </template>
 
 <script lang="ts">
