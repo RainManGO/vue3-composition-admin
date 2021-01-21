@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-10 16:12:54
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-04 09:42:27
+ * @LastEditTime: 2021-01-21 18:04:55
  */
 import { RouteRecordRaw } from 'vue-router'
 
@@ -11,7 +11,7 @@ const UserManagerRouter: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "userManager" */'@/views/user_manager/login/Index.vue')
+    component: () => import(/* webpackChunkName: "userManager" */'@/views/user-manager/login/Index.vue')
   }
 ]
 export default UserManagerRouter

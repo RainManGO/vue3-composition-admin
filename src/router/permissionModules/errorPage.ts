@@ -14,7 +14,7 @@ const ExampleRouter: Array<RouteRecordRaw> = [
     children: [
       {
         path: '401',
-        component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error_page/401.vue'),
+        component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'),
         name: 'Page401',
         meta: {
           title: 'page401',
@@ -23,7 +23,7 @@ const ExampleRouter: Array<RouteRecordRaw> = [
       },
       {
         path: '404',
-        component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error_page/404.vue'),
+        component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'),
         name: 'Page404',
         meta: {
           title: 'page404',

@@ -164,7 +164,7 @@
 <script lang="ts">
 import { reactive, toRefs, defineComponent, onDeactivated, onActivated, onBeforeMount, ref, unref, computed } from 'vue'
 import { isValidURL } from '@/utils/validate'
-import { getArticle, defaultArticleData } from '@/apis/articles'
+import { getArticle, defaultArticleModel } from '@/apis/articles'
 import { getUsers } from '@/apis/user'
 import { TagView } from '@/store/modules/tagsview/state'
 // import MaterialInput from '@/components/MaterialInput/index.vue'
@@ -239,7 +239,7 @@ export default defineComponent({
       value: '',
       router: useRouter(),
       route: useRoute(),
-      postForm: Object.assign({}, defaultArticleData),
+      postForm: Object.assign({}, defaultArticleModel),
       loading: false,
       userListOptions: [],
       rules: {

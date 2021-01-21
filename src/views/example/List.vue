@@ -109,14 +109,15 @@
 
 <script lang="ts">
 import { getArticles } from '@/apis/articles'
-import { ArticleData } from '@/apis/types'
+import { ArticleModel } from '@/model/articleModel'
+
 import { defineComponent, reactive, toRefs, onMounted } from 'vue'
 
 export default defineComponent({
   setup() {
     const dataMap = reactive({
       total: 0,
-      list: Array<ArticleData>(),
+      list: Array<ArticleModel>(),
       listLoading: true,
       listQuery: {
         page: 1,

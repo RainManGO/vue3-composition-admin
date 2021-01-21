@@ -88,7 +88,8 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from 'vue'
 import { getArticles } from '@/apis/articles'
-import { ArticleData } from '@/apis/types'
+import { ArticleModel } from '@/model/articleModel'
+
 export default defineComponent({
   props: {
     type: {
@@ -100,7 +101,7 @@ export default defineComponent({
   setup(_, ctx) {
     console.log('tabtabtabtabtabatabtabtab')
     const dataMap = reactive({
-      list: Array<ArticleData>(),
+      list: Array<ArticleModel>(),
       listQuery: {
         page: 1,
         limit: 5,

@@ -114,14 +114,15 @@
 
 <script lang="ts">
 import { reactive, defineComponent, nextTick, onMounted, toRefs } from 'vue'
-import { ArticleData } from '@/apis/types'
+import { ArticleModel } from '@/model/articleModel'
+
 import Sortable from 'sortablejs'
 import { getArticles } from '@/apis/articles'
 export default defineComponent({
   setup() {
     let sortable: Sortable | null = null
     const dataMap = reactive({
-      list: Array<ArticleData>(),
+      list: Array<ArticleModel>(),
       listLoading: true,
       total: 0,
       oldList: [0],

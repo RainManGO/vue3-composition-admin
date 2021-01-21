@@ -2,8 +2,13 @@
  * @Description:
  * @Author: ZY
  * @Date: 2021-01-14 09:11:22
+<<<<<<< HEAD:src/views/components-demo/AvatarUploadDemo.vue
  * @LastEditors: WJM
  * @LastEditTime: 2021-01-21 17:18:31
+=======
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 16:48:10
+>>>>>>> fix/npmslow:src/views/components-demo/AvatarUpload.vue
 -->
 
 <template>
