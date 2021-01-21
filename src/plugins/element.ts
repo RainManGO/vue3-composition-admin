@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 08:45:49
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 17:21:06
+ * @LastEditTime: 2021-01-20 11:27:03
  */
 
 // import {
@@ -38,12 +38,9 @@
  */
 import ElementPlus from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
-
-import '@/styles/element-variables.scss'
 import { useStore } from '@/store'
 export default function loadComponent(app: any) {
   app.use(ElementPlus, { size: useStore().state.app.size })
-
   // app.use(ElButton)
   // app.use(ElSelect)
   // app.use(ElBreadcrumb)
