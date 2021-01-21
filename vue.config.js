@@ -50,7 +50,6 @@ module.exports = {
       patterns: [
         path.resolve(__dirname, 'src/styles/_variables.scss'),
         path.resolve(__dirname, 'src/styles/_mixins.scss'),
-        path.resolve(__dirname, 'src/styles/element-variables.scss')
       ]
     }
   },
