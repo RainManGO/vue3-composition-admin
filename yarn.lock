@@ -8175,13 +8175,8 @@ locate-path@^5.0.0:
 
 lodash-es@^4.17.15:
   version "4.17.20"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
-  integrity sha1-KfYzLu/GDoSfhpwmS8cRJq1h6Pc=
-=======
   resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
   integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
->>>>>>> dev
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
@@ -12007,11 +12002,7 @@ tslib@1.10.0:
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-<<<<<<< HEAD
-tslib@^1.10.0, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
-=======
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
->>>>>>> dev
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1609887581211&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
@@ -12367,15 +12358,9 @@ vue-cli-plugin-style-resources-loader@^0.1.4:
 
 vue-count-to@^1.0.13:
   version "1.0.13"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/vue-count-to/download/vue-count-to-1.0.13.tgz#3e7573ea6e64c2b2972f64e0a2ab2e23c7590ff3"
-  integrity sha1-PnVz6m5kwrKXL2TgoqsuI8dZD/M=
-
-=======
   resolved "https://registry.npmjs.org/vue-count-to/-/vue-count-to-1.0.13.tgz#3e7573ea6e64c2b2972f64e0a2ab2e23c7590ff3"
   integrity sha512-6R4OVBVNtQTlcbXu6SJ8ENR35M2/CdWt3Jmv57jOUM+1ojiFmjVGvZPH8DfHpMDSA+ITs+EW5V6qthADxeyYOQ==
-  
->>>>>>> dev
+
 vue-draggable-next@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/vue-draggable-next/download/vue-draggable-next-2.0.1.tgz#bb64efb302c7b8e759fd3f21427871789b624c67"
@@ -12487,13 +12472,8 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
 
 vue3-count-to@^1.0.7:
   version "1.0.7"
-<<<<<<< HEAD
-  resolved "https://registry.npm.taobao.org/vue3-count-to/download/vue3-count-to-1.0.7.tgz#27b15a335c2942a533246d934d94eaf5975cf1c3"
-  integrity sha1-J7FaM1wpQqUzJG2TTZTq9Zdc8cM=
-=======
   resolved "https://registry.npmjs.org/vue3-count-to/-/vue3-count-to-1.0.7.tgz#27b15a335c2942a533246d934d94eaf5975cf1c3"
   integrity sha512-nYB9tgdRVHsiLV/JRD4dnpch1N3Ex4kXmxsCep58A68Kc9eOa2ttNhvq8WOo8PjSHd/WBuWmF/e33/Y4D4ILqg==
->>>>>>> dev
   dependencies:
     lodash-es "^4.17.15"
     vue-count-to "^1.0.13"

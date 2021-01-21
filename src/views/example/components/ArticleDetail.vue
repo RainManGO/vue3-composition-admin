@@ -10,9 +10,13 @@
         :z-index="10"
         :class-name="'sub-navbar ' + postForm.status"
       >
-        <CommentDropdown v-model="postForm.disableComment" />
-        <PlatformDropdown v-model="postForm.platforms" />
-        <SourceUrlDropdown v-model="postForm.sourceURL" />
+        <CommentDropdown
+          :value="postForm.disableComment"
+        />
+        <PlatformDropdown
+          :value="postForm.platforms"
+        />
+        <SourceUrlDropdown :value="postForm.sourceURL" />
         <el-button
           v-loading="loading"
           style="margin-left: 10px"
@@ -164,7 +168,7 @@ import { getArticle, defaultArticleData } from '@/apis/articles'
 import { getUsers } from '@/apis/user'
 import { TagView } from '@/store/modules/tagsview/state'
 // import MaterialInput from '@/components/MaterialInput/index.vue'
-// import Sticky from '@/components/Sticky/index.vue'
+import Sticky from '@/components/sticky/index.vue'
 import Tinymce from '@/components/Tinymce/index.vue'
 // import UploadImage from '@/components/UploadImage/index.vue'
 import Warning from './Warning.vue'
@@ -185,6 +189,7 @@ export default defineComponent({
     CommentDropdown,
     PlatformDropdown,
     SourceUrlDropdown,
+    Sticky,
     // MaterialInput,
     Tinymce,
     // UploadImage,
