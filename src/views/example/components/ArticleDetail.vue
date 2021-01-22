@@ -41,32 +41,14 @@
           <Warning />
 
           <el-col :span="24">
-            <el-form-item
-              style="margin-bottom: 40px"
-              prop="title"
+            <MaterialInput
+              v-model="postForm.title"
+              :maxlength="100"
+              name="name"
+              required
             >
-              <div>
-                <el-form-item
-                  style="margin-bottom: 40px"
-                  label-width="70px"
-                  label="Title:"
-                >
-                  <el-input
-                    v-model="postForm.title"
-                    :rows="1"
-                    type="textarea"
-                    class="article-textarea"
-                    autosize
-                    placeholder="Please enter the content"
-                  />
-                  <span
-                    v-show="abstractContentLength"
-                    class="word-counter"
-                  >{{ abstractContentLength() }}words</span>
-                </el-form-item>
-              </div>
-            </el-form-item>
-
+              Title
+            </MaterialInput>
             <div class="postInfo-container">
               <el-row>
                 <el-col :span="8">
@@ -178,7 +160,7 @@ import { isValidURL } from '@/utils/validate'
 import { getArticle, defaultArticleModel } from '@/apis/articles'
 import { getUsers } from '@/apis/user'
 import { TagView } from '@/store/modules/tagsview/state'
-// import MaterialInput from '@/components/MaterialInput/index.vue'
+import MaterialInput from '@/components/material-input/Index.vue'
 import Sticky from '@/components/sticky/Index.vue'
 import Tinymce from '@/components/Tinymce/Index.vue'
 // import UploadImage from '@/components/UploadImage/index.vue'
@@ -205,7 +187,7 @@ export default defineComponent({
     PlatformDropdown,
     SourceUrlDropdown,
     Sticky,
-    // MaterialInput,
+    MaterialInput,
     Tinymce,
     // UploadImage,
     Warning
@@ -429,6 +411,7 @@ export default defineComponent({
 
     .postInfo-container {
       position: relative;
+      margin-top: 50px;
       @include clearfix;
       margin-bottom: 10px;
 
