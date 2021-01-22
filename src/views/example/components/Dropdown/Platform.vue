@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-15 10:20:46
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-21 15:14:43
+ * @LastEditTime: 2021-01-22 10:55:58
 -->
 <template>
   <el-dropdown
@@ -20,6 +20,7 @@
         <el-checkbox-group
           v-model="platforms"
           style="padding: 5px 15px;"
+          @change="change"
         >
           <el-checkbox
             v-for="item in platformsOptions"
@@ -46,7 +47,7 @@ export default defineComponent({
     }
 
   },
-  emits: ['input'],
+  emits: ['formDropdown'],
   setup(props, ctx) {
     const dataMap = reactive({
 
@@ -59,10 +60,13 @@ export default defineComponent({
         get: () => {
           return props.value
         },
-        set: (value) => {
-          ctx.emit('input', value)
+        set: () => {
+          ctx.emit('formDropdown', props.value)
         }
-      })
+      }),
+      change: (val: any) => {
+        ctx.emit('formDropdown', val)
+      }
 
     })
 

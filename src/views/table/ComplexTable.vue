@@ -557,18 +557,20 @@ export default defineComponent({
         })
       },
       updateData() {
-        (dataForm.value as typeof ElForm).validate(async(valid: any) => {
+        const form = unref(dataForm)
+        form.validate(async(valid: any) => {
           if (valid) {
             const tempData = Object.assign({}, dataMap.tempArticleModel)
             tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
-            const data = await updateArticle(tempData.id, {
-              article: tempData
-            })
+            console.log(tempData)
+            const data = await updateArticle(tempData)
+
+            console.log(data, '-----------------')
             if (data) {
               const index = dataMap.list.findIndex(
-                (v) => v.id === data?.data.article.id
+                (v) => v.id === data.data.id
               )
-              dataMap.list.splice(index, 1, data?.data.article)
+              dataMap.list.splice(index, 1, data.data)
             }
 
             dataMap.dialogFormVisible = false

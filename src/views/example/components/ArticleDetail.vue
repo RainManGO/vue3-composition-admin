@@ -10,13 +10,15 @@
         :z-index="10"
         :class-name="'sub-navbar ' + postForm.status"
       >
-        <CommentDropdown
-          :value="postForm.disableComment"
-        />
+        <CommentDropdown :value="postForm.disableComment" />
         <PlatformDropdown
           :value="postForm.platforms"
+          @formDropdown="formDropdown"
         />
-        <SourceUrlDropdown :value="postForm.sourceURL" />
+        <SourceUrlDropdown
+          @inputUrl="inputUrl"
+          :value="postForm.sourceURL"
+        />
         <el-button
           v-loading="loading"
           style="margin-left: 10px"
@@ -43,19 +45,25 @@
               style="margin-bottom: 40px"
               prop="title"
             >
-              <!-- <MaterialInput
-                v-model="postForm.title"
-                :maxlength="100"
-                name="name"
-                required
-              >
-                Title
-              </MaterialInput> -->
               <div>
-                Title <input
-                  type="text"
-                  v-model="postForm.title"
+                <el-form-item
+                  style="margin-bottom: 40px"
+                  label-width="70px"
+                  label="Title:"
                 >
+                  <el-input
+                    v-model="postForm.title"
+                    :rows="1"
+                    type="textarea"
+                    class="article-textarea"
+                    autosize
+                    placeholder="Please enter the content"
+                  />
+                  <span
+                    v-show="abstractContentLength"
+                    class="word-counter"
+                  >{{ abstractContentLength() }}words</span>
+                </el-form-item>
               </div>
             </el-form-item>
 
@@ -149,30 +157,37 @@
             :height="400"
           />
         </el-form-item>
-
-        <!-- <el-form-item
-          prop="imageURL"
-          style="margin-bottom: 30px"
-        >
-          <UploadImage v-model="postForm.imageURL" />
-        </el-form-item> -->
       </div>
     </el-form>
   </div>
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, defineComponent, onDeactivated, onActivated, onBeforeMount, ref, unref, computed } from 'vue'
+import {
+  reactive,
+  toRefs,
+  defineComponent,
+  onDeactivated,
+  onActivated,
+  onBeforeMount,
+  ref,
+  unref,
+  computed
+} from 'vue'
 import { isValidURL } from '@/utils/validate'
 import { getArticle, defaultArticleModel } from '@/apis/articles'
 import { getUsers } from '@/apis/user'
 import { TagView } from '@/store/modules/tagsview/state'
 // import MaterialInput from '@/components/MaterialInput/index.vue'
 import Sticky from '@/components/sticky/Index.vue'
-import Tinymce from '@/components/tinymce/Index.vue'
+import Tinymce from '@/components/Tinymce/Index.vue'
 // import UploadImage from '@/components/UploadImage/index.vue'
 import Warning from './Warning.vue'
-import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown'
+import {
+  CommentDropdown,
+  PlatformDropdown,
+  SourceUrlDropdown
+} from './Dropdown'
 import { ElMessage, ElForm } from 'element-plus'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from '@/store'
@@ -236,12 +251,12 @@ export default defineComponent({
 
     const tempTagView: TagView = {}
     const dataMap = reactive({
-      value: '',
       router: useRouter(),
       route: useRoute(),
       postForm: Object.assign({}, defaultArticleModel),
       loading: false,
       userListOptions: [],
+      value: '',
       rules: {
         imageURL: [{ validator: validateRequire }],
         title: [{ validator: validateRequire }],
@@ -255,16 +270,21 @@ export default defineComponent({
       },
       lang() {
         return store.state.app.language
+      },
+      formDropdown: (val: any) => {
+        dataMap.postForm.platforms = val
+      },
+      inputUrl: (val: any) => {
+        dataMap.postForm.sourceURL = val
       }
       // set and get is useful when the data
       // returned by the backend api is different from the frontend
       // e.g.: backend return => "2013-06-25 06:59:25"
       //       frontend need timestamp => 1372114765000
-
     })
 
     const timestamp = computed(() => {
-      return (+new Date(dataMap.postForm.timestamp))
+      return +new Date(dataMap.postForm.timestamp)
     })
 
     const setPageTitle = (title: string) => {
@@ -290,6 +310,7 @@ export default defineComponent({
         }
 
         console.log(dataMap.postForm, 'authorauthorauthorauthorauthor')
+        dataMap.value = String(data?.data.timestamp)
 
         // Just for test
         dataMap.postForm.title += `   Article Id:${dataMap.postForm.id}`
@@ -327,7 +348,10 @@ export default defineComponent({
     }
 
     const draftForm = () => {
-      if (dataMap.postForm.fullContent.length === 0 || dataMap.postForm.title.length === 0) {
+      if (
+        dataMap.postForm.fullContent.length === 0 ||
+        dataMap.postForm.title.length === 0
+      ) {
         ElMessage.warning({
           message: 'Title and detail content are required',
           type: 'warning'
@@ -367,10 +391,21 @@ export default defineComponent({
       // tempTagView = Object.assign({}, dataMap.route)
     })
 
-    return { ...toRefs(dataMap), validateRequire, validateSourceUrl, fetchData, submitForm, setPageTitle, setTagsViewTitle, draftForm, getRemoteUserList, postFormNode, timestamp }
+    return {
+      ...toRefs(dataMap),
+      validateRequire,
+      validateSourceUrl,
+      fetchData,
+      submitForm,
+      setPageTitle,
+      setTagsViewTitle,
+      draftForm,
+      getRemoteUserList,
+      postFormNode,
+      timestamp
+    }
   }
 })
-
 </script>
 
 <style lang="scss">
