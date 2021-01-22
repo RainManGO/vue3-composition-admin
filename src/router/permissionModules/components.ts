@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: WJM
  * @Date: 2021-01-11 15:13:20
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 18:36:16
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-22 15:07:51
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -21,7 +21,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'tinymce',
-        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components-demo/TinymceModules.vue'),
+        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components-demo/TinymceModulesDemo.vue'),
         name: 'TinymceDemo',
         meta: { title: 'tinymce' }
       },
@@ -86,14 +86,26 @@ const componentsRouter: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: 'componentMixin',
+        component: () =>
+          import(
+            /* webpackChunkName: "componentMixin" */ '@/views/components-demo/MixinDemo.vue'
+          ),
+        name: 'MixinDemo',
+        meta: {
+          title: 'componentMixin',
+          noCache: true
+        }
+      },
+      {
         path: 'draggable-dialog',
-        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components-demo/DraggableDialog.vue'),
+        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components-demo/DraggableDialogDemo.vue'),
         name: 'DraggableDialogDemo',
         meta: { title: 'draggableDialog' }
       },
       {
         path: 'draggable-kanban',
-        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components-demo/DraggableKanBan.vue'),
+        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components-demo/DraggableKanBanDemo.vue'),
         name: 'DraggableKanbanDemo',
         meta: { title: 'draggableKanban' }
       },

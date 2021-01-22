@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-19 19:22:27
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-19 19:27:29
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-22 13:56:00
 -->
 <template>
   <div class="board-column">
@@ -12,7 +12,7 @@
     </div>
     <draggable
       :list="list"
-      @change="log"
+      v-bind="$attrs"
       class="board-column-content"
     >
       <div
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { VueDraggableNext } from 'vue-draggable-next'
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   components: {
     draggable: VueDraggableNext
@@ -52,14 +52,8 @@ export default defineComponent({
     }
 
   },
-  setup() {
-    const dataMap = reactive({
-      log: (event: any) => {
-        console.log(event)
-      }
-    })
-
-    return { ...toRefs(dataMap) }
+  setup(props) {
+    console.log(props)
   }
 })
 
