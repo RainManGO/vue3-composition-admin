@@ -20,9 +20,9 @@
           </div>
           <div style="position:absolute;right:0px;">
             <span
+              @click="deleteEle(element)"
               style="float: right ;margin-top: -20px;margin-right:5px;"
             >
-              <!-- @click="deleteEle(element)" -->
               <i
                 style="color:#ff4949"
                 class="el-icon-delete"
@@ -47,8 +47,8 @@
           :key="element.id"
           class="list-complete-item"
         >
-          <!-- @click="pushEle(element)" -->
           <div
+            @click="pushEle(element)"
             class="list-complete-item-handle2"
           >
             {{ element.id }} [{{ element.author }}] {{ element.title }}
