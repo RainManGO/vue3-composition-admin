@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2021-01-18 09:20:30
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 09:23:46
+ * @LastEditors: WJM
+ * @LastEditTime: 2021-01-22 14:57:45
 -->
 <template>
   <a
@@ -25,7 +25,7 @@ export default defineComponent({
       type: String,
       default: ''
     },
-    private: {
+    text: {
       type: String,
       default: 'vue3-compisition-admin'
     }
