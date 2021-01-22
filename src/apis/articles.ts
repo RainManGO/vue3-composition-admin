@@ -41,12 +41,8 @@ export const createArticle = (data: any) => {
   return https().request<RootObject<ArticleModel>>('article/createArticle', Method.POST, data, ContentType.json)
 }
 
-export interface ArticleId {
-  article: any
-}
-
-export const updateArticle = (id: number, data: any) => {
-  return https().request<RootObject<ArticleId>>(`articles/${id}`, Method.PUT, data, ContentType.json)
+export const updateArticle = (params: any) => {
+  return https().request<RootObject<ArticleModel>>('article/updateArticle', Method.POST, params, ContentType.json)
 }
 
 export const deleteArticle = (id: number) => {

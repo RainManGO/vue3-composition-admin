@@ -1,9 +1,9 @@
 <!--
  * @Description:
  * @Autor: scy😊
- * @Date: 2021-01-15 10:21:00
+ * @Date: 2021-01-21 16:34:34
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-21 15:14:19
+ * @LastEditTime: 2021-01-22 14:00:50
 -->
 <template>
   <el-dropdown
@@ -25,13 +25,10 @@
           prop="sourceURL"
         >
           <el-input
-            v-model="sourceURL"
-            placeholder="Please enter the content"
-          >
-            <template #prepend>
-              URL
-            </template>
-          </el-input>
+            v-model="myinput"
+            placeholder="请输入内容"
+            @change="changeVal"
+          />
         </el-form-item>
       </el-dropdown-menu>
     </template>
@@ -39,42 +36,26 @@
 </template>
 
 <script lang="ts">
-
-import { computed, defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 
 export default defineComponent({
   props: {
     value: {
-      type: Array,
-      default: () => {
-        return []
-      }
+      type: String,
+      default: ''
     }
   },
-  emits: ['input'],
+  emits: ['inputUrl'],
   setup(props, ctx) {
-    const sourceURL = computed({
-      get: () => {
-        return props.value
-      },
-      set: (value) => {
-        ctx.emit('input', value)
+    const dataMap = reactive({
+      myinput: props.value.length ? props.value : '',
+      changeVal: (val: any) => {
+        ctx.emit('inputUrl', val)
       }
-    }
+    })
 
-    )
-    return { sourceURL }
+    return { ...toRefs(dataMap) }
   }
+
 })
-// export default class extends Vue {
-//   @Prop({ required: true }) private value!: string
-
-//   get sourceURL() {
-//     return this.value
-//   }
-
-//   set sourceURL(value) {
-//     this.$emit('input', value)
-//   }
-// }
 </script>

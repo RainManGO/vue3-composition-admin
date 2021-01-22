@@ -88,7 +88,6 @@ export default class Article {
   }
 
   @post('/createArticle')
-
   createArticle(ctx: any) {
     const { article } = ctx.request.body
     return {
@@ -100,16 +99,11 @@ export default class Article {
   }
   @post('/updateArticle')
   updateArticle(ctx: any) {
-    const { id } = ctx.params
-    const { article } = ctx.body
+    const article  = ctx.request.body
+
     for (const v of articleList) {
-      if (v.id.toString() === id) {
-        return {
-          code: 20000,
-          data: {
-            article
-          }
-        }
+      if (v.id.toString() == article.id) {
+        return  article
       }
     }
     return {
