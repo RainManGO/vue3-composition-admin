@@ -1,8 +1,8 @@
 /*
- * @Description: 引导页
- * @Author: ZY
+ * @Description: 个人中心
+ * @Author: scy
  * @Date: 2021-01-21 20:13:03
- * @LastEditors: ZY
+ * @LastEditors: scy
  * @LastEditTime: 2021-01-21 21:24:27
  */
 import { RouteRecordRaw } from 'vue-router'
