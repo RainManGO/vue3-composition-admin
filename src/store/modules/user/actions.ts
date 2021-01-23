@@ -14,7 +14,7 @@ import { UserActionTypes } from './action-types'
 import { loginRequest, userInfoRequest } from '@/apis/user'
 import { removeToken, setToken } from '@/utils/cookies'
 import { PermissionActionType } from '../permission/action-types'
-import router from '@/router'
+import router, { resetRouter } from '@/router'
 import { RouteRecordRaw } from 'vue-router'
 
 type AugmentedActionContext = {
@@ -25,19 +25,19 @@ type AugmentedActionContext = {
 } & Omit<ActionContext<UserState, RootState>, 'commit'>
 
 export interface Actions {
-   [UserActionTypes.ACTION_LOGIN](
+  [UserActionTypes.ACTION_LOGIN](
     { commit }: AugmentedActionContext,
-    userInfo: { username: string, password: string}
-    ): void
+    userInfo: { username: string, password: string }
+  ): void
   [UserActionTypes.ACTION_RESET_TOKEN](
     { commit }: AugmentedActionContext
   ): void
-   [UserActionTypes.ACTION_GET_USER_INFO](
+  [UserActionTypes.ACTION_GET_USER_INFO](
     { commit }: AugmentedActionContext
   ): void
   [UserActionTypes.ACTION_CHANGE_ROLES](
     { commit }: AugmentedActionContext, role: string
-    ): void
+  ): void
   [UserActionTypes.ACTION_LOGIN_OUT](
     { commit }: AugmentedActionContext,
   ): void
@@ -46,7 +46,7 @@ export interface Actions {
 export const actions: ActionTree<UserState, RootState> & Actions = {
   async [UserActionTypes.ACTION_LOGIN](
     { commit }: AugmentedActionContext,
-    userInfo: { username: string, password: string}
+    userInfo: { username: string, password: string }
   ) {
     let { username, password } = userInfo
     username = username.trim()
@@ -106,6 +106,9 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
     { commit }: AugmentedActionContext
   ) {
     console.log(commit)
+    removeToken()
+    commit(UserMutationTypes.SET_TOKEN, '')
+    commit(UserMutationTypes.SET_ROLES, [])
+    resetRouter()
   }
-
 }
