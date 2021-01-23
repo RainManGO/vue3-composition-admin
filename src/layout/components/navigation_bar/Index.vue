@@ -54,7 +54,7 @@
             </router-link>
             <a
               target="_blank"
-              href="https://github.com/armour/vue-typescript-admin-template/"
+              href="https://github.com/rcyj-FED/vue3-composition-admin"
             >
               <el-dropdown-item>
                 {{ t("navbar.github") }}
@@ -93,7 +93,8 @@ import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
 import { UserActionTypes } from '@/store/modules/user/action-types'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
+import router from '@/router'
 export default {
   components: {
     BreadCrumb,
@@ -104,6 +105,7 @@ export default {
   },
   setup() {
     const store = useStore()
+    const route = useRoute()
     const { t } = useI18n()
     const sidebar = computed(() => {
       return store.state.app.sidebar
@@ -120,7 +122,7 @@ export default {
       },
       logout: () => {
         useStore().dispatch(UserActionTypes.ACTION_LOGIN_OUT)
-        useRouter().push(`/login?redirect=${useRoute().fullPath}`).catch(err => {
+        router.push(`/login?redirect=${route.fullPath}`).catch(err => {
           console.warn(err)
         })
       }
