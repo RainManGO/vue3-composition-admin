@@ -62,4 +62,9 @@ const router = createRouter({
   routes: constantRoutes
 })
 
+export function resetRouter() {
+  const newRouter = router;
+  (router as any).matcher = (newRouter as any).matcher // reset router
+}
+
 export default router

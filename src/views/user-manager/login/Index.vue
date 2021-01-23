@@ -9,7 +9,7 @@
 <template>
   <div class="login-container">
     <video
-      poster="../../../assets/images/login/video_cover.jpeg"
+      poster="../../../assets/images/login/video-cover.jpeg"
       loop
       autoplay
       muted

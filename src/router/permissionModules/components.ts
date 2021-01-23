@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-11 15:13:20
  * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 17:12:40
+ * @LastEditTime: 2021-01-22 15:07:51
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -21,7 +21,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'tinymce',
-        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components/TinymceModulesDemo.vue'),
+        component: () => import(/* webpackChunkName: "tinymce" */ '@/views/components-demo/TinymceModulesDemo.vue'),
         name: 'TinymceDemo',
         meta: { title: 'tinymce' }
       },
@@ -29,7 +29,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'back-to-top',
         component: () =>
           import(
-            /* webpackChunkName: "BackToTop" */ '@/views/components/BackToTopDemo.vue'
+            /* webpackChunkName: "BackToTop" */ '@/views/components-demo/BackToTopDemo.vue'
           ),
         name: 'BackToTopDemo',
         meta: {
@@ -65,7 +65,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'count-to',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/CountToDemo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components-demo/CountToDemo.vue'
           ),
         name: 'CountToDemo',
         meta: {
@@ -77,7 +77,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'sticky',
         component: () =>
           import(
-            /* webpackChunkName: "sticky" */ '@/views/components/StickyDemo.vue'
+            /* webpackChunkName: "sticky" */ '@/views/components-demo/StickyDemo.vue'
           ),
         name: 'StickyDemo',
         meta: {
@@ -86,14 +86,26 @@ const componentsRouter: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: 'componentMixin',
+        component: () =>
+          import(
+            /* webpackChunkName: "componentMixin" */ '@/views/components-demo/MixinDemo.vue'
+          ),
+        name: 'MixinDemo',
+        meta: {
+          title: 'componentMixin',
+          noCache: true
+        }
+      },
+      {
         path: 'draggable-dialog',
-        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components/DraggableDialogDemo.vue'),
+        component: () => import(/* webpackChunkName: "draggable-dialog" */ '@/views/components-demo/DraggableDialogDemo.vue'),
         name: 'DraggableDialogDemo',
         meta: { title: 'draggableDialog' }
       },
       {
         path: 'draggable-kanban',
-        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components/DraggableKanBanDemo.vue'),
+        component: () => import(/* webpackChunkName: "draggable-kanban" */ '@/views/components-demo/DraggableKanBanDemo.vue'),
         name: 'DraggableKanbanDemo',
         meta: { title: 'draggableKanban' }
       },
@@ -101,7 +113,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'draggable-list',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/DraggableListDemo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components-demo/DraggableListDemo.vue'
           ),
         name: 'DraggableListDemo',
         meta: {
@@ -113,7 +125,7 @@ const componentsRouter: Array<RouteRecordRaw> = [
         path: 'draggable-select',
         component: () =>
           import(
-            /* webpackChunkName: "CountTo" */ '@/views/components/DraggableSelectDemo.vue'
+            /* webpackChunkName: "CountTo" */ '@/views/components-demo/DraggableSelectDemo.vue'
           ),
         name: 'DraggableSelectDemo',
         meta: {

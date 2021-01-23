@@ -122,12 +122,13 @@
 <script lang="ts">
 import { reactive, toRefs, defineComponent, onMounted } from 'vue'
 import { getArticles } from '@/apis/articles'
-import { ArticleData } from '@/apis/types'
+import { ArticleModel } from '@/model/articleModel'
+
 import { ElMessage } from 'element-plus'
 export default defineComponent({
   setup() {
     const dataMap = reactive({
-      list: Array<ArticleData>(), // 表格数据
+      list: Array<ArticleModel>(), // 表格数据
       v: {}, // 是否可编辑
       listLoading: true, // 是否需要加载动画
       listQuery: { // 请求示例参数

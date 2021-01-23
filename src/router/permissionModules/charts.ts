@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:21:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-15 09:09:13
+ * @LastEditTime: 2021-01-21 21:26:26
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -16,7 +16,7 @@ const chartsRouter: Array<RouteRecordRaw> = [
     name: 'Charts',
     meta: {
       title: 'charts',
-      icon: '#iconzhuzhuangtu'
+      icon: '#iconchart1'
     },
     children: [
       {

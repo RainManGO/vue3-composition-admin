@@ -2,15 +2,32 @@
  * @Description:table列表接口
  * @Author: ZY
  * @Date: 2020-12-28 09:46:46
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-20 11:51:10
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 17:31:24
  */
 
 import { post, prefix, get } from "../requestDecorator";
 import faker from 'faker'
-import { ArticleData } from '../../src/apis/types'
 
-const articleList: ArticleData[] = []
+export interface ArticleModel {
+  id: number
+  status: string
+  title: string
+  abstractContent: string
+  fullContent: string
+  sourceURL: string
+  imageURL: string
+  timestamp: number
+  platforms: string[]
+  disableComment: boolean
+  importance: number
+  author: string
+  reviewer: string
+  type: string
+  pageviews: number
+}
+
+const articleList: ArticleModel[] = []
 const articleCount = 100
 const mockFullContent = '<p>I am testing data, I am testing data.</p><p><img src="https://wpimg.wallstcn.com/4c69009c-0fd4-4153-b112-6cb53d1cf943"></p>'
 
@@ -71,7 +88,6 @@ export default class Article {
   }
 
   @post('/createArticle')
-
   createArticle(ctx: any) {
     const { article } = ctx.request.body
     return {
@@ -83,16 +99,11 @@ export default class Article {
   }
   @post('/updateArticle')
   updateArticle(ctx: any) {
-    const { id } = ctx.params
-    const { article } = ctx.body
+    const article  = ctx.request.body
+
     for (const v of articleList) {
-      if (v.id.toString() === id) {
-        return {
-          code: 20000,
-          data: {
-            article
-          }
-        }
+      if (v.id.toString() == article.id) {
+        return  article
       }
     }
     return {

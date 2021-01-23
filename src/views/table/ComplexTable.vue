@@ -248,7 +248,7 @@
       <el-form
         ref="dataForm"
         :rules="rules"
-        :model="tempArticleData"
+        :model="tempArticleModel"
         label-position="left"
         label-width="100px"
         style="width: 400px; margin-left: 50px"
@@ -258,7 +258,7 @@
           prop="type"
         >
           <el-select
-            v-model="tempArticleData.type"
+            v-model="tempArticleModel.type"
             class="filter-item"
             placeholder="Please select"
           >
@@ -275,7 +275,7 @@
           prop="timestamp"
         >
           <el-date-picker
-            v-model="tempArticleData.timestamp"
+            v-model="tempArticleModel.timestamp"
             type="datetime"
             placeholder="Please pick a date"
           />
@@ -284,11 +284,11 @@
           :label="$t('table.title')"
           prop="title"
         >
-          <el-input v-model="tempArticleData.title" />
+          <el-input v-model="tempArticleModel.title" />
         </el-form-item>
         <el-form-item :label="$t('table.status')">
           <el-select
-            v-model="tempArticleData.status"
+            v-model="tempArticleModel.status"
             class="filter-item"
             placeholder="Please select"
           >
@@ -302,7 +302,7 @@
         </el-form-item>
         <el-form-item :label="$t('table.importance')">
           <el-rate
-            v-model="tempArticleData.importance"
+            v-model="tempArticleModel.importance"
             :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
             :max="3"
             style="margin-top: 8px"
@@ -310,7 +310,7 @@
         </el-form-item>
         <el-form-item :label="$t('table.remark')">
           <el-input
-            v-model="tempArticleData.abstractContent"
+            v-model="tempArticleModel.abstractContent"
             :autosize="{minRows: 2, maxRows: 4}"
             type="textarea"
             placeholder="Please input"
@@ -379,9 +379,10 @@ import {
   getPageviews,
   createArticle,
   updateArticle,
-  defaultArticleData
+  defaultArticleModel
 } from '@/apis/articles'
-import { ArticleData } from '@/apis/types'
+import { ArticleModel } from '@/model/articleModel'
+
 import { exportJson2Excel } from '@/utils/excel'
 import { formatJson } from '@/utils'
 // import Pagination from '@/components/Pagination/index.vue'
@@ -407,7 +408,7 @@ export default defineComponent({
     const dataForm = ref(ElForm)
     const dataMap = reactive({
       tableKey: 0,
-      list: Array<ArticleData>(),
+      list: Array<ArticleModel>(),
       total: 0,
       listLoading: true,
       listQuery: {
@@ -453,7 +454,7 @@ export default defineComponent({
         ]
       },
       downloadLoading: false,
-      tempArticleData: defaultArticleData,
+      tempArticleModel: defaultArticleModel,
       handleCurrentChange(page?: any) {
         dataMap.getList(page)
       },
@@ -507,12 +508,12 @@ export default defineComponent({
         const sort = dataMap.listQuery.sort
         return sort === `+${key}` ? 'ascending' : 'descending'
       },
-      resetTempArticleData() {
-        dataMap.tempArticleData = cloneDeep(defaultArticleData)
+      resetTempArticleModel() {
+        dataMap.tempArticleModel = cloneDeep(defaultArticleModel)
       },
       handleCreate() {
         console.log('添加了')
-        dataMap.resetTempArticleData()
+        dataMap.resetTempArticleModel()
         dataMap.dialogStatus = 'create'
         dataMap.dialogFormVisible = true
         nextTick(() => {
@@ -523,10 +524,10 @@ export default defineComponent({
         const form = unref(dataForm)
         form.validate(async(valid: any) => {
           if (valid) {
-            const articleData = dataMap.tempArticleData
-            articleData.id = Math.round(Math.random() * 100) + 1024 // mock a id
-            articleData.author = 'RCYJ_Scy'
-            const addData = await createArticle(articleData)
+            const ArticleModel = dataMap.tempArticleModel
+            ArticleModel.id = Math.round(Math.random() * 100) + 1024 // mock a id
+            ArticleModel.author = 'RCYJ_Scy'
+            const addData = await createArticle(ArticleModel)
 
             if (addData?.data.id) {
               alert(addData.data.id)
@@ -545,9 +546,9 @@ export default defineComponent({
       },
 
       handleUpdate(row: any) {
-        dataMap.tempArticleData = Object.assign({}, row)
-        dataMap.tempArticleData.timestamp = +new Date(
-          dataMap.tempArticleData.timestamp
+        dataMap.tempArticleModel = Object.assign({}, row)
+        dataMap.tempArticleModel.timestamp = +new Date(
+          dataMap.tempArticleModel.timestamp
         )
         dataMap.dialogStatus = 'update'
         dataMap.dialogFormVisible = true
@@ -556,18 +557,20 @@ export default defineComponent({
         })
       },
       updateData() {
-        (dataForm.value as typeof ElForm).validate(async(valid: any) => {
+        const form = unref(dataForm)
+        form.validate(async(valid: any) => {
           if (valid) {
-            const tempData = Object.assign({}, dataMap.tempArticleData)
+            const tempData = Object.assign({}, dataMap.tempArticleModel)
             tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
-            const data = await updateArticle(tempData.id, {
-              article: tempData
-            })
+            console.log(tempData)
+            const data = await updateArticle(tempData)
+
+            console.log(data, '-----------------')
             if (data) {
               const index = dataMap.list.findIndex(
-                (v) => v.id === data?.data.article.id
+                (v) => v.id === data.data.id
               )
-              dataMap.list.splice(index, 1, data?.data.article)
+              dataMap.list.splice(index, 1, data.data)
             }
 
             dataMap.dialogFormVisible = false

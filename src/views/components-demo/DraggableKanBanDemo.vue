@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: WJM
  * @Date: 2021-01-20 10:12:44
- * @LastEditors: WJM
- * @LastEditTime: 2021-01-21 17:23:59
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 18:45:50
 -->
 <template>
   <div class="components-container board">
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import DraggableKanban from '@/components/DraggableKanban/Index.vue'
+import DraggableKanban from '@/components/draggable-kanban/Index.vue'
 import { defineComponent, reactive, toRefs } from 'vue'
 export default defineComponent({
   components: {
