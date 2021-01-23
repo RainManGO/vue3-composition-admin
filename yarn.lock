@@ -878,7 +878,6 @@
   version "0.1.6"
   resolved "https://registry.npm.taobao.org/@dragndrop/draggable/download/@dragndrop/draggable-0.1.6.tgz#6a30c280f33e9ac181f0e4b0b8cdccb07828fa91"
   integrity sha1-ajDCgPM+msGB8OSwuM3MsHgo+pE=
-
   dependencies:
     "@material/base" "^3.1.0"
     "@material/dom" "^3.1.0"
@@ -890,7 +889,6 @@
   version "0.1.6"
   resolved "https://registry.npm.taobao.org/@dragndrop/dropzone/download/@dragndrop/dropzone-0.1.6.tgz#41ae940ae5d5c0ee81d40b808c28cfb5574c02e2"
   integrity sha1-Qa6UCuXVwO6B1AuAjCjPtVdMAuI=
-
   dependencies:
     "@dragndrop/draggable" "^0.1.6"
     "@material/base" "^3.1.0"
@@ -901,7 +899,6 @@
   version "0.0.4"
   resolved "https://registry.npm.taobao.org/@dragndrop/vue-dropzone/download/@dragndrop/vue-dropzone-0.0.4.tgz#22eece68ecbdfbd4073a0feea17835a7fa263789"
   integrity sha1-Iu7OaOy9+9QHOg/uoXg1p/omN4k=
-
   dependencies:
     "@dragndrop/draggable" "0.1.6"
     "@dragndrop/dropzone" "0.1.6"
@@ -1138,7 +1135,6 @@
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/@material/base/download/@material/base-3.1.0.tgz#ab933896ab6390d4e1d2f9797b74a90f47db272a"
   integrity sha1-q5M4lqtjkNTh0vl5e3SpD0fbJyo=
-
   dependencies:
     tslib "^1.9.3"
 
@@ -1146,7 +1142,6 @@
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/@material/dom/download/@material/dom-3.1.0.tgz#1e58cad0cd5e1d9d6f6cb07422e327ad34a9d405"
   integrity sha1-HljK0M1eHZ1vbLB0IuMnrTSp1AU=
-
   dependencies:
     tslib "^1.9.3"
 
@@ -1154,7 +1149,6 @@
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/@material/dom/download/@material/dom-4.0.0.tgz#f0e68c4429e555040304c958bb3e11614276fdfa"
   integrity sha1-8OaMRCnlVQQDBMlYuz4RYUJ2/fo=
-
   dependencies:
     tslib "^1.9.3"
 
@@ -1565,7 +1559,6 @@
   version "0.3.1"
   resolved "https://registry.npm.taobao.org/@types/smoothscroll-polyfill/download/@types/smoothscroll-polyfill-0.3.1.tgz#77fb3a6e116bdab4a5959122e3b8e201224dcd49"
   integrity sha1-d/s6bhFr2rSllZEi47jiASJNzUk=
-
 
 "@types/sortablejs@^1.10.6":
   version "1.10.6"
@@ -4772,6 +4765,11 @@ dotenv@^8.1.0, dotenv@^8.2.0:
   version "8.2.0"
   resolved "https://registry.npm.taobao.org/dotenv/download/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
+
+driver.js@^0.9.8:
+  version "0.9.8"
+  resolved "https://registry.npm.taobao.org/driver.js/download/driver.js-0.9.8.tgz#4b327f4537b1c9b9fb19419de86174be821ae32a"
+  integrity sha1-SzJ/RTexybn7GUGd6GF0voIa4yo=
 
 duplexer@^0.1.1:
   version "0.1.2"
@@ -11074,7 +11072,6 @@ smoothscroll-polyfill@^0.4.4:
   resolved "https://registry.npm.taobao.org/smoothscroll-polyfill/download/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
   integrity sha1-OiWRMdxpMObKgAA+HLA7YDtpq/g=
 
-
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/snapdragon-node/download/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -12015,7 +12012,6 @@ tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1609887581211&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
-
 tslint@^5.20.1:
   version "5.20.1"
   resolved "https://registry.npm.taobao.org/tslint/download/tslint-5.20.1.tgz?cache=0&sync_timestamp=1604074591345&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslint%2Fdownload%2Ftslint-5.20.1.tgz#e401e8aeda0152bc44dd07e614034f3f80c67b7d"
@@ -12429,7 +12425,6 @@ vue-jest@^5.0.0-alpha.8:
   version "5.0.0-alpha.8"
   resolved "https://registry.npm.taobao.org/vue-jest/download/vue-jest-5.0.0-alpha.8.tgz?cache=0&sync_timestamp=1610928115934&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-jest%2Fdownload%2Fvue-jest-5.0.0-alpha.8.tgz#45b12335dbb73c9ab8309f1e24b2fc8781d519f9"
   integrity sha1-RbEjNdu3PJq4MJ8eJLL8h4HVGfk=
-
   dependencies:
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
     chalk "^2.1.0"
