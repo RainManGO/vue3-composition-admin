@@ -3,7 +3,7 @@
  * @Autor: WJM
  * @Date: 2021-01-18 14:46:51
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 17:51:01
+ * @LastEditTime: 2021-01-21 21:22:25
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -15,7 +15,7 @@ const nestedRouter: Array<RouteRecordRaw> = [{
   name: 'Nested',
   meta: {
     title: 'nested',
-    icon: '#icontable'
+    icon: '#iconnested'
   },
   children: [
     {

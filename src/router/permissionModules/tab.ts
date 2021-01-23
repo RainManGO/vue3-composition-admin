@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:21:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 19:45:48
+ * @LastEditTime: 2021-01-21 21:22:52
  */
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -19,7 +19,7 @@ const tabRouter: Array<RouteRecordRaw> = [
         name: 'Tab',
         meta: {
           title: 'tab',
-          icon: '#iconliebiao'
+          icon: '#icontab'
         }
       }
     ]

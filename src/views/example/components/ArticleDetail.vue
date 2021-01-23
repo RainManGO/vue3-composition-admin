@@ -162,7 +162,7 @@ import { getUsers } from '@/apis/user'
 import { TagView } from '@/store/modules/tagsview/state'
 import MaterialInput from '@/components/material-input/Index.vue'
 import Sticky from '@/components/sticky/Index.vue'
-import Tinymce from '@/components/Tinymce/Index.vue'
+import Tinymce from '@/components/tinymce/Index.vue'
 // import UploadImage from '@/components/UploadImage/index.vue'
 import Warning from './Warning.vue'
 import {
