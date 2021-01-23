@@ -19,8 +19,6 @@
   "dependencies": {
     "@dragndrop/vue-dropzone": "0.0.4",
     "@tinymce/tinymce-vue": "^4.0.0",
-    "@types/faker": "^5.1.5",
-    "@types/koa2-cors": "^2.0.1",
     "axios-mapper": "^0.4.4",
     "chalk": "^4.1.0",
     "clipboard": "^2.0.6",
