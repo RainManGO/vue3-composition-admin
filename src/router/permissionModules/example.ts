@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: ZY
+ * @Date: 2021-01-21 20:32:56
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-21 21:21:28
+ */
 
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -9,7 +16,7 @@ const ExampleRouter: Array<RouteRecordRaw> = [
     redirect: '/example/list',
     meta: {
       title: 'example',
-      icon: '#iconxuanzhongquanbuyangshishili'
+      icon: '#iconexample'
     },
     children: [
       {
