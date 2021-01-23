@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/rcyj-FED/vue3-composition-admin-docs" target="_blank">
-    <img width="180" src="https://raw.githubusercontent.com/rcyj-FED/vue3-composition-admin/main/public/favicon.ico" alt="logo">
+    <img width="180" src="https://github.com/rcyj-FED/vue3-composition-admin-docs/blob/main/docs/.vuepress/public/icons/android-chrome-192x192.png" alt="logo">
   </a>
 </p>
 
