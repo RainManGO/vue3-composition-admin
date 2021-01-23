@@ -10,6 +10,9 @@ import ArticleDetail from './components/ArticleDetail.vue'
 export default defineComponent({
   components: {
     ArticleDetail
+  },
+  setup() {
+    console.log('create')
   }
 })
 </script>

@@ -41,9 +41,7 @@
               v-model="url"
               placeholder="Please enter the content"
             >
-              <template #prepend>
-                Url
-              </template>
+              URL
             </el-input>
           </el-dropdown-menu>
         </template>
