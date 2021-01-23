@@ -29,12 +29,27 @@
 项目都是出自于源于花裤衩大佬的 vue-element-admin。
 vue3 发布之后，性能和体积都在减小，composition api 增加了项目可读性，决定入坑，重写一遍加深练习以便以后使用。
 
+
 版本：
 
 vue2+js版本：[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 
 vue2+ts版本：[vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) 
 
+## Mock
+
+后台模拟服务器和其他版本不同，采用koa2+Faker进行模拟。
+
+- [Koa2]()
+
+## 亮点
+
+项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
+
+- vue3 + composition api
+- vue-router4.0 
+- vuex-4.0
+- vue-vue-i18n-next
 
 
 
