@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-07 11:41:22
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 17:16:06
+ * @LastEditTime: 2021-01-23 16:20:30
  */
 const { resolve } = require('path')
 const path = require('path')
@@ -36,13 +36,6 @@ module.exports = {
       warnings: true,
       errors: true,
     },
-  },
-  pwa: {
-    name: title,
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      swSrc: path.resolve(__dirname, 'src/pwa/service-worker.js')
-    }
   },
   pluginOptions: {
     'style-resources-loader': {
