@@ -10422,11 +10422,6 @@ regexpu-core@^4.7.1:
     unicode-match-property-ecmascript "^1.0.4"
     unicode-match-property-value-ecmascript "^1.2.0"
 
-register-service-worker@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.npm.taobao.org/register-service-worker/download/register-service-worker-1.7.1.tgz#6308347ac6c0af0f6c0b22ea5d59d25e836bc932"
-  integrity sha1-Ywg0esbArw9sCyLqXVnSXoNryTI=
-
 regjsgen@^0.5.1:
   version "0.5.2"
   resolved "https://registry.npm.taobao.org/regjsgen/download/regjsgen-0.5.2.tgz?cache=0&sync_timestamp=1590335923060&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fregjsgen%2Fdownload%2Fregjsgen-0.5.2.tgz#92ff295fb1deecbf6ecdab2543d207e91aa33733"
