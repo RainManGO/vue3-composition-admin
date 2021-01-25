@@ -3,7 +3,7 @@
  * @Autor: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 17:37:23
+ * @LastEditTime: 2021-01-25 18:09:02
  */
 import { createApp, Directive } from 'vue'
 import App from './App.vue'
@@ -20,6 +20,8 @@ import '@/permission'
 const app = createApp(App)
 // 加载所有插件
 loadAllPlugins(app)
+
+console.log(process.env.VUE_APP_BASE_API)
 
 // 自定义指令
 Object.keys(directives).forEach(key => {

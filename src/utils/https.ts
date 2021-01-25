@@ -3,15 +3,15 @@
  * @Author: ZY
  * @Date: 2020-12-28 14:45:32
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-29 15:13:00
+ * @LastEditTime: 2021-01-25 18:17:16
  */
 
 import { useStore } from '@/store'
 import HttpClient, { HttpClientConfig } from 'axios-mapper'
-
+import networkConfig from '@/config/default/net.config'
 const https = (hasToken: Boolean = true) => {
   const config: HttpClientConfig = {
-    baseURL: 'http://localhost:3000',
+    baseURL: networkConfig.host,
     headers: {
       token: hasToken ? useStore().state.user.token : ''
     }

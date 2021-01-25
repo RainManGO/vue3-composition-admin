@@ -11,7 +11,6 @@ const WebpackBar = require('webpackbar');
 const dayjs = require('dayjs')
 const time = dayjs().format('YYYY-M-D HH:mm:ss')
 process.env.VUE_APP_UPDATE_TIME = time
-
 const  {
   publicPath,
   assetsDir,
