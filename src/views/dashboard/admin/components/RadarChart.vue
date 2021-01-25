@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-18 11:23:22
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 15:55:52
+ * @LastEditTime: 2021-01-25 16:39:53
 -->
 <template>
   <div
@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, getCurrentInstance, onActivated, onBeforeUnmount, onDeactivated, onMounted, nextTick } from 'vue'
 import resize from '@/components/charts/mixins/resize'
-import { init, EChartsOption } from 'echarts'
+import { init } from 'echarts'
 
 const animationDuration = 3000
 export default defineComponent({
@@ -108,7 +108,7 @@ export default defineComponent({
           ],
           animationDuration: animationDuration
         }]
-      } as EChartsOption)
+      } as any)
       chart.value = radarChart
     }
 
