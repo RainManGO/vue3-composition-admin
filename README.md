@@ -43,7 +43,7 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
   - 统一技术标准
 
 
-## 亮点
+## HighLight
 
 项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
 
@@ -60,7 +60,17 @@ vue next 系列:
 - [vue-vue-i18n-next](https://github.com/panter/vue-i18next)
 
 
-## Mock
+## Document
+
+- [文档地址](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
+- [文档项目git地址](https://github.com/rcyj-FED/vue3-composition-admin-docs)
+
+
+## Setup
+
+项目主要是前端和mock server（node）
+
+### Mock
 
 后台模拟服务器和其他版本不同，采用koa2+Faker进行模拟。
 
@@ -72,5 +82,42 @@ vue next 系列:
 ```shell
      "mock": "cd mock && ts-node-dev mock.ts"
 ```
+
+### vue admin
+
+多环境启动：
+
+```shell
+    "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
+    "build:dev": "cross-env NODE_ENV=production  dotenv -e .env.dev.build vue-cli-service build",
+    "serve:test": "cross-env NODE_ENV=development dotenv -e .env.test.serve vue-cli-service serve",
+    "build:test": "cross-env NODE_ENV=production  dotenv -e .env.test.build vue-cli-service build",
+    "serve:prod": "cross-env NODE_ENV=development dotenv -e .env.prod.serve vue-cli-service serve",
+    "build:prod": "cross-env NODE_ENV=production  dotenv -e .env.prod.build vue-cli-service build",
+```
+
+
+快捷启动(同时启动前后端)：
+
+```shell
+    "start": "concurrently \"npm run mock\" \"npm run serve:dev\"",
+```
+
+
+
+
+## Browsers support
+
+Modern browsers and Internet Explorer 10+.
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
+| --------- | --------- | --------- | --------- |
+| IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions |
+
+## License
+
+[MIT](https://github.com/rcyj-FED/vue3-composition-admin/blob/main/LICENSE)
+
+Copyright (c) 2021-present 人才有价
 
 
