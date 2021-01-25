@@ -20,6 +20,7 @@
    <a href="https://github.com/npm/npm">
     <img src="https://img.shields.io/badge/npm-6.1.8-blue" alt="npm">
    </a>
+  [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/vue3Admin/community)
 </p>
 
 > vue3-composition-admin 是一个管理端模板解决方案，它是基于vue3,ts和element-plus，项目都是以composition api风格编写。
