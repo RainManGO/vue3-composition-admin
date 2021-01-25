@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2020-12-09 17:02:35
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-13 09:49:54
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-25 20:02:35
  */
 
 import Koa, { Context } from "koa";
@@ -21,7 +21,7 @@ const app = new Koa();
 app.use(cors());
 const router = new koaRouter();
 
-const port = 3000;
+const port = 3300;
 const log4 = log4js.getLogger();
 log4.level = "debug";
 

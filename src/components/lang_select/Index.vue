@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-23 20:06:29
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-06 17:31:14
+ * @LastEditTime: 2021-01-25 20:05:16
 -->
 <template>
   <div>
@@ -12,6 +12,7 @@
         class="icon"
         aria-hidden="true"
         font-size="20px"
+        :class="{'svg-color': isWhite}"
       >
         <use xlink:href="#iconlanguage" />
       </svg>
@@ -42,6 +43,12 @@ type Language = {
 }
 
 export default defineComponent({
+  props: {
+    isWhite: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
     const store = useStore()
     const { locale } = useI18n()
@@ -68,3 +75,9 @@ export default defineComponent({
 })
 
 </script>
+
+<style lang="scss" scoped>
+.svg-color{
+  fill: white;
+}
+</style>

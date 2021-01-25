@@ -16,7 +16,6 @@ const vueDefaultConfig = {
     titleSeparator: ' - ',
     titleReverse: false,
     devPort: '9999',
-    version: '1.0',
     abbreviation: 'vt2at',
     providePlugin: {},
     build7z: false,

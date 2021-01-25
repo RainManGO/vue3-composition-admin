@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-08 09?:45?:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-04 17:15:39
+ * @LastEditTime: 2021-01-25 19:58:42
  */
 
 import { Language, Environment, RouterSource, RouterMode, TokenStorageName } from '@/constant/settings'
@@ -55,6 +55,7 @@ export interface Settings{
   templateFolder?: string
   // 画廊布局和综合布局时，是否点击一级菜单默认开启第一个二级菜单
   openFirstMenu?: boolean,
+  version: string
 }
 
 const settings: Settings = {
@@ -103,7 +104,8 @@ const settings: Settings = {
   // 代码生成机生成在view下的文件夹名称
   templateFolder: 'project',
   // 画廊布局和综合布局时，是否点击一级菜单默认开启第一个二级菜单
-  openFirstMenu: true
+  openFirstMenu: true,
+  version: '1.0'
 }
 
 export default settings

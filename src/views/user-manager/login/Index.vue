@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 16:27:50
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 15:57:08
+ * @LastEditTime: 2021-01-25 20:05:34
 -->
 
 <template>
@@ -29,7 +29,10 @@
         <h3 class="title">
           {{ t("login.title") }}
         </h3>
-        <LangSelect class="set-language" />
+        <LangSelect
+          :isWhite="true"
+          class="set-language"
+        />
       </div>
 
       <el-form-item prop="username">
