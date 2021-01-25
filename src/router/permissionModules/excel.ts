@@ -16,7 +16,7 @@ const ExcelRouter: Array<RouteRecordRaw> = [
     redirect: '/excel/export-excel',
     meta: {
       title: 'excel',
-      icon: 'excel'
+      icon: '#iconexcel'
     },
     children: [
       {

@@ -23,7 +23,7 @@ const ZipeRouter: Array<RouteRecordRaw> = [
     redirect: '/zip/download',
     meta: {
       title: 'zip',
-      icon: 'zip',
+      icon: '#iconzip',
       alwaysShow: true // will always show the root menu
     },
     children: [
