@@ -3,10 +3,10 @@
  * @Author: ZY
  * @Date: 2020-12-09 11:15:59
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-09 11:44:48
+ * @LastEditTime: 2021-01-25 11:13:28
  */
 const vueDefaultConfig = {
-    publicPath: '',
+    publicPath: '/vue3-composition-admin',
     outputDir: 'dist',
     assetsDir: 'static',
     lintOnSave: true,
