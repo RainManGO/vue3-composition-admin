@@ -43,6 +43,23 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
   - 统一技术标准
 
 
+## 亮点
+
+项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
+
+项目采用技术:
+- vue3 + composition api
+- typescript3.9
+- sass (dart sass)
+- [echats5](https://github.com/apache/echarts)
+
+vue next 系列:
+- [element-plus](https://github.com/element-plus/element-plus)
+- [vue-router-next](https://github.com/vuejs/vue-router-next)
+- [vuex-4.0](https://github.com/vuejs/vuex)
+- [vue-vue-i18n-next](https://github.com/panter/vue-i18next)
+
+
 ## Mock
 
 后台模拟服务器和其他版本不同，采用koa2+Faker进行模拟。
@@ -55,20 +72,5 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
 ```shell
      "mock": "cd mock && ts-node-dev mock.ts"
 ```
-
-
-## 亮点
-
-项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
-
-- vue3 + composition api
-- vue-router4.0 
-- vuex-4.0
-- vue-vue-i18n-next
-
-
-
-
-
 
 
