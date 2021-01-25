@@ -86,7 +86,8 @@ vue next 系列:
      "mock": "cd mock && ts-node-dev mock.ts"
 ```
 
-在线测试地址：https://admin-tmpl-mock.rencaiyoujia.com/
+mock 需要部署到服务器，单独项目地址：https://github.com/rcyj-FED/admin-tmpl-mock
+mock在线测试地址：https://admin-tmpl-mock.rencaiyoujia.com/
 
 ### vue admin
 
