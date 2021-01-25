@@ -2,8 +2,8 @@
  * @Description: 侧边栏item
  * @Author: ZY
  * @Date: 2020-12-25 11:34:00
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 10:07:11
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-25 08:47:38
 -->
 
 <template>
@@ -24,7 +24,7 @@
             v-if="theOnlyOneChild.meta.icon"
             class="icon"
             aria-hidden="true"
-            font-size="16px"
+            font-size="17px"
           >
             <use :xlink:href="theOnlyOneChild.meta.icon" />
           </svg>
@@ -44,7 +44,7 @@
           v-if="item.meta && item.meta.icon"
           class="icon"
           aria-hidden="true"
-          font-size="20px"
+          font-size="16px"
         >
           <use :xlink:href="item.meta.icon" />
         </svg>
@@ -159,7 +159,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
 .el-submenu.is-active > .el-submenu__title {
   color: $subMenuActiveText !important;
 }

@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2021-01-08 19:32:52
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 21:24:04
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-23 15:55:22
  */
 
 import { RouteRecordRaw } from 'vue-router'
@@ -16,7 +16,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
     redirect: '/permission/directive',
     meta: {
       title: 'permission',
-      icon: '#iconlock',
+      icon: '#iconquanxian',
       roles: ['admin', 'editor'], // you can set roles in root nav
       alwaysShow: true // will always show the root menu
     },
