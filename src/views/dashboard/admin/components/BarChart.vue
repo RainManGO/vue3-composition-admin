@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-15 18:48:40
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 15:56:38
+ * @LastEditTime: 2021-01-26 09:22:43
 -->
 
 <template>
@@ -47,6 +47,8 @@ export default defineComponent({
     const animationDuration = 6000
 
     const initChart = () => {
+      console.log(ctx.$el)
+
       const barChart = init(ctx.$el as HTMLDivElement, 'macarons')
       barChart.setOption({
         tooltip: {

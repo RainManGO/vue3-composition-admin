@@ -596,7 +596,7 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: 'https://github.com/Armour/vue-typescript-admin-template',
+    path: 'https://github.com/rcyj-FED/vue3-composition-admin',
     meta: {
       title: 'externalLink',
       icon: 'link'

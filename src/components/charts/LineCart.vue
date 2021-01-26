@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-14 15:10:44
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 08:44:50
+ * @LastEditTime: 2021-01-26 09:22:09
 -->
 <template>
   <div
@@ -18,7 +18,6 @@ import { defineComponent, onActivated, onBeforeUnmount, onDeactivated, onMounted
 import resize from './mixins/resize'
 import { init, EChartsOption } from 'echarts'
 import * as echarts from 'echarts'
-import { } from 'process'
 export default defineComponent({
   props: {
     className: {

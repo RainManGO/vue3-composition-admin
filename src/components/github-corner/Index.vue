@@ -7,7 +7,7 @@
 -->
 <template>
   <a
-    href="https://github.com/armour/vue-typescript-admin-template"
+    href="https://github.com/rcyj-FED/vue3-composition-admin"
     target="_blank"
     class="github-corner"
     aria-label="View source on Github"
