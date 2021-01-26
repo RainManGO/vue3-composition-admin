@@ -133,7 +133,6 @@
           style="margin-bottom: 30px"
         >
           <Tinymce
-            v-if="tinymceActive"
             ref="editor"
             :value="postForm.fullContent"
             :height="400"
