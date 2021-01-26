@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-14 15:10:30
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-15 09:20:35
+ * @LastEditTime: 2021-01-26 08:44:41
 -->
 <template>
   <div
@@ -14,10 +14,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onActivated, onBeforeUnmount, onDeactivated, onMounted } from 'vue'
+import { defineComponent, onActivated, onBeforeUnmount, onDeactivated, onMounted, nextTick } from 'vue'
 import resize from './mixins/resize'
 import { init, EChartsOption } from 'echarts'
-import { nextTick } from 'process'
 export default defineComponent({
   props: {
     className: {
