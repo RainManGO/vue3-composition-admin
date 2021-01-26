@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-15 18:48:40
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 09:52:30
+ * @LastEditTime: 2021-01-26 09:57:33
 -->
 
 <template>
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, onActivated, onBeforeUnmount, onDeactivated, onMounted, nextTick } from 'vue'
+import { defineComponent, onActivated, onBeforeUnmount, onDeactivated, onMounted, nextTick } from 'vue'
 import resize from '@/components/charts/mixins/resize'
 import { init, EChartsOption } from 'echarts'
 export default defineComponent({
@@ -44,11 +44,8 @@ export default defineComponent({
       deactivated
     } = resize()
 
-    // const { ctx } = getCurrentInstance() as any
     const animationDuration = 6000
-
     const initChart = () => {
-      console.log(document.getElementById('homebarcharts'))
       const barChart = init(document.getElementById('homebarcharts') as HTMLDivElement, 'macarons')
       barChart.setOption({
         tooltip: {
