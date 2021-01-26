@@ -1,9 +1,9 @@
 /*
- * @Description:
+ * @Description:表格数据接口
  * @Autor: scy😊
  * @Date: 2021-01-12 11:31:47
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 17:38:14
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-23 17:15:26
  */
 import https from '@/utils/https'
 import { RootObject } from '@/model/rootObject'

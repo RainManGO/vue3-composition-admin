@@ -42,10 +42,10 @@
 
           <el-col :span="24">
             <MaterialInput
-              v-model="postForm.title"
               :maxlength="100"
               name="name"
               required
+              :value="postForm.title"
             >
               Title
             </MaterialInput>
