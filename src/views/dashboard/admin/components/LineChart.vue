@@ -3,17 +3,18 @@
  * @Author: ZY
  * @Date: 2021-01-18 09:31:32
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 15:41:05
+ * @LastEditTime: 2021-01-26 10:04:16
 -->
 <template>
   <div
+    id="homeLineCharts"
     :class="className"
     :style="{height: height, width: width}"
   />
 </template>
 
 <script lang="ts">
-import { nextTick, defineComponent, getCurrentInstance, onActivated, onBeforeUnmount, onDeactivated, onMounted, PropType, watchEffect } from 'vue'
+import { nextTick, defineComponent, onActivated, onBeforeUnmount, onDeactivated, onMounted, PropType, watchEffect } from 'vue'
 import resize from '@/components/charts/mixins/resize'
 import { init, EChartsOption } from 'echarts'
 
@@ -51,8 +52,6 @@ export default defineComponent({
       activated,
       deactivated
     } = resize()
-
-    const { ctx } = getCurrentInstance() as any
 
     const setOptions = (chartData: LineChartData) => {
       if (chart.value) {
@@ -130,7 +129,7 @@ export default defineComponent({
     })
 
     const initChart = () => {
-      const lineChart = init(ctx.$el as HTMLDivElement, 'macarons')
+      const lineChart = init(document.getElementById('homeLineCharts') as HTMLDivElement, 'macarons')
       setOptions(props.chartData)
       chart.value = lineChart
     }

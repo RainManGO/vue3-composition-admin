@@ -3,16 +3,17 @@
  * @Author: ZY
  * @Date: 2021-01-18 11:23:22
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-25 16:39:53
+ * @LastEditTime: 2021-01-26 10:05:57
 -->
 <template>
   <div
+    id="homeRadarCharts"
     :class="className"
     :style="{height: height, width: width}"
   />
 </template>
 <script lang="ts">
-import { defineComponent, getCurrentInstance, onActivated, onBeforeUnmount, onDeactivated, onMounted, nextTick } from 'vue'
+import { defineComponent, onActivated, onBeforeUnmount, onDeactivated, onMounted, nextTick } from 'vue'
 import resize from '@/components/charts/mixins/resize'
 import { init } from 'echarts'
 
@@ -43,10 +44,8 @@ export default defineComponent({
       deactivated
     } = resize()
 
-    const { ctx } = getCurrentInstance() as any
-
     const initChart = () => {
-      const radarChart = init(ctx.$el as HTMLDivElement, 'macarons')
+      const radarChart = init(document.getElementById('homeRadarCharts') as HTMLDivElement, 'macarons')
       radarChart.setOption({
         tooltip: {
           trigger: 'axis',

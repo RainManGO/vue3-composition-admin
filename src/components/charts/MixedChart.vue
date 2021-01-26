@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-14 15:11:02
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 08:45:02
+ * @LastEditTime: 2021-01-26 10:03:08
 -->
 
 <template>
@@ -26,7 +26,7 @@ export default defineComponent({
     },
     id: {
       type: String,
-      default: 'chart'
+      default: 'mixedChartsComponents'
     },
     width: {
       type: String,

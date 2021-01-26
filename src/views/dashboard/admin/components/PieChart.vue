@@ -3,10 +3,11 @@
  * @Author: ZY
  * @Date: 2021-01-18 11:08:53
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 15:56:06
+ * @LastEditTime: 2021-01-26 10:05:04
 -->
 <template>
   <div
+    id="homePieCharts"
     :class="className"
     :style="{height: height, width: width}"
   />
@@ -42,10 +43,8 @@ export default defineComponent({
       deactivated
     } = resize()
 
-    const { ctx } = getCurrentInstance() as any
-
     const initChart = () => {
-      const pieChart = init(ctx.$el as HTMLDivElement, 'macarons')
+      const pieChart = init(document.getElementById('homePieCharts') as HTMLDivElement, 'macarons')
       pieChart.setOption({
         tooltip: {
           trigger: 'item',
