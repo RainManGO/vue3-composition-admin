@@ -44,8 +44,7 @@ export default defineComponent({
       }
     }
   },
-  setup(props, _) {
-    console.log(_)
+  setup(props) {
     const dataMap = reactive({
       userInfo: props.user,
       submit: () => {

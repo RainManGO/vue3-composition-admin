@@ -155,9 +155,9 @@ export default defineComponent({
         language: 'zh_CN',
         // eslint-disable-next-line @typescript-eslint/camelcase
         // eslint-disable-next-line @typescript-eslint/camelcase
-        skin_url: `${process.env.BASE_URL}/tinymce/skins/`,
+        skin_url: `${process.env.BASE_URL}tinymce/skins/`,
         // eslint-disable-next-line @typescript-eslint/camelcase
-        emoticons_database_url: `${process.env.BASE_URL}/tinymce/emojis.min.js`,
+        emoticons_database_url: `${process.env.BASE_URL}tinymce/emojis.min.js`,
         // eslint-disable-next-line @typescript-eslint/camelcase
         end_container_on_empty_block: true,
         // eslint-disable-next-line @typescript-eslint/camelcase
