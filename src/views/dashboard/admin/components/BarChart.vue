@@ -3,11 +3,12 @@
  * @Author: ZY
  * @Date: 2021-01-15 18:48:40
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 09:22:43
+ * @LastEditTime: 2021-01-26 09:52:30
 -->
 
 <template>
   <div
+    id="homebarcharts"
     :class="className"
     :style="{height: height, width: width}"
   />
@@ -43,13 +44,12 @@ export default defineComponent({
       deactivated
     } = resize()
 
-    const { ctx } = getCurrentInstance() as any
+    // const { ctx } = getCurrentInstance() as any
     const animationDuration = 6000
 
     const initChart = () => {
-      console.log(ctx.$el)
-
-      const barChart = init(ctx.$el as HTMLDivElement, 'macarons')
+      console.log(document.getElementById('homebarcharts'))
+      const barChart = init(document.getElementById('homebarcharts') as HTMLDivElement, 'macarons')
       barChart.setOption({
         tooltip: {
           trigger: 'axis',
