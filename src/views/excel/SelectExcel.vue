@@ -23,7 +23,7 @@
       {{ $t('excel.selectedExport') }}
     </el-button>
     <a
-      href="https://armour.github.io/vue-typescript-admin-docs/features/components/excel.html"
+      href="https://github.com/rcyj-FED/vue3-composition-admin/tree/dev/src/views"
       target="_blank"
       style="margin-left:15px;"
     >
