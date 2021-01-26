@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 17:11:33
+ * @LastEditTime: 2021-01-26 13:29:46
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -72,9 +72,11 @@ export default defineComponent({
 
     const activeMenu = computed(() => {
       const route = useRoute()
-      const { meta, path } = route
-      if (meta.activeMenu) {
-        return meta.activeMenu
+      const { meta, path } = route as any
+      if (meta !== null || meta !== undefined) {
+        if (meta.activeMenu) {
+          return meta.activeMenu
+        }
       }
       return path
     })
