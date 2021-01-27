@@ -6,7 +6,10 @@
  * @LastEditTime: 2021-01-25 13:29:33
 -->
 <template>
-  <div :style="{height: height, zIndex: zIndex}">
+  <div
+    :style="{height: height, zIndex: zIndex}"
+    class="sticky"
+  >
     <div
       :class="className"
       :style="{
@@ -25,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, onMounted, reactive, toRefs } from 'vue'
+import { defineComponent, onMounted, reactive, toRefs } from 'vue'
 
 export default defineComponent({
   props: {
@@ -43,7 +46,6 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { ctx } = getCurrentInstance() as any
     const state = reactive({
       active: false,
       position: '',
@@ -52,8 +54,11 @@ export default defineComponent({
       height: 'auto'
     })
     onMounted(() => {
-      console.log('height', ctx.$el.getBoundingClientRect().height.toString() + 'px')
-      state.height = ctx.$el.getBoundingClientRect().height.toString() + 'px'
+      state.height =
+        document
+          .querySelector('.sticky')
+          ?.getBoundingClientRect()
+          .height.toString() + 'px'
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
       window.addEventListener('scroll', handleScroll)
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -90,13 +95,20 @@ export default defineComponent({
     }
 
     const handleScroll = () => {
-      const width = ctx.$el.getBoundingClientRect().width
-      state.width = (width.toString() + 'px') || 'auto'
-      const offsetTop = ctx.$el.getBoundingClientRect().top
-      if (offsetTop < props.stickyTop) {
-        sticky()
-        return
+      const width = document.querySelector('.sticky')?.getBoundingClientRect()
+        .width
+      state.width = width?.toString() + 'px' || 'auto'
+      const offsetTop = document
+        .querySelector('.sticky')
+        ?.getBoundingClientRect().top
+
+      if (offsetTop) {
+        if (offsetTop < props.stickyTop) {
+          sticky()
+          return
+        }
       }
+
       handleReset()
     }
 

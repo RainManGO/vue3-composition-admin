@@ -215,6 +215,7 @@ export default defineComponent({
     }
 
     const moveToCurrentTag = () => {
+      console.log(instance, 'instanceinstanceinstanceinstance')
       const tags = instance?.refs.tag as any[]
       nextTick(() => {
         if (tags.length === 0) { return }
