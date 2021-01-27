@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:20
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 17:55:25
+ * @LastEditTime: 2021-01-27 18:56:19
 -->
 
 <template>
@@ -35,8 +35,8 @@ export default defineComponent({
     }
   },
   setup(props) {
-    console.log(props.to)
     const push = () => {
+      console.log(props.to)
       router.push(props.to).catch((err) => {
         console.log(err)
       })
