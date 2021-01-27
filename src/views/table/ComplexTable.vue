@@ -3,14 +3,14 @@
     <div class="filter-container">
       <el-input
         v-model="listQuery.title"
-        :placeholder="$t('table.title')"
+        :placeholder="t('table.title')"
         style="width: 200px"
         class="filter-item"
         @keyup.enter="handleFilter"
       />
       <el-select
         v-model="listQuery.importance"
-        :placeholder="$t('table.importance')"
+        :placeholder="t('table.importance')"
         clearable
         style="width: 120px"
         class="filter-item"
@@ -24,7 +24,7 @@
       </el-select>
       <el-select
         v-model="listQuery.type"
-        :placeholder="$t('table.type')"
+        :placeholder="t('table.type')"
         clearable
         class="filter-item"
         style="width: 130px"
@@ -56,7 +56,7 @@
         icon="el-icon-search"
         @click="handleFilter"
       >
-        {{ $t("table.search") }}
+        {{ t("table.search") }}
       </el-button>
       <el-button
         class="filter-item"
@@ -65,7 +65,7 @@
         icon="el-icon-edit"
         @click="handleCreate"
       >
-        {{ $t("table.add") }}
+        {{ t("table.add") }}
       </el-button>
       <el-button
         v-waves
@@ -75,7 +75,7 @@
         icon="el-icon-download"
         @click="handleDownload"
       >
-        {{ $t("table.export") }}
+        {{ t("table.export") }}
       </el-button>
       <el-checkbox
         v-model="showReviewer"
@@ -83,7 +83,7 @@
         style="margin-left: 15px"
         @change="tableKey = tableKey + 1"
       >
-        {{ $t("table.reviewer") }}
+        {{ t("table.reviewer") }}
       </el-checkbox>
     </div>
 
@@ -98,7 +98,7 @@
       @sort-change="sortChange"
     >
       <el-table-column
-        :label="$t('table.id')"
+        :label="t('table.id')"
         prop="id"
         sortable="custom"
         align="center"
@@ -110,7 +110,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.date')"
+        :label="t('table.date')"
         width="180px"
         align="center"
       >
@@ -119,7 +119,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.title')"
+        :label="t('table.title')"
         min-width="150px"
       >
         <template #default="{row}">
@@ -133,7 +133,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.author')"
+        :label="t('table.author')"
         width="180px"
         align="center"
       >
@@ -143,7 +143,7 @@
       </el-table-column>
       <el-table-column
         v-if="showReviewer"
-        :label="$t('table.reviewer')"
+        :label="t('table.reviewer')"
         width="110px"
         align="center"
       >
@@ -152,7 +152,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.importance')"
+        :label="t('table.importance')"
         width="105px"
       >
         <template #default="{row}">
@@ -165,7 +165,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.readings')"
+        :label="t('table.readings')"
         align="center"
         width="95"
       >
@@ -179,7 +179,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.status')"
+        :label="t('table.status')"
         class-name="status-col"
         width="100"
       >
@@ -190,7 +190,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        :label="$t('table.actions')"
+        :label="t('table.actions')"
         align="center"
         width="230"
         class-name="fixed-width"
@@ -201,7 +201,7 @@
             size="mini"
             @click="handleUpdate(row)"
           >
-            {{ $t("table.edit") }}
+            {{ t("table.edit") }}
           </el-button>
           <el-button
             v-if="row.status !== 'published'"
@@ -209,14 +209,14 @@
             type="success"
             @click="handleModifyStatus(row, 'published')"
           >
-            {{ $t("table.publish") }}
+            {{ t("table.publish") }}
           </el-button>
           <el-button
             v-if="row.status !== 'draft'"
             size="mini"
             @click="handleModifyStatus(row, 'draft')"
           >
-            {{ $t("table.draft") }}
+            {{ t("table.draft") }}
           </el-button>
           <el-button
             v-if="row.status !== 'deleted'"
@@ -224,7 +224,7 @@
             type="danger"
             @click="handleDelete(row, $index)"
           >
-            {{ $t("table.delete") }}
+            {{ t("table.delete") }}
           </el-button>
         </template>
       </el-table-column>
@@ -254,7 +254,7 @@
         style="width: 400px; margin-left: 50px"
       >
         <el-form-item
-          :label="$t('table.type')"
+          :label="t('table.type')"
           prop="type"
         >
           <el-select
@@ -271,7 +271,7 @@
           </el-select>
         </el-form-item>
         <el-form-item
-          :label="$t('table.date')"
+          :label="t('table.date')"
           prop="timestamp"
         >
           <el-date-picker
@@ -281,12 +281,12 @@
           />
         </el-form-item>
         <el-form-item
-          :label="$t('table.title')"
+          :label="t('table.title')"
           prop="title"
         >
           <el-input v-model="tempArticleModel.title" />
         </el-form-item>
-        <el-form-item :label="$t('table.status')">
+        <el-form-item :label="t('table.status')">
           <el-select
             v-model="tempArticleModel.status"
             class="filter-item"
@@ -300,7 +300,7 @@
             />
           </el-select>
         </el-form-item>
-        <el-form-item :label="$t('table.importance')">
+        <el-form-item :label="t('table.importance')">
           <el-rate
             v-model="tempArticleModel.importance"
             :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
@@ -308,7 +308,7 @@
             style="margin-top: 8px"
           />
         </el-form-item>
-        <el-form-item :label="$t('table.remark')">
+        <el-form-item :label="t('table.remark')">
           <el-input
             v-model="tempArticleModel.abstractContent"
             :autosize="{minRows: 2, maxRows: 4}"
@@ -319,13 +319,13 @@
       </el-form>
       <div class="dialog-footer">
         <el-button @click="dialogFormVisible = false">
-          {{ $t("table.cancel") }}
+          {{ t("table.cancel") }}
         </el-button>
         <el-button
           type="primary"
           @click="dialogStatus === 'create' ? createData() : updateData()"
         >
-          {{ $t("table.confirm") }}
+          {{ t("table.confirm") }}
         </el-button>
       </div>
     </el-dialog>
@@ -355,7 +355,7 @@
           type="primary"
           @click="dialogPageviewsVisible = false"
         >{{
-          $t("table.confirm")
+          t("table.confirm")
         }}</el-button>
       </span>
     </el-dialog>
@@ -385,12 +385,14 @@ import { ArticleModel } from '@/model/articleModel'
 
 import { exportJson2Excel } from '@/utils/excel'
 import { formatJson } from '@/utils'
+import { useI18n } from 'vue-i18n'
 // import Pagination from '@/components/Pagination/index.vue'
 export default defineComponent({
   components: {
     // Pagination
   },
   setup() {
+    const { t } = useI18n()
     const calendarTypeOptions = [
       { key: 'CN', displayName: 'China' },
       { key: 'US', displayName: 'USA' },
@@ -617,7 +619,7 @@ export default defineComponent({
       console.log(typeof ElForm)
       dataMap.getList(null, null, 20)
     })
-    return { ...toRefs(dataMap), dataForm }
+    return { t, ...toRefs(dataMap), dataForm }
   }
 })
 </script>

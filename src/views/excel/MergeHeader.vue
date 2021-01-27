@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-25 11:39:42
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 11:39:42
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-27 13:54:34
 -->
 <template>
   <div class="app-container">
@@ -14,7 +14,7 @@
       icon="el-icon-document"
       @click="handleDownload"
     >
-      {{ $t('excel.export') }}
+      {{ t('excel.export') }}
     </el-button>
 
     <el-table
@@ -83,8 +83,10 @@ import { getArticles } from '@/apis/articles'
 import { ArticleModel } from '@/model/articleModel'
 import { formatJson } from '@/utils'
 import { exportJson2Excel } from '@/utils/excel'
+import { useI18n } from 'vue-i18n'
 export default defineComponent({
   setup() {
+    const { t } = useI18n()
     const dataMap = reactive({
       list: Array<ArticleModel>(),
       listLoading: true,
@@ -115,7 +117,7 @@ export default defineComponent({
     onMounted(() => {
       fetchData()
     })
-    return { ...toRefs(dataMap), fetchData, handleDownload }
+    return { t, ...toRefs(dataMap), fetchData, handleDownload }
   }
 })
 </script>

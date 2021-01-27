@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 16:03:45
+ * @LastEditTime: 2021-01-27 09:04:08
 -->
 <template>
   <div :class="{'has-logo': showLogo}">
@@ -48,6 +48,7 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
+    const route = useRoute()
     const sidebar = computed(() => {
       return store.state.app.sidebar
     })
@@ -69,8 +70,7 @@ export default defineComponent({
     })
 
     const activeMenu = computed(() => {
-      const route = useRoute()
-      const { meta, path } = route as any
+      const { meta, path } = route
       if (meta !== null || meta !== undefined) {
         if (meta.activeMenu) {
           return meta.activeMenu

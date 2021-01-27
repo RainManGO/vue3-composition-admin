@@ -231,9 +231,10 @@ export default defineComponent({
     const store = useStore()
 
     const tempTagView: TagView = {}
+    const route = useRoute()
     const dataMap = reactive({
       router: useRouter(),
-      route: useRoute(),
+      route: route,
       postForm: Object.assign({}, defaultArticleModel),
       loading: false,
       userListOptions: [],

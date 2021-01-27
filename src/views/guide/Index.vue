@@ -3,12 +3,12 @@
  * @Author: ZY
  * @Date: 2021-01-21 20:20:18
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 20:24:20
+ * @LastEditTime: 2021-01-27 13:56:12
 -->
 <template>
   <div class="app-container">
     <aside>
-      {{ $t('guide.description') }}
+      {{ t('guide.description') }}
       <a
         href="https://github.com/kamranahmedse/driver.js"
         target="_blank"
@@ -19,7 +19,7 @@
       type="primary"
       @click.prevent.stop="guide"
     >
-      {{ $t('guide.button') }}
+      {{ t('guide.button') }}
     </el-button>
   </div>
 </template>
@@ -29,9 +29,11 @@ import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
 import steps from './steps'
 import { defineComponent, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   setup() {
+    const { t } = useI18n()
     let driver: Driver | null = null
     onMounted(() => {
       driver = new Driver()
@@ -45,6 +47,7 @@ export default defineComponent({
     }
 
     return {
+      t,
       guide
     }
   }

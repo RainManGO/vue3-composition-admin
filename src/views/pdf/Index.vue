@@ -2,13 +2,13 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-25 10:07:11
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 10:07:12
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-27 13:56:48
 -->
 <template>
   <div class="app-container">
     <aside style="margin-top:15px;">
-      {{ $t('pdf.tips') }}
+      {{ t('pdf.tips') }}
     </aside>
     <router-link
       target="_blank"
@@ -23,10 +23,12 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   setup() {
-    console.log('download')
+    const { t } = useI18n()
+    return { t }
   }
 })
 </script>
