@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-25 11:34:20
  * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 13:58:56
+ * @LastEditTime: 2021-01-27 17:55:25
 -->
 
 <template>
@@ -15,18 +15,18 @@
   >
     <slot />
   </a>
-  <router-link
+  <div
     v-else
-    :to="to"
+    @click="push"
   >
     <slot />
-  </router-link>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { isExternal } from '@/utils/validate'
-
+import router from '@/router'
 export default defineComponent({
   props: {
     to: {
@@ -34,8 +34,15 @@ export default defineComponent({
       required: true
     }
   },
-  setup() {
+  setup(props) {
+    console.log(props.to)
+    const push = () => {
+      router.push(props.to).catch((err) => {
+        console.log(err)
+      })
+    }
     return {
+      push,
       isExternal
     }
   }
