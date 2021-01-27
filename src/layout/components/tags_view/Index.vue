@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 18:04:36
+ * @LastEditTime: 2021-01-27 19:18:16
 -->
 <template>
   <div
@@ -65,8 +65,7 @@ import { useStore } from '@/store'
 import { TagsActionTypes } from '@/store/modules/tagsview/action-types'
 import { TagView } from '@/store/modules/tagsview/state'
 import { computed, defineComponent, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, toRefs, watch } from 'vue'
-import { RouteRecordRaw, useRoute } from 'vue-router'
-import router from '@/router'
+import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import ScrollPane from './ScrollPane.vue'
 export default defineComponent({
@@ -75,6 +74,7 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
+    const router = useRouter()
     const instance = getCurrentInstance()
     const currentRoute = useRoute()
     const { t } = useI18n()

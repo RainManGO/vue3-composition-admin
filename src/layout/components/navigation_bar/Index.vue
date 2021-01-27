@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:52:19
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-16 16:28:47
+ * @LastEditTime: 2021-01-27 19:16:50
 -->
 <template>
   <div class="navbar">
@@ -93,8 +93,7 @@ import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
 import { UserActionTypes } from '@/store/modules/user/action-types'
-import { useRoute } from 'vue-router'
-import router from '@/router'
+import { useRoute, useRouter } from 'vue-router'
 export default {
   components: {
     BreadCrumb,
@@ -106,6 +105,7 @@ export default {
   setup() {
     const store = useStore()
     const route = useRoute()
+    const router = useRouter()
     const { t } = useI18n()
     const sidebar = computed(() => {
       return store.state.app.sidebar
