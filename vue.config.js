@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-07 11:41:22
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 13:38:57
+ * @LastEditTime: 2021-01-27 15:17:29
  */
 const { resolve } = require('path')
 const path = require('path')
@@ -54,7 +54,6 @@ module.exports = {
           'Assets':resolve('src/assets')
         }
       },
-      devtool: "source-map",
       module:{
         rules: [
           {

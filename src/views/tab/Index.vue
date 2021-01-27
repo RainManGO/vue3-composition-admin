@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-14 08:40:34
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-14 08:52:17
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-27 15:23:47
 -->
 <template>
   <div class="tab-container">
@@ -51,8 +51,9 @@ export default defineComponent({
     TabPane
   },
   setup() {
+    const route = useRoute()
     const dataMap = reactive({
-      route: useRoute(),
+      route: route,
       router: useRouter(),
       tabMapOptions: [
         { label: 'China', key: 'CN' },
@@ -67,7 +68,7 @@ export default defineComponent({
       }
     })
     onMounted(() => {
-      const tab = useRoute().query.tab as string
+      const tab = route.query.tab as string
       if (tab) {
         dataMap.activeName = tab
       }

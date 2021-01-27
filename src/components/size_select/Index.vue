@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 09:59:06
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 17:49:38
+ * @LastEditTime: 2021-01-27 15:22:27
 -->
 <template>
   <div>
@@ -49,9 +49,9 @@ import { useRoute, useRouter } from 'vue-router'
 
 export default defineComponent({
   setup() {
+    const { fullPath } = useRoute()
     function refreshView() {
       useStore().dispatch(TagsActionTypes.ACTION_DEL_ALL_CACHED_VIEWS, undefined)
-      const { fullPath } = useRoute()
       nextTick(() => {
         useRouter().replace({ path: '/redirect' + fullPath }).catch((err) => {
           console.warn(err)
