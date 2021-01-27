@@ -3,7 +3,7 @@
  * @Autor: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-25 18:09:02
+ * @LastEditTime: 2021-01-27 19:07:14
  */
 import { createApp, Directive } from 'vue'
 import App from './App.vue'
@@ -15,7 +15,7 @@ import '@/assets/iconfont/iconfont.css'
 import '@/styles/index.scss'
 import 'normalize.css'
 import * as directives from '@/directives'
-import '@/permission'
+// import '@/permission'
 
 const app = createApp(App)
 // 加载所有插件
