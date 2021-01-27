@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 16:26:46
+ * @LastEditTime: 2021-01-27 17:02:39
 -->
 <template>
   <div
@@ -22,7 +22,7 @@
     >
       <div :class="{'fixed-header': fixedHeader}">
         <Navbar />
-        <!-- <TagsView v-if="showTagsView" /> -->
+        <TagsView v-if="showTagsView" />
       </div>
       <AppMain />
       <RightPanel v-if="showSettings">
@@ -38,7 +38,7 @@ import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, r
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
-import { AppMain, Navbar, Settings, Sidebar } from './components'
+import { AppMain, Navbar, Settings, TagsView, Sidebar } from './components'
 import RightPanel from '@/components/right_panel/Index.vue'
 import resize from './resize'
 export default defineComponent({
@@ -48,8 +48,8 @@ export default defineComponent({
     Navbar,
     RightPanel,
     Settings,
-    Sidebar
-    // TagsView
+    Sidebar,
+    TagsView
   },
   setup() {
     const { t } = useI18n()

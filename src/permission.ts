@@ -3,12 +3,12 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:12:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 09:47:04
+ * @LastEditTime: 2021-01-27 17:04:12
  */
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useI18n } from 'vue-i18n'
+// import { useI18n } from 'vue-i18n'
 import router from '@/router'
 import { RouteLocationNormalized } from 'vue-router'
 import { useStore } from './store'
@@ -16,19 +16,19 @@ import { UserActionTypes } from './store/modules/user/action-types'
 import { PermissionActionType } from './store/modules/permission/action-types'
 import { ElMessage } from 'element-plus'
 import whiteList from './config/default/whitelist'
-import settings from '@/config/default/setting.config'
+// import settings from '@/config/default/setting.config'
 NProgress.configure({ showSpinner: false })
 
-const getPageTitle = (key: string) => {
-  const i18n = useI18n()
-  const title = settings.title
-  const hasKey = i18n.te(`route.${key}`)
-  if (hasKey) {
-    const pageName = i18n.t(`route.${key}`)
-    return `${pageName} - ${title}`
-  }
-  return `${title}`
-}
+// const getPageTitle = (key: string) => {
+//   const i18n = useI18n()
+//   const title = settings.title
+//   const hasKey = i18n.te(`route.${key}`)
+//   if (hasKey) {
+//     const pageName = i18n.t(`route.${key}`)
+//     return `${pageName} - ${title}`
+//   }
+//   return `${title}`
+// }
 
 router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   // Start progress bar
@@ -86,5 +86,5 @@ router.afterEach((to: RouteLocationNormalized) => {
   NProgress.done()
 
   // set page title
-  document.title = getPageTitle(to.meta.title)
+  // document.title = getPageTitle(to.meta.title)
 })
