@@ -114,7 +114,7 @@ export default defineComponent({
 
     const handleResize = () => {
       if (state.isSticky) {
-        state.width = ctx.$el.getBoundingClientRect().width.toString() + 'px'
+        state.width = document.querySelector('.sticky')?.getBoundingClientRect().width.toString() + 'px'
       }
     }
 
