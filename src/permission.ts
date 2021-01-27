@@ -48,14 +48,14 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
           const roles = store.state.user.roles
           // Generate accessible routes map based on role
-          store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
+          await store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
           // Dynamically add accessible routes
           store.state.permission.dynamicRoutes.forEach((route) => {
             router.addRoute(route)
           })
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
-          next({ ...to, replace: true })
+          next()
         } catch (err) {
           // Remove token and redirect to login page
           store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
