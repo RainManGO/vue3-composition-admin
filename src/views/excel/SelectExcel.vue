@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-25 11:40:04
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 11:40:04
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-27 13:55:06
 -->
 <template>
   <div class="app-container">
@@ -20,7 +20,7 @@
       icon="el-icon-document"
       @click="handleDownload"
     >
-      {{ $t('excel.selectedExport') }}
+      {{ t('excel.selectedExport') }}
     </el-button>
     <a
       href="https://github.com/rcyj-FED/vue3-composition-admin/tree/dev/src/views"
@@ -97,8 +97,10 @@ import { ArticleModel } from '@/model/articleModel'
 import { formatJson } from '@/utils'
 import { exportJson2Excel } from '@/utils/excel'
 import { ElTable, ElMessage } from 'element-plus'
+import { useI18n } from 'vue-i18n'
 export default defineComponent({
   setup() {
+    const { t } = useI18n()
     const dataMap = reactive({
       list: Array<ArticleModel>(),
       listLoading: true,
@@ -140,7 +142,7 @@ export default defineComponent({
     onMounted(() => {
       fetchData()
     })
-    return { ...toRefs(dataMap), fetchData, handleDownload, handleSelectionChange }
+    return { t, ...toRefs(dataMap), fetchData, handleDownload, handleSelectionChange }
   }
 })
 </script>

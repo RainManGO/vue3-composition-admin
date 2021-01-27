@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-25 11:40:59
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 11:41:00
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-27 13:55:49
 -->
 <template>
   <div style="display:inline-block;">
@@ -13,7 +13,7 @@
     >Filename: </label>
     <el-input
       v-model="filename"
-      :placeholder="$t('excel.placeholder')"
+      :placeholder="t('excel.placeholder')"
       style="width:345px;"
       prefix-icon="el-icon-document"
     />
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { reactive, defineComponent, computed, toRefs } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   props: {
@@ -35,6 +36,7 @@ export default defineComponent({
     const dataMap = reactive({
 
     })
+    const { t } = useI18n()
     const filename = computed({
       get: () => {
         return props.value
@@ -45,7 +47,7 @@ export default defineComponent({
       }
     })
 
-    return { ...toRefs(dataMap), filename }
+    return { t, ...toRefs(dataMap), filename }
   }
 })
 </script>

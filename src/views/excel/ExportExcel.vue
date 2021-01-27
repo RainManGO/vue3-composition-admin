@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-25 11:39:10
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 11:41:34
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-01-27 13:53:41
 -->
 <template>
   <div class="app-container">
@@ -18,7 +18,7 @@
         icon="el-icon-document"
         @click="handleDownload"
       >
-        {{ $t('excel.export') }} Excel
+        {{ t('excel.export') }} Excel
       </el-button>
       <a
         href="https://github.com/rcyj-FED/vue3-composition-admin/tree/dev/src/views"
@@ -92,6 +92,7 @@ import { exportJson2Excel } from '@/utils/excel'
 import FilenameOption from './components/FilenameOption.vue'
 import AutoWidthOption from './components/AutoWidthOption.vue'
 import BookTypeOption from './components/BookTypeOption.vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   components: {
@@ -100,6 +101,7 @@ export default defineComponent({
     BookTypeOption
   },
   setup() {
+    const { t } = useI18n()
     const dataMap = reactive({
       list: Array<ArticleModel>(),
       listLoading: true,
@@ -131,7 +133,7 @@ export default defineComponent({
     onMounted(() => {
       fetchData()
     })
-    return { ...toRefs(dataMap), handleDownload, fetchData }
+    return { t, ...toRefs(dataMap), handleDownload, fetchData }
   }
 })
 </script>

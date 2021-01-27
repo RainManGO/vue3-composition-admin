@@ -102,12 +102,12 @@
     <!-- $t is vue-i18n global function to translate lang (lang in @/lang)  -->
     <div class="show-d">
       <el-tag style="margin-right: 12px">
-        {{ $t("table.dragTips1") }} :
+        {{ t("table.dragTips1") }} :
       </el-tag>
       {{ oldList }}
     </div>
     <div class="show-d">
-      <el-tag>{{ $t("table.dragTips2") }} :</el-tag> {{ newList }}
+      <el-tag>{{ t("table.dragTips2") }} :</el-tag> {{ newList }}
     </div>
   </div>
 </template>
@@ -118,9 +118,11 @@ import { ArticleModel } from '@/model/articleModel'
 
 import Sortable from 'sortablejs'
 import { getArticles } from '@/apis/articles'
+import { useI18n } from 'vue-i18n'
 export default defineComponent({
   setup() {
     let sortable: Sortable | null = null
+    const { t } = useI18n()
     const dataMap = reactive({
       list: Array<ArticleModel>(),
       listLoading: true,
@@ -169,7 +171,7 @@ export default defineComponent({
     onMounted(() => {
       dataMap.getList()
     })
-    return { sortable, ...toRefs(dataMap) }
+    return { t, sortable, ...toRefs(dataMap) }
   }
 })
 </script>

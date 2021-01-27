@@ -64,7 +64,7 @@
       </el-button>
     </Sticky>
     <div class="components-container">
-      <aside>Sticky header, {{ $t("components.stickyTips") }}</aside>
+      <aside>Sticky header, {{ t("components.stickyTips") }}</aside>
       <div>placeholder</div>
       <div>placeholder</div>
       <div>placeholder</div>
@@ -128,12 +128,14 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
 import Sticky from '@/components/sticky/Index.vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   components: {
     Sticky
   },
   setup() {
+    const { t } = useI18n()
     const state = reactive({
       time: Date,
       url: '',
@@ -150,6 +152,7 @@ export default defineComponent({
       }
     })
     return {
+      t,
       ...toRefs(state)
     }
   }

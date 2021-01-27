@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 14:10:49
+ * @LastEditTime: 2021-01-27 10:24:25
 -->
 <template>
   <div
@@ -217,6 +217,7 @@ export default defineComponent({
     const moveToCurrentTag = () => {
       const tags = instance?.refs.tag as any[]
       nextTick(() => {
+        if (tags.length === 0) { return }
         for (const tag of tags) {
           if ((tag.to as TagView).path === currentRoute.path) {
             (scrollPaneRef.value as any).moveToCurrentTag(tag)
