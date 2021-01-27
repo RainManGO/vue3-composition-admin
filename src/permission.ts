@@ -58,7 +58,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           next({ ...to, replace: true })
         } catch (err) {
           // Remove token and redirect to login page
-         await store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
+          store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
           ElMessage.error(err || 'Has Error')
           next(`/login?redirect=${to.path}`)
           NProgress.done()
