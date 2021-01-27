@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-25 10:07:06
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-27 11:22:35
+ * @LastEditTime: 2021-01-27 13:30:40
 -->
 <template>
   <div
@@ -49,9 +49,9 @@ export default defineComponent({
         const { title } = content
         document.title = title
         article.value = content
-        dataMap.fullscreenLoading = false
 
         setTimeout(() => {
+          dataMap.fullscreenLoading = false
           window.print()
         }, 6000)
       }
