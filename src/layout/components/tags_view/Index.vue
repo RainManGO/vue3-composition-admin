@@ -215,6 +215,7 @@ export default defineComponent({
     }
 
     const moveToCurrentTag = () => {
+      console.log(instance, 'instanceinstanceinstanceinstance')
       const tags = instance?.refs.tag as any[]
       nextTick(() => {
         for (const tag of tags) {
