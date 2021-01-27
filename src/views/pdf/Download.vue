@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-25 10:07:06
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-27 10:39:07
+ * @LastEditTime: 2021-01-27 11:22:35
 -->
 <template>
   <div
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, nextTick, onMounted, ref } from 'vue'
+import { defineComponent, reactive, toRefs, onMounted, ref } from 'vue'
 import content from './content'
 
 interface ArticlePdf{
@@ -49,21 +49,17 @@ export default defineComponent({
         const { title } = content
         document.title = title
         article.value = content
-        if (article.value) {
-          setTimeout(() => {
-            dataMap.fullscreenLoading = false
-            nextTick(() => {
-              window.print()
-            })
-          }, 3000)
-        }
+        dataMap.fullscreenLoading = false
+
+        setTimeout(() => {
+          window.print()
+        }, 6000)
       }
     })
 
     onMounted(() => {
       dataMap.fetchData()
     })
-
     return { ...toRefs(dataMap), article }
   }
 })
