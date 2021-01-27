@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-07 10:30:20
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 18:27:10
+ * @LastEditTime: 2021-01-27 19:35:13
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -51,7 +51,9 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  ...constantModules
+  ...constantModules,
+  ...permissionModules
+
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 09:12:46
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 17:04:12
+ * @LastEditTime: 2021-01-27 19:36:01
  */
 
 import NProgress from 'nprogress'
@@ -48,14 +48,14 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
           const roles = store.state.user.roles
           // Generate accessible routes map based on role
-          await store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
+          store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
           // Dynamically add accessible routes
           store.state.permission.dynamicRoutes.forEach((route) => {
             router.addRoute(route)
           })
           // Hack: ensure addRoutes is complete
           // Set the replace: true, so the navigation will not leave a history record
-          next()
+          next({ ...to, replace: true })
         } catch (err) {
           // Remove token and redirect to login page
           store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
