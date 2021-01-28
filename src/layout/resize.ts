@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:37:56
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 08:49:34
+ * @LastEditTime: 2021-01-28 16:29:49
  */
 // refer to Bootstrap's responsive design
 
@@ -24,7 +24,8 @@ export default function() {
     return store.state.app.sidebar
   })
 
-  const watchRouter = watch(useRoute(), () => {
+  const currentRoute = useRoute()
+  const watchRouter = watch(() => currentRoute.name, () => {
     if (store.state.app.device === DeviceType.Mobile && store.state.app.sidebar.opened) {
       store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
     }

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-28 16:27:50
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-25 20:05:34
+ * @LastEditTime: 2021-01-28 16:32:33
 -->
 
 <template>
@@ -153,6 +153,7 @@ export default defineComponent({
     const passwordRef = ref(null)
     const loginFormRef = ref(null)
     const router = useRouter()
+    const route = useRoute()
     const store = useStore()
     const { t } = useI18n()
     const state = reactive({
@@ -235,10 +236,10 @@ export default defineComponent({
       }, {} as LocationQuery)
     }
 
-    watch(useRoute(), current => {
-      if (current.query) {
-        state.redirect = current.query.redirect?.toString() ?? ''
-        state.otherQuery = getOtherQuery(current.query)
+    watch(() => route.query, query => {
+      if (query) {
+        state.redirect = query.redirect?.toString() ?? ''
+        state.otherQuery = getOtherQuery(query)
       }
     })
 

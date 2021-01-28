@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-22 11:02:14
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 09:15:49
+ * @LastEditTime: 2021-01-28 16:28:40
 -->
 <template>
   <el-breadcrumb
@@ -37,7 +37,6 @@ import router from '@/router'
 export default defineComponent({
   setup() {
     const currentRoute = useRoute()
-
     const pathCompile = (path: string) => {
       const { params } = currentRoute
       const toPath = compile(path)
@@ -78,8 +77,8 @@ export default defineComponent({
       }
     })
 
-    watch(useRoute(), (current) => {
-      if (current.path.startsWith('/redirect/')) {
+    watch(() => currentRoute.path, (path) => {
+      if (path.startsWith('/redirect/')) {
         return
       }
       state.getBreadcrumb()
