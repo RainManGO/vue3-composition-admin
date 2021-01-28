@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 19:18:16
+ * @LastEditTime: 2021-01-28 10:53:23
 -->
 <template>
   <div
@@ -215,20 +215,20 @@ export default defineComponent({
     }
 
     const moveToCurrentTag = () => {
-      console.log(instance, 'instanceinstanceinstanceinstance')
-      const tags = instance?.refs.tag as any[]
-      nextTick(() => {
-        if (tags === null || tags === undefined) { return }
-        for (const tag of tags) {
-          if ((tag.to as TagView).path === currentRoute.path) {
-            (scrollPaneRef.value as any).moveToCurrentTag(tag)
-            // When query is different then update
-            if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
-              store.dispatch(TagsActionTypes.ACTION_UPDATE_VISITED_VIEW, currentRoute)
-            }
-          }
-        }
-      })
+      console.log('moveToCurrentTag')
+      // const tags = instance?.refs.tag as any[]
+      // nextTick(() => {
+      //   if (tags === null || tags === undefined) { return }
+      //   for (const tag of tags) {
+      //     if ((tag.to as TagView).path === currentRoute.path) {
+      //       (scrollPaneRef.value as any).moveToCurrentTag(tag)
+      //       // When query is different then update
+      //       if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
+      //         store.dispatch(TagsActionTypes.ACTION_UPDATE_VISITED_VIEW, currentRoute)
+      //       }
+      //     }
+      //   }
+      // })
     }
 
     watch(useRoute(), () => {
