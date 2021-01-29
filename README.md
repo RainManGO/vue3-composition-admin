@@ -50,34 +50,6 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
 
 在线demo演示地址：https://admin-tmpl.rencaiyoujia.com/
 
-## HighLight
-
-项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
-
-项目采用技术:
-
-- vue3 + composition api
-- typescript3.9
-- sass (dart sass)
-- [echats5](https://github.com/apache/echarts)
-
-vue next 系列:
-
-- [element-plus](https://github.com/element-plus/element-plus)
-- [vue-router-next](https://github.com/vuejs/vue-router-next)
-- [vuex-4.0](https://github.com/vuejs/vuex)
-- [vue-vue-i18n-next](https://github.com/panter/vue-i18next)
-
-
-## Document
-
-- [文档地址](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
-- [文档项目git地址](https://github.com/rcyj-FED/vue3-composition-admin-docs)
-
-
-## Setup
-
-项目主要是前端和mock server（node）
 
 ### 功能
 
@@ -151,91 +123,76 @@ vue next 系列:
 
 ```
 admin-tmpl
-├─ .browserslistrc
-├─ .editorconfig
-├─ .env.dev.build
-├─ .env.dev.serve
-├─ .env.prod.build
-├─ .env.prod.serve
-├─ .env.test.build
-├─ .env.test.serve
-├─ .eslintignore
-├─ .eslintrc.js
-├─ .github
-│  └─ workflows
-│     └─ deploy.yml
-├─ .gitignore
-├─ .travis.yml
-├─ Jenkinsfile
-├─ LICENSE
-├─ README.md
-├─ babel.config.js
-├─ dist
-├─ docker
-├─ jest.config.js
-├─ k8smanifests
-├─ mock
-│  ├─ constant.ts
-│  ├─ controller
-│  ├─ middleware
-│  ├─ mock.ts
-│  ├─ mockdb
-│  ├─ requestDecorator.ts
-│  ├─ router.ts
-│  ├─ tsconfig.json
-│  ├─ type.d.ts
-│  └─ utils
-├─ package.json
-├─ public
-├─ src
-│  ├─ @types
-│  ├─ App.vue
-│  ├─ apis
-│  ├─ assets
-│  ├─ components
-│  ├─ config
-│  │  ├─ customConfig.ts
-│  │  ├─ default
-│  │  │  ├─ index.ts
-│  │  │  ├─ layout.ts
-│  │  │  ├─ net.config.ts
-│  │  │  ├─ setting.config.ts
-│  │  │  ├─ theme.config.ts
-│  │  │  ├─ vue.custom.config.js
-│  │  │  └─ whitelist.ts
-│  │  └─ index.ts
-│  ├─ constant
-│  │  ├─ headers.ts
-│  │  ├─ key.ts
-│  │  ├─ network.ts
-│  │  └─ settings.ts
-│  ├─ directives
-│  │  ├─ clipboard
-│  │  │  └─ index.ts
-│  │  ├─ el-draggable-dialog
-│  │  │  └─ index.ts
-│  │  ├─ index.ts
-│  │  ├─ permission
-│  │  │  └─ index.ts
-│  │  └─ waves
-│  │     ├─ index.ts
-│  │     └─ waves.css
-│  ├─ layout
-│  ├─ locales
-│  ├─ main.ts
-│  ├─ model
-│  ├─ permission.ts
-│  ├─ plugins
-│  ├─ router
-│  ├─ shims-vue.d.ts
-│  ├─ store
-│  ├─ styles
-│  ├─ utils
-│  └─ views
-├─ tsconfig.json
-├─ vue.config.js
-└─ yarn.lock
+├─ .env.dev.build     # 开发环境
+├─ .env.dev.serve     # 开发本地本地
+├─ .env.prod.build    # 生产环境
+├─ .env.prod.serve    # 生产环境本地
+├─ .env.test.build    # 测试环境
+├─ .env.test.serve    # 测试环境本地
+├─ .eslintrc.js       # eslint
+├─ README.md          
+├─ dist               # 打包dist
+├─ mock               # mock服务
+├─ public             # 静态资源
+├─ src                # 源码
+│  ├─ @types          # ts 声明
+│  ├─ apis            # 接口请求
+│  ├─ assets          # webpack打包的资源
+│  ├─ components      # 公共组件
+│  ├─ config          # 全部配置
+│  ├─ constant        # 常量
+│  ├─ directives      # 全局指令
+│  ├─ layout          # 全局Layout
+│  ├─ locales         # 国际化
+│  ├─ model           # 全部model存放
+│  ├─ plugins         # 插件
+│  ├─ router          # 路由
+│  ├─ store           # 全局store管理
+│  ├─ styles          # 全局样式
+│  ├─ utils           # 全局公共方法
+│  └─ views           # 所有业务页面
+├─ tsconfig.json      # ts 编译配置
+└─ vue.config.js      # vue-cli 配置
 
+```
+
+## HighLight
+
+项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
+
+项目采用技术:
+
+- vue3 + composition api
+- typescript3.9
+- sass (dart sass)
+- [echats5](https://github.com/apache/echarts)
+
+vue next 系列:
+
+- [element-plus](https://github.com/element-plus/element-plus)
+- [vue-router-next](https://github.com/vuejs/vue-router-next)
+- [vuex-4.0](https://github.com/vuejs/vuex)
+- [vue-vue-i18n-next](https://github.com/panter/vue-i18next)
+
+
+## Document
+
+- [文档地址](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
+- [文档项目git地址](https://github.com/rcyj-FED/vue3-composition-admin-docs)
+
+
+## Setup
+
+项目主要是前端和mock server（node）
+
+```shell
+  yarn  
+```
+
+or
+
+```shell
+  npm install  
 ```
 
 ### Mock
