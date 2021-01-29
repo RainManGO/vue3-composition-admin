@@ -45,6 +45,7 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
   - 解决方案集合
   - 统一技术标准
 
+在线demo演示地址：https://admin-tmpl.rencaiyoujia.com/
 
 ## HighLight
 
