@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-28 16:31:09
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-29 08:50:59
 -->
 <template>
   <div
@@ -208,6 +208,7 @@ export default defineComponent({
 
     const addTags = () => {
       if (currentRoute.name) {
+        console.log(currentRoute.name, 'currentRoute.namecurrentRoute.namecurrentRoute.namecurrentRoute.namecurrentRoute.namecurrentRoute.namecurrentRoute.namecurrentRoute.name')
         store.dispatch(TagsActionTypes.ACTION_ADD_VIEW, currentRoute)
       }
       return false
@@ -230,8 +231,10 @@ export default defineComponent({
     }
 
     watch(() => currentRoute.name, () => {
-      addTags()
-      moveToCurrentTag()
+      if (currentRoute.name !== 'Login') {
+        addTags()
+        moveToCurrentTag()
+      }
     })
 
     // watch(state.visible.value, (value) => {

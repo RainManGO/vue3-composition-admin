@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2020-12-24 10:44:01
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 15:40:56
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-29 09:25:08
 -->
 
 <template>
@@ -59,7 +59,7 @@ export default defineComponent({
   text-align: center;
   font-size: 24px;
   border-radius: 6px 0 0 6px !important;
-  z-index: 0;
+  z-index: 99;
   cursor: pointer;
   pointer-events: auto;
   color: #fff;
