@@ -185,17 +185,21 @@ vue next 系列:
 
 项目主要是前端和mock server（node）
 
+### 前后端都启动
+
 ```shell
-  yarn  
+  yarn
+  yarn start
 ```
 
 or
 
 ```shell
-  npm install  
+  npm install
+  npm run start
 ```
 
-### Mock
+### 单独启动 Mock
 
 后台模拟服务器和其他版本不同，采用koa2+Faker进行模拟。
 
@@ -205,17 +209,31 @@ or
 启动mock server:
 
 ```shell
-     "mock": "cd mock && ts-node-dev mock.ts"
+    yarn mock
+```
+or
+```shell
+    npm run mock
 ```
 
 mock 需要部署到服务器，单独项目地址：https://github.com/rcyj-FED/admin-tmpl-mock
+
 mock在线测试地址：https://admin-tmpl-mock.rencaiyoujia.com/
 
-### vue admin
+### 单独启动 vue admin
 
-多环境启动：
 
 ```shell
+    yarn  serve:dev
+```
+or
+```shell
+    npm run serve:dev
+```
+
+多环境命令查看package.json  script:
+
+``` shell
     "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
     "build:dev": "cross-env NODE_ENV=production  dotenv -e .env.dev.build vue-cli-service build",
     "serve:test": "cross-env NODE_ENV=development dotenv -e .env.test.serve vue-cli-service serve",
@@ -225,14 +243,30 @@ mock在线测试地址：https://admin-tmpl-mock.rencaiyoujia.com/
 ```
 
 
-快捷启动(同时启动前后端)：
+### eslint
 
 ```shell
-    "start": "concurrently \"npm run mock\" \"npm run serve:dev\"",
+    yarn  lint
+```
+or
+```shell
+    npm run lint
 ```
 
 
+提交自动检测：
 
+```json
+ "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+```
 
 ## Browsers support
 
