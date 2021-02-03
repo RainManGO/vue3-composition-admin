@@ -48,7 +48,7 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
   - 解决方案集合
   - 统一技术标准
 
-在线demo演示地址：https://admin-tmpl-test.rencaiyoujia.com/
+在线demo演示地址：https://admin-tmpl-test.rencaiyoujia.cn/
 
 
 ### 功能
@@ -217,7 +217,7 @@ or
 ```
 
 mock 需要部署到服务器，单独项目地址：https://github.com/rcyj-FED/admin-tmpl-mock
-mock在线测试地址：https://admin-tmpl-mock-test.rencaiyoujia.com/
+mock在线测试地址：https://admin-tmpl-mock-test.rencaiyoujia.cn/
 
 ### 单独启动 vue admin
 
