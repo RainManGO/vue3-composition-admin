@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-16 15:16:47
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-18 11:55:28
+ * @LastEditTime: 2021-03-10 14:21:53
 -->
 
 <template>
@@ -38,12 +38,10 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
 import PanThumb from '@/components/pan-thumb/Index.vue'
-import GithubCorner from '@/components/github-corner/Index.vue'
 import { useStore } from '@/store'
 export default defineComponent({
   components: {
-    PanThumb,
-    GithubCorner
+    PanThumb
   },
   setup() {
     const emptyGif = 'https://wpimg.wallstcn.com/0e03b7da-db9e-4819-ba10-9016ddfdaed3'
