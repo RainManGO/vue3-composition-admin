@@ -43,10 +43,8 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
 
 项目目的：
 
-  - 保持技术的先进性，跟上技术发展
-  - 作为公司定制组件的代码demo集合
-  - 解决方案集合
-  - 统一技术标准
+- 学习vue3+ts
+- 保持 composition api 风格
 
 在线demo演示地址：https://admin-tmpl-test.rencaiyoujia.cn/
 
