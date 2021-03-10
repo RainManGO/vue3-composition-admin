@@ -177,6 +177,7 @@ vue next 系列:
 
 ## Document
 
+- [博客文档地址](https://blog.csdn.net/zy_flyway/category_6335128.html)
 - [文档地址](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
 - [文档项目git地址](https://github.com/rcyj-FED/vue3-composition-admin-docs)
 
