@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2021-01-18 11:09:25
  * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 21:51:25
+ * @LastEditTime: 2021-03-10 14:30:20
 -->
 
 <template>
@@ -37,20 +37,6 @@
       </a>
       <a
         target="_blank"
-        href="https://github.com/koajs/koa"
-      >
-        <el-button type="info">
-          koa2.x
-        </el-button>
-      </a>
-      <a
-        target="_blank"
-        href="https://github.com/apache/echarts"
-      >
-        <el-button type="danger">echarts5</el-button>
-      </a>
-      <a
-        target="_blank"
         href="https://github.com/intlify/vue-i18n-next"
       >
         <el-button type="warning">vue-i18n-next</el-button>
@@ -76,12 +62,6 @@
         <td>{{ dependencies["vuex"] }}</td>
       </tr>
       <tr>
-        <td>faker版本</td>
-        <td>{{ dependencies["faker"] }}</td>
-        <td>koa-body版本</td>
-        <td>{{ dependencies["koa-body"] }}</td>
-      </tr>
-      <tr>
         <td>lodash版本</td>
         <td>{{ dependencies["lodash"] }}</td>
         <td>normalize版本</td>
@@ -90,20 +70,14 @@
       <tr>
         <td>dotenv-cli版本</td>
         <td>{{ devDependencies["dotenv-cli"] }}</td>
-        <td>concurrently版本</td>
-        <td>{{ devDependencies["concurrently"] }}</td>
+        <td>style-resources-loader版本</td>
+        <td>{{ devDependencies["style-resources-loader"] }}</td>
       </tr>
       <tr>
         <td>eslint版本</td>
         <td>{{ devDependencies["eslint"] }}</td>
         <td>sass版本</td>
         <td>{{ devDependencies["sass"] }}</td>
-      </tr>
-      <tr>
-        <td>style-resources-loader版本</td>
-        <td>{{ devDependencies["style-resources-loader"] }}</td>
-        <td>ts-node-dev版本</td>
-        <td>{{ devDependencies["ts-node-dev"] }}</td>
       </tr>
     </table>
   </el-card>
