@@ -52,6 +52,7 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
 
 - 基于该项目[RuoYi-Vue3](https://github.com/rcyj-FED/RuoYi-Vue3) (后端路由案例)
 
+- 国内gitee版本 [vue3-composition-admin](https://gitee.com/codeZyZ/vue3-composition-admin) 
 
 ### 功能
 
