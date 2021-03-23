@@ -9,7 +9,7 @@
 <template>
   <div
     class="handle-button"
-    :style="{'top': buttonTop+'px','background-color': theme}"
+    :style="{'top': buttonTop+'px','backgroundColor': theme}"
     @click="show= true"
   >
     <i class="el-icon-setting" />
