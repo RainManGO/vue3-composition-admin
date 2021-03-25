@@ -280,6 +280,10 @@ Modern browsers and Internet Explorer 10+.
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | IE10, IE11, Edge                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              |
 
+## 讨论交流（QQ群）
+
+
+
 ## License
 
 [MIT](https://github.com/rcyj-FED/vue3-composition-admin/blob/main/LICENSE)
