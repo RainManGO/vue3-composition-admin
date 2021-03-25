@@ -282,7 +282,7 @@ Modern browsers and Internet Explorer 10+.
 
 ## 讨论交流（QQ群）
 
-  <p align="center">
+  <p align="left">
   <a  target="_blank">
     <img width="180" src="https://github.com/RainManGO/vue3-composition-admin/blob/main/IMAGE/QQ.JPG" alt="qq">
   </a>
