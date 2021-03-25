@@ -283,7 +283,7 @@ Modern browsers and Internet Explorer 10+.
 ## 讨论交流（QQ群）
 
   
-![qq](https://github.com/RainManGO/vue3-composition-admin/blob/main/IMAGE/QQ.JPG)
+![qq](https://github.com/RainManGO/vue3-composition-admin/blob/main/IMAGE/QQ.JPG?width=50&height=50)
 
 ## License
 
