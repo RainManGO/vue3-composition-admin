@@ -279,6 +279,14 @@ Modern browsers and Internet Explorer 10+.
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | IE10, IE11, Edge                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              |
 
+## 讨论交流（QQ群：584617908）
+
+  <p align="left">
+  <a  target="_blank">
+    <img width="180" src="https://github.com/RainManGO/vue3-composition-admin/blob/main/IMAGE/QQ.JPG" alt="qq">
+  </a>
+</p>
+
 ## License
 
 [MIT](https://github.com/rcyj-FED/vue3-composition-admin/blob/main/LICENSE)

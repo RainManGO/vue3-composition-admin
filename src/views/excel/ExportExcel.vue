@@ -2,15 +2,18 @@
  * @Description:
  * @Autor: scy😊
  * @Date: 2021-01-25 11:39:10
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 13:53:41
+ * @LastEditors: scy😊
+ * @LastEditTime: 2021-01-29 09:41:53
 -->
 <template>
   <div class="app-container">
     <div>
       <FilenameOption v-model="filename" />
       <AutoWidthOption v-model="autoWidth" />
-      <BookTypeOption v-model="bookType" />
+      <BookTypeOption
+        :value="bookType"
+        @changeinput="changeinput"
+      />
       <el-button
         :loading="downloadLoading"
         style="margin:0 0 20px 20px;"
@@ -112,6 +115,10 @@ export default defineComponent({
 
     })
 
+    const changeinput = (value: any) => {
+      dataMap.bookType = value
+    }
+
     const fetchData = async() => {
       dataMap.listLoading = true
       const data = await getArticles({ /* Your params here */ })
@@ -133,7 +140,7 @@ export default defineComponent({
     onMounted(() => {
       fetchData()
     })
-    return { t, ...toRefs(dataMap), handleDownload, fetchData }
+    return { t, ...toRefs(dataMap), handleDownload, fetchData, changeinput }
   }
 })
 </script>

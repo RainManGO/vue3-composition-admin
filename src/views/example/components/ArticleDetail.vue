@@ -43,9 +43,8 @@
           <el-col :span="24">
             <MaterialInput
               :maxlength="100"
-              name="name"
-              required
-              :value="postForm.title"
+              :title="postForm.title"
+              @inputVal="inputVal"
             >
               Title
             </MaterialInput>
@@ -355,6 +354,10 @@ export default defineComponent({
       dataMap.userListOptions = data.data.items.map((v: any) => v.name)
     }
 
+    const inputVal = (val: any) => {
+      dataMap.postForm.title = val
+    }
+
     onDeactivated(() => {
       dataMap.tinymceActive = false
     })
@@ -384,7 +387,8 @@ export default defineComponent({
       draftForm,
       getRemoteUserList,
       postFormNode,
-      timestamp
+      timestamp,
+      inputVal
     }
   }
 })
