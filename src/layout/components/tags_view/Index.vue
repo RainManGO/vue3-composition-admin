@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2020-12-24 10:35:59
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-29 08:50:59
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-03-19 17:10:38
 -->
 <template>
   <div
@@ -217,7 +217,7 @@ export default defineComponent({
     const moveToCurrentTag = () => {
       const tags = instance?.refs.tag as any[]
       nextTick(() => {
-        if (tags === null || tags === undefined) { return }
+        if (tags === null || tags === undefined || !Array.isArray(tags)) { return }
         for (const tag of tags) {
           if ((tag.to as TagView).path === currentRoute.path) {
             (scrollPaneRef.value as any).moveToCurrentTag(tag)

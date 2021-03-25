@@ -51,8 +51,9 @@ vue3 发布之后，性能增强，速度vue2的倍数，打包体积都在减�
 ## 相关项目
 
 - 基于该项目[RuoYi-Vue3](https://github.com/rcyj-FED/RuoYi-Vue3) (后端路由案例)
-
+- 微应用乾坤版本[RuoYi-Vue3-qinkun](https://github.com/RainManGO/RuoYi-Vue3-qiankun)
 - 国内gitee版本 [vue3-composition-admin](https://gitee.com/codeZyZ/vue3-composition-admin) 
+
 
 ### 功能
 
@@ -278,6 +279,10 @@ Modern browsers and Internet Explorer 10+.
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | IE10, IE11, Edge                                             | last 2 versions                                              | last 2 versions                                              | last 2 versions                                              |
+
+## 讨论交流（QQ群）
+
+
 
 ## License
 
