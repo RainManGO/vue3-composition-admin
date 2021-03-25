@@ -3,7 +3,7 @@
  * @Autor: scy😊
  * @Date: 2021-01-25 11:40:50
  * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 11:40:50
+ * @LastEditTime: 2021-01-29 09:42:34
 -->
 <template>
   <div style="display:inline-block;">
@@ -11,6 +11,7 @@
     <el-select
       v-model="bookType"
       style="width:120px;"
+      @change="booktypeChange"
     >
       <el-option
         v-for="item in options"
@@ -33,7 +34,7 @@ export default defineComponent({
     }
 
   },
-  emits: ['input'],
+  emits: ['changeinput'],
   setup(props, ctx) {
     const dataMap = reactive({
       options: [
@@ -46,10 +47,15 @@ export default defineComponent({
         return props.value
       },
       set: (value) => {
-        ctx.emit('input', value)
+        ctx.emit('changeinput', value)
       }
     })
-    return { ...toRefs(dataMap), bookType }
+
+    const booktypeChange = (value: any) => {
+      console.log(value)
+      ctx.emit('changeinput', value)
+    }
+    return { ...toRefs(dataMap), bookType, booktypeChange }
   }
 })
 </script>

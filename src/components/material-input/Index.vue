@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-mutating-props */
 <template>
   <div
     :class="computedClasses()"
@@ -100,7 +101,8 @@
       <input
         v-if="type === 'text'"
         :id="id"
-        v-model="valueCopy"
+        :value="title"
+
         type="text"
         class="material-input"
         :name="name"
@@ -125,10 +127,10 @@
 
 <script lang="ts">
 // Source: https://github.com/wemake-services/vue-material-input/blob/master/src/components/MaterialInput.vue
-import { defineComponent, getCurrentInstance, reactive, toRefs, watch } from 'vue'
+import { defineComponent, getCurrentInstance, reactive, toRefs } from 'vue'
 export default defineComponent({
   props: {
-    value: {
+    title: {
       type: String,
       required: true
     },
@@ -193,23 +195,22 @@ export default defineComponent({
       default: true
     }
   },
-  emits: ['input', 'el.form.change', 'focus', 'blur'],
+  emits: ['inputVal', 'el.form.change', 'focus', 'blur'],
   setup(props, contex) {
+    console.log(props.title, 'propspropspropspropsprops')
     const state = reactive({
-      valueCopy: props.value,
       focus: false
     })
     const { ctx } = getCurrentInstance() as any
-
-    watch(() => state.valueCopy, (value) => {
-      state.valueCopy = value
-    })
+    // watch(() => state.valueCopy, (value) => {
+    //   state.valueCopy = value
+    // })
 
     const computedClasses = () => {
       return {
         'material--active': state.focus,
-        'material--disabled': props.disabled,
-        'material--raised': Boolean(state.focus || state.valueCopy)
+        'material--disabled': props.disabled
+        // 'material--raised': Boolean(state.focus || state.valueCopy)
       }
     }
 
@@ -221,7 +222,7 @@ export default defineComponent({
     }
     const handleInput = (event: KeyboardEvent) => {
       const value = (event.target as HTMLInputElement).value
-      contex.emit('input', value)
+      contex.emit('inputVal', value)
       if (ctx.$parent.$options.name === 'ElFormItem') {
         if (props.validateEvent) {
           // See https://github.com/ElemeFE/element/blob/dev/packages/form/src/form-item.vue#L293
@@ -243,7 +244,7 @@ export default defineComponent({
         if (props.validateEvent) {
           // See https://github.com/ElemeFE/element/blob/dev/packages/form/src/form-item.vue#L292
           // eslint-disable-next-line vue/custom-event-name-casing
-          ctx.$parent.$emit('el.form.blur', [state.valueCopy])
+          // ctx.$parent.$emit('el.form.blur', [state.valueCopy])
         }
       }
     }
