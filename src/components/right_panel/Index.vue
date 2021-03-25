@@ -2,14 +2,14 @@
  * @Description:
  * @Author: ZY
  * @Date: 2020-12-24 10:44:01
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-29 09:25:08
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-03-25 08:27:00
 -->
 
 <template>
   <div
     class="handle-button"
-    :style="{'top': buttonTop+'px','background-color': theme}"
+    :style="{'top': buttonTop+'px','backgroundColor': theme}"
     @click="show= true"
   >
     <i class="el-icon-setting" />
