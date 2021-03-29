@@ -176,7 +176,7 @@ vue next 系列:
 - [element-plus](https://github.com/element-plus/element-plus)
 - [vue-router-next](https://github.com/vuejs/vue-router-next)
 - [vuex-4.0](https://github.com/vuejs/vuex)
-- [vue-vue-i18n-next](https://github.com/panter/vue-i18next)
+- [vue-i18n-next](https://github.com/intlify/vue-i18n-next)
 
 
 ## Document
