@@ -2,8 +2,8 @@
  * @Description: 侧边栏logo(需要跟随侧边栏折叠)
  * @Author: ZY
  * @Date: 2020-12-25 11:34:37
- * @LastEditors: SCY
- * @LastEditTime: 2021-04-06 09:22:32
+ * @LastEditors: ZY
+ * @LastEditTime: 2021-04-09 15:43:28
 -->
 
 <template>
@@ -44,7 +44,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import settings from '@/config/default/setting.config'
-import Logo from '@/assets/images/home/Logo.png'
+import Logo from '@/assets/images/home/logo.png'
 export default defineComponent({
   props: {
     collapse: {
