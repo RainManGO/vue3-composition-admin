@@ -57,6 +57,7 @@ export default defineComponent({
         },
         series: [
           {
+            color: ['#435EBE', '#5DDAB4', '#9694FF', '#FF7976', '#57CAEB'],
             name: 'WEEKLY WRITE ARTICLES',
             type: 'pie',
             roseType: 'radius',

@@ -2,8 +2,8 @@
  * @Description:
  * @Author: ZY
  * @Date: 2021-01-18 10:48:43
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 16:18:27
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-02 10:00:26
 -->
 <template>
   <el-row
@@ -21,13 +21,9 @@
         @click="handleSetLineChartData('newVisitis')"
       >
         <div class="card-panel-icon-wrapper icon-people">
-          <svg
-            class="icon"
-            aria-hidden="true"
-            font-size="50px"
+          <img
+            :src="visits"
           >
-            <use xlink:href="#iconpeoples" />
-          </svg>
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
@@ -54,13 +50,9 @@
         @click="handleSetLineChartData('messages')"
       >
         <div class="card-panel-icon-wrapper icon-message">
-          <svg
-            class="icon"
-            aria-hidden="true"
-            font-size="50px"
+          <img
+            :src="messages"
           >
-            <use xlink:href="#iconmessage" />
-          </svg>
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
@@ -86,13 +78,9 @@
         @click="handleSetLineChartData('purchases')"
       >
         <div class="card-panel-icon-wrapper icon-money">
-          <svg
-            class="icon"
-            aria-hidden="true"
-            font-size="50px"
+          <img
+            :src="purchases"
           >
-            <use xlink:href="#iconrmb" />
-          </svg>
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
@@ -118,13 +106,9 @@
         @click="handleSetLineChartData('shoppings')"
       >
         <div class="card-panel-icon-wrapper icon-shopping">
-          <svg
-            class="icon"
-            aria-hidden="true"
-            font-size="50px"
+          <img
+            :src="shoppings"
           >
-            <use xlink:href="#iconshopping" />
-          </svg>
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
@@ -145,7 +129,10 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import { CountTo } from 'vue3-count-to'
-
+import messages from '@/assets/images/home/messages.png'
+import purchases from '@/assets/images/home/purchases.png'
+import shoppings from '@/assets/images/home/shoppings.png'
+import visits from '@/assets/images/home/visits.png'
 export default defineComponent({
   components: {
     CountTo
@@ -163,7 +150,11 @@ export default defineComponent({
 
     return {
       handleSetLineChartData,
-      myCount
+      myCount,
+      messages,
+      purchases,
+      visits,
+      shoppings
     }
   }
 })
@@ -187,29 +178,14 @@ export default defineComponent({
     background: #fff;
     box-shadow: 4px 4px 40px rgba(0, 0, 0, .05);
     border-color: rgba(0, 0, 0, .05);
-
-    &:hover {
-      .card-panel-icon-wrapper {
-        color: #fff;
-      }
-
-      .icon-people {
-         background: #40c9c6;
-      }
-
-      .icon-message {
-        background: #36a3f7;
-      }
-
-      .icon-money {
-        background: #f4516c;
-      }
-
-      .icon-shopping {
-        background: #34bfa3
-      }
+    height: 124px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    img{
+      width:60px;
+      height: 60px;
+      display: inline-block;
     }
-
     .icon-people {
       color: #40c9c6;
     }

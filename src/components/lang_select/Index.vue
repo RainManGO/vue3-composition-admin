@@ -2,8 +2,8 @@
  * @Description: 语言选择
  * @Author: ZY
  * @Date: 2020-12-23 20:06:29
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-25 20:05:16
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-02 14:33:32
 -->
 <template>
   <div>
@@ -11,10 +11,10 @@
       <svg
         class="icon"
         aria-hidden="true"
-        font-size="20px"
+        font-size="45px"
         :class="{'svg-color': isWhite}"
       >
-        <use xlink:href="#iconlanguage" />
+        <use xlink:href="#iconzhongyingwen" />
       </svg>
       <template #dropdown>
         <el-dropdown-menu>

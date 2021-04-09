@@ -2,8 +2,8 @@
  * @Description: 大小选择
  * @Author: ZY
  * @Date: 2020-12-24 09:59:06
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 19:15:35
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-02 14:32:50
 -->
 <template>
   <div>
@@ -16,9 +16,9 @@
         <svg
           class="icon"
           aria-hidden="true"
-          font-size="20px"
+          font-size="40px"
         >
-          <use xlink:href="#iconsize" />
+          <use xlink:href="#iconshiliangzhinengduixiang" />
         </svg>
       </div>
       <template #dropdown>

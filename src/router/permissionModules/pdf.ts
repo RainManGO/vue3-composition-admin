@@ -20,7 +20,7 @@ const PdfRouter: Array<RouteRecordRaw> = [
         name: 'PDF',
         meta: {
           title: 'pdf',
-          icon: '#iconPDF'
+          icon: '#iconpdf'
         }
       }
     ]

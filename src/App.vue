@@ -2,8 +2,8 @@
  * @Description:
  * @Autor: ZY
  * @Date: 2020-12-07 10:30:20
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-23 16:00:27
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-06 10:11:53
 -->
 <template>
   <router-view />
@@ -17,5 +17,21 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
+.el-menu-item:hover{
+  outline: 0 !important;
+  color: #409EFF !important;
+}
 
+.el-submenu__title:focus, .el-submenu__title:hover{
+  outline: 0 !important;
+  color: #fff !important;
+  background: #435EBE !important;
+  border-radius: 8px !important;
+}
+.el-menu-item:hover{
+   outline: 0 !important;
+  color: #fff !important;
+  background: #435EBE !important;
+  border-radius: 8px !important;
+}
 </style>

@@ -2,14 +2,14 @@
  * @Description: admin 权限主页
  * @Author: ZY
  * @Date: 2021-01-15 18:44:25
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-19 10:18:13
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-02 09:40:07
 -->
 <template>
   <div class="dashboard-editor-container">
     <GithubCorner class="github-corner" />
     <PanelGroup @handle-set-line-chart-data="handleSetLineChartData" />
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;border-radius: 8px;">
       <LineChart :chart-data="lineChartData" />
     </el-row>
 
@@ -52,7 +52,7 @@
         :xl="{span: 16}"
         style="padding-right:8px;margin-bottom:30px;"
       >
-        <DependsTable />
+        <DependsTable style="border-radius: 8px;" />
       </el-col>
       <el-col
         :xs="{span: 24}"
@@ -62,7 +62,7 @@
         :xl="{span: 8}"
         style="padding-right:8px;margin-bottom:30px;"
       >
-        <TodoList />
+        <TodoList style="border-radius: 8px;" />
       </el-col>
     </el-row>
 
@@ -75,7 +75,7 @@
         :xl="{span: 16}"
         style="padding-right:8px;margin-bottom:30px;"
       >
-        <UpdateTimeline />
+        <UpdateTimeline style="border-radius: 16px;" />
       </el-col>
       <el-col
         :xs="{span: 24}"
@@ -85,7 +85,7 @@
         :xl="{span: 8}"
         style="padding-right:8px;margin-bottom:30px;"
       >
-        <BoxCard />
+        <BoxCard style="border-radius: 8px;" />
       </el-col>
     </el-row>
   </div>
@@ -152,7 +152,7 @@ export default {
 <style lang="scss" scoped>
 .dashboard-editor-container {
   padding: 32px;
-  background-color: rgb(240, 242, 245);
+  background-color: #F2F7FF;
   position: relative;
 
   .github-corner{
@@ -166,6 +166,7 @@ export default {
     background: #fff;
     padding: 16px 16px 0;
     margin-bottom: 32px;
+    border-radius: 8px;
   }
 }
 
