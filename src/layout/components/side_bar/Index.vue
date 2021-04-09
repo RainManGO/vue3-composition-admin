@@ -128,9 +128,6 @@ export default defineComponent({
 </style>
 
 <style lang="scss" scoped>
-.sideWrap{
-  // padding: 0 30px;
-}
 .el-scrollbar {
   height: 100%
 }
