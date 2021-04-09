@@ -2,8 +2,8 @@
  * @Description: 首页雷达图
  * @Author: ZY
  * @Date: 2021-01-18 11:23:22
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 10:05:57
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-06 14:50:31
 -->
 <template>
   <div
@@ -57,12 +57,13 @@ export default defineComponent({
           radius: '66%',
           center: ['50%', '42%'],
           splitNumber: 8,
+
           splitArea: {
             areaStyle: {
-              color: 'rgba(127,95,132,.3)',
+              color: '#C5CEE6',
               opacity: 1,
               shadowBlur: 45,
-              shadowColor: 'rgba(0,0,0,.5)',
+              shadowColor: 'rgba(0,0,0,.1)',
               shadowOffsetX: 0,
               shadowOffsetY: 15
             }
@@ -82,6 +83,7 @@ export default defineComponent({
           data: ['Allocated Budget', 'Expected Spending', 'Actual Spending']
         },
         series: [{
+          color: ['#435EBE', '#5DDAB4', '#57CAEB'],
           type: 'radar',
           symbolSize: 0,
           areaStyle: {

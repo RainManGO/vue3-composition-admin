@@ -75,6 +75,7 @@ export default defineComponent({
           }
         }],
         series: [{
+          color: ['#57CAEB', '#5DDAB4', '#57CAEB', '#435EBE'],
           name: 'pageA',
           type: 'bar',
           stack: 'vistors',

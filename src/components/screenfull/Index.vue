@@ -2,8 +2,8 @@
  * @Description: 全屏按钮
  * @Author: ZY
  * @Date: 2020-12-23 18:11:46
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 10:14:19
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-02 14:31:08
 -->
 
 <template>
@@ -15,9 +15,9 @@
       <svg
         class="icon"
         aria-hidden="true"
-        font-size="20px"
+        font-size="40px"
       >
-        <use xlink:href="#iconexitfullscreen" />
+        <use xlink:href="#iconshiliangzhinengduixiang1" />
       </svg>
     </div>
     <div
@@ -27,9 +27,9 @@
       <svg
         class="icon"
         aria-hidden="true"
-        font-size="20px"
+        font-size="40px"
       >
-        <use xlink:href="#iconfullscreen" />
+        <use xlink:href="#iconshiliangzhinengduixiang1" />
       </svg>
     </div>
   </div>

@@ -86,6 +86,7 @@ export default defineComponent({
             data: ['expected', 'actual']
           },
           series: [{
+
             name: 'expected',
             itemStyle: {
               color: '#FF005A',

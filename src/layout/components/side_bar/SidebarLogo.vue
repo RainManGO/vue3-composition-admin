@@ -2,8 +2,8 @@
  * @Description: 侧边栏logo(需要跟随侧边栏折叠)
  * @Author: ZY
  * @Date: 2020-12-25 11:34:37
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-09 17:30:30
+ * @LastEditors: SCY
+ * @LastEditTime: 2021-04-06 09:22:32
 -->
 
 <template>
@@ -30,12 +30,9 @@
         to="/"
       >
         <img
-          src="favicon.ico"
           class="sidebar-logo"
+          :src="Logo"
         >
-        <h1 class="sidebar-title">
-          {{ title }}
-        </h1>
       </router-link>
     </transition>
   </div>
@@ -44,7 +41,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import settings from '@/config/default/setting.config'
-
+import Logo from '@/assets/images/home/logo.png'
 export default defineComponent({
   props: {
     collapse: {
@@ -55,7 +52,8 @@ export default defineComponent({
   setup() {
     const title = settings.title
     return {
-      title
+      title,
+      Logo
     }
   }
 })
@@ -79,16 +77,20 @@ export default defineComponent({
   background: $menuBg;
   text-align: center;
   overflow: hidden;
+  margin-bottom: 30px;
+  margin-top: 20px;
 
   & .sidebar-logo-link {
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & .sidebar-logo {
       width: 32px;
-      height: 32px;
-      vertical-align: middle;
-      margin-right: 0px;
+      width: 218px;
+      display: inline-block;
     }
 
     & .sidebar-title {
