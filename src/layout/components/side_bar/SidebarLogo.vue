@@ -9,7 +9,7 @@
 <template>
   <div
     class="sidebar-logo-container"
-    :class="{'collapse': collapse}"
+    :class="[collapse ? 'collapse': 'notitle']"
   >
     <transition name="sidebarLogoFade">
       <router-link
@@ -33,6 +33,9 @@
           class="sidebar-logo"
           :src="Logo"
         >
+        <h1 class="sidebar-title">
+          Vue<span style="color:#57CAEB">3</span>管理后台
+        </h1>
       </router-link>
     </transition>
   </div>
@@ -41,7 +44,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import settings from '@/config/default/setting.config'
-import Logo from '@/assets/images/home/logo.png'
+import Logo from '@/assets/images/home/Logo.png'
 export default defineComponent({
   props: {
     collapse: {
@@ -88,18 +91,17 @@ export default defineComponent({
     justify-content: center;
 
     & .sidebar-logo {
-      width: 32px;
-      width: 218px;
       display: inline-block;
+      height: 100%;
     }
 
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: #fff;
+      color: #435EBE;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 24px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
@@ -108,6 +110,14 @@ export default defineComponent({
   &.collapse {
     .sidebar-logo {
       margin-right: 12px;
+    }
+  }
+  &.notitle{
+    .sidebar-title{
+      display: none;
+    }
+       & .sidebar-logo {
+      height: 60%;
     }
   }
 }

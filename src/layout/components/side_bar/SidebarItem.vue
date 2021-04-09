@@ -9,9 +9,14 @@
 <template>
   <div
     v-if="!item.meta || !item.meta.hidden"
-    :class="[isCollapse ? 'simple-mode' : 'full-mode', {'first-level': isFirstLevel}]"
+    :class="[
+      isCollapse ? 'simple-mode' : 'full-mode',
+      {'first-level': isFirstLevel}
+    ]"
   >
-    <template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">
+    <template
+      v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children"
+    >
       <SidebarItemLink
         v-if="theOnlyOneChild.meta"
         :to="resolvePath(theOnlyOneChild.path)"
@@ -28,9 +33,9 @@
           >
             <use :xlink:href="theOnlyOneChild.meta.icon" />
           </svg>
-          <span
-            v-if="theOnlyOneChild.meta.title"
-          >{{ t('route.' + theOnlyOneChild.meta.title) }}</span>
+          <span v-if="theOnlyOneChild.meta.title">{{
+            t("route." + theOnlyOneChild.meta.title)
+          }}</span>
         </el-menu-item>
       </SidebarItemLink>
     </template>
@@ -48,9 +53,9 @@
         >
           <use :xlink:href="item.meta.icon" />
         </svg>
-        <span
-          v-if="item.meta && item.meta.title"
-        >{{ t('route.' +item.meta.title) }}</span>
+        <span v-if="item.meta && item.meta.title">{{
+          t("route." + item.meta.title)
+        }}</span>
       </template>
       <template v-if="item.children">
         <sidebar-item
@@ -155,7 +160,6 @@ export default defineComponent({
     }
   }
 })
-
 </script>
 
 <style lang="scss" scoped>
@@ -164,13 +168,33 @@ export default defineComponent({
 }
 
 .full-mode {
-  .nest-menu .el-submenu>.el-submenu__title,
+  .nest-menu .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: $sideBarWidth !important;
     background-color: $subMenuBg !important;
 
     &:hover {
       background-color: $subMenuHover !important;
+    }
+  }
+  .el-menu-item{
+    &>span{
+      display: inline-block;
+      padding-left: 5px;
+    }
+  }
+  .el-submenu {
+    overflow: hidden;
+
+    & > .el-submenu__title {
+      .el-submenu__icon-arrow {
+        display: none;
+      }
+
+      & > span {
+             padding-left: 5px;
+
+      }
     }
   }
 }
@@ -189,14 +213,14 @@ export default defineComponent({
     .el-submenu {
       overflow: hidden;
 
-      &>.el-submenu__title {
+      & > .el-submenu__title {
         padding: 0px !important;
 
         .el-submenu__icon-arrow {
           display: none;
         }
 
-        &>span {
+        & > span {
           visibility: hidden;
         }
       }
