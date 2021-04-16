@@ -292,4 +292,4 @@ Modern browsers and Internet Explorer 10+.
 
 [MIT](https://github.com/rcyj-FED/vue3-composition-admin/blob/main/LICENSE)
 
-Copyright (c) 2021-present 人才有价
+Copyright (c) 2021-present 
