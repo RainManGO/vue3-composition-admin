@@ -925,43 +925,61 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@intlify/core-base@9.0.0-rc.4":
-  version "9.0.0-rc.4"
-  resolved "https://registry.npmjs.org/@intlify/core-base/-/core-base-9.0.0-rc.4.tgz#a0f4cab4fa6d449228bcb390ddc4ef076c92125a"
-  integrity sha512-U4YhxDr53ypDVRus6Q+tkmoD2LErsiPsaBULhJ1HcHTSFqNXGbmAYlp4uhQDIp/pvQHQN2uy/FRnQw7Xd2np6A==
+"@intlify/core-base@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/core-base/download/@intlify/core-base-9.1.6.tgz#887fbeafe37d955bac50318f30ac589839f0d9fb"
+  integrity sha1-iH++r+N9lVusUDGPMKxYmDnw2fs=
   dependencies:
-    "@intlify/message-compiler" "9.0.0-rc.4"
-    "@intlify/message-resolver" "9.0.0-rc.4"
-    "@intlify/runtime" "9.0.0-rc.4"
-    "@intlify/shared" "9.0.0-rc.4"
+    "@intlify/devtools-if" "9.1.6"
+    "@intlify/message-compiler" "9.1.6"
+    "@intlify/message-resolver" "9.1.6"
+    "@intlify/runtime" "9.1.6"
+    "@intlify/shared" "9.1.6"
+    "@intlify/vue-devtools" "9.1.6"
 
-"@intlify/message-compiler@9.0.0-rc.4":
-  version "9.0.0-rc.4"
-  resolved "https://registry.npmjs.org/@intlify/message-compiler/-/message-compiler-9.0.0-rc.4.tgz#0f21c8cca8ee7f8d0e2e3f6460c33731d41b91ee"
-  integrity sha512-hny4Mjw4ah8i5m9UoSf1twfeQbXk1vc3LgiOF3ZIu5/tOBlG16hh5+Ma2N949ottHwFaVAHxjRFNzvVXDEEM3Q==
+"@intlify/devtools-if@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/devtools-if/download/@intlify/devtools-if-9.1.6.tgz#739b195e430e24fbf8f864ec8a51e243e3347385"
+  integrity sha1-c5sZXkMOJPv4+GTsilHiQ+M0c4U=
   dependencies:
-    "@intlify/message-resolver" "9.0.0-rc.4"
-    "@intlify/shared" "9.0.0-rc.4"
+    "@intlify/shared" "9.1.6"
+
+"@intlify/message-compiler@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/message-compiler/download/@intlify/message-compiler-9.1.6.tgz#e3e99165c1e6ecc496211017799ae59e15b05a18"
+  integrity sha1-4+mRZcHm7MSWIRAXeZrlnhWwWhg=
+  dependencies:
+    "@intlify/message-resolver" "9.1.6"
+    "@intlify/shared" "9.1.6"
     source-map "0.6.1"
 
-"@intlify/message-resolver@9.0.0-rc.4":
-  version "9.0.0-rc.4"
-  resolved "https://registry.npmjs.org/@intlify/message-resolver/-/message-resolver-9.0.0-rc.4.tgz#0141eabbc88c94ed4c4c8a1c3a0777ea6e05e026"
-  integrity sha512-OAjfDVE77oLbizpVuZIh2iYZdr3xEyzXCpBtfZ4QuWgOuEIaFTF0ti769UucR5C8MXJr0PJwuW1RHpJahYldWw==
+"@intlify/message-resolver@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/message-resolver/download/@intlify/message-resolver-9.1.6.tgz#d7493c9f326d5feb0cd8538a6735b648a91d8f2f"
+  integrity sha1-10k8nzJtX+sM2FOKZzW2SKkdjy8=
 
-"@intlify/runtime@9.0.0-rc.4":
-  version "9.0.0-rc.4"
-  resolved "https://registry.npmjs.org/@intlify/runtime/-/runtime-9.0.0-rc.4.tgz#bb54c07c388bac63b57f595e951985e26981e6a7"
-  integrity sha512-PfMdCINVB1A61w52B4Kz5D/eWuP8U9Uci07cAhg1galeEf/qdEwPWOepQK+Qyx5jIl5dcLOCasRyV6rCBtcnzQ==
+"@intlify/runtime@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/runtime/download/@intlify/runtime-9.1.6.tgz#bf1548d9034c80eef92b06b240cb347effb41f71"
+  integrity sha1-vxVI2QNMgO75KwayQMs0fv+0H3E=
   dependencies:
-    "@intlify/message-compiler" "9.0.0-rc.4"
-    "@intlify/message-resolver" "9.0.0-rc.4"
-    "@intlify/shared" "9.0.0-rc.4"
+    "@intlify/message-compiler" "9.1.6"
+    "@intlify/message-resolver" "9.1.6"
+    "@intlify/shared" "9.1.6"
 
-"@intlify/shared@9.0.0-rc.4":
-  version "9.0.0-rc.4"
-  resolved "https://registry.npmjs.org/@intlify/shared/-/shared-9.0.0-rc.4.tgz#22b25d364cc36ae8a3ce562be4382983d3bbb4c1"
-  integrity sha512-R5MK/4syRGP7/JQ+7apdvj8H1RlLxsMyZz6NIcZxcna8w7tv3yWUo/xiFKKwEfiiEH3r9DJfBOrpiWPkYo5GEA==
+"@intlify/shared@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/shared/download/@intlify/shared-9.1.6.tgz#d03c9301898d6ddffe2a54c03e7664174fbcdfd9"
+  integrity sha1-0DyTAYmNbd/+KlTAPnZkF0+839k=
+
+"@intlify/vue-devtools@9.1.6":
+  version "9.1.6"
+  resolved "https://registry.npm.taobao.org/@intlify/vue-devtools/download/@intlify/vue-devtools-9.1.6.tgz#88faadf203951a2a10107440fa99b58f4637d40d"
+  integrity sha1-iPqt8gOVGioQEHRA+pm1j0Y31A0=
+  dependencies:
+    "@intlify/message-resolver" "9.1.6"
+    "@intlify/runtime" "9.1.6"
+    "@intlify/shared" "9.1.6"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -1457,10 +1475,10 @@
     "@types/koa-compose" "*"
     "@types/node" "*"
 
-"@types/lodash@^4.14.167":
+"@types/lodash@^4.14.161", "@types/lodash@^4.14.167":
   version "4.14.168"
-  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
-  integrity sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==
+  resolved "https://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.168.tgz?cache=0&sync_timestamp=1613379222224&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Flodash%2Fdownload%2F%40types%2Flodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
+  integrity sha1-/iRjLnm3rePxMoka//hsql5c4Ag=
 
 "@types/mime@^1":
   version "1.3.2"
@@ -2015,10 +2033,10 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/devtools-api@^6.0.0-beta.3":
-  version "6.0.0-beta.3"
-  resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.0.0-beta.3.tgz#5a66cc8beed688fe18c272ee7a8bd8ed7e35a54c"
-  integrity sha512-iJQhVyWzWIJxYIMjbZpljZQfU4gL2IMD5YQm3HXO8tQRU7RqqnD3f1WHn+vrqvrSvM8Qw2BeNugwdBBmbK8Oxg==
+"@vue/devtools-api@^6.0.0-beta.7":
+  version "6.0.0-beta.8"
+  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.8.tgz#0dbb2d21b13818c04b7f70b1b0c3f7aae95e4fb4"
+  integrity sha1-DbstIbE4GMBLf3CxsMP3quleT7Q=
 
 "@vue/eslint-config-standard@^5.1.2":
   version "5.1.2"
@@ -2628,10 +2646,10 @@ aws4@^1.8.0:
   resolved "https://registry.npmjs.org/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axios-mapper@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/axios-mapper/-/axios-mapper-0.4.4.tgz#a68f6e5b9889c0455d216fef11a427fbb45cfaff"
-  integrity sha512-dx7RakHf9wHQKztitU2f6xyz2kPu6bnYsWCYhclc3fiw8G7tsDUXMaC8iAVZ3biAe0QmTB9kiZqDbLuCrNzM8Q==
+axios-mapper@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.npm.taobao.org/axios-mapper/download/axios-mapper-0.5.4.tgz#7fa798a6ea9baec2735ee056f85baa31551ca3ac"
+  integrity sha1-f6eYpuqbrsJzXuBW+FuqMVUco6w=
   dependencies:
     "@types/qs" "^6.9.5"
     axios "^0.21.0"
@@ -4651,12 +4669,13 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.npmjs.org/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
-element-plus@^1.0.1-beta.14:
-  version "1.0.1-beta.27"
-  resolved "https://registry.npmjs.org/element-plus/-/element-plus-1.0.1-beta.27.tgz#f7ea863e2a85f40d0bfccd9a3f778c883a844802"
-  integrity sha512-/73TA3lTiRCBPBTlcXivHEjxhrdJB8jVHUxtfgrnBui3gSGeWhE+7gqEsmCmMWqZHXjE4FeLpGcnqCV55xl1fQ==
+element-plus@^1.0.2-beta.35:
+  version "1.0.2-beta.40"
+  resolved "https://registry.npm.taobao.org/element-plus/download/element-plus-1.0.2-beta.40.tgz#30fc9b161496ae587fab86235c80b728ea43d909"
+  integrity sha1-MPybFhSWrlh/q4YjXIC3KOpD2Qk=
   dependencies:
     "@popperjs/core" "^2.4.4"
+    "@types/lodash" "^4.14.161"
     async-validator "^3.4.0"
     dayjs "1.x"
     lodash "^4.17.20"
@@ -11858,14 +11877,15 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-i18n@^9.0.0-beta.16:
-  version "9.0.0-rc.4"
-  resolved "https://registry.npmjs.org/vue-i18n/-/vue-i18n-9.0.0-rc.4.tgz#717d9604e61bc8f5af74a023c40881a194f88a58"
-  integrity sha512-PPOQpMVnR7p0IqVSWAc0PN/qowvF6IA0IVdp0NQ/VcaqqBrVGGOyeo5YENdVePT5U1oF9MY8ZKVxFLKdqMTMJw==
+vue-i18n@^9.0.0:
+  version "9.1.6"
+  resolved "https://registry.nlark.com/vue-i18n/download/vue-i18n-9.1.6.tgz#4cf992e2aec5458bc19369973c96ea7d0f560321"
+  integrity sha1-TPmS4q7FRYvBk2mXPJbqfQ9WAyE=
   dependencies:
-    "@intlify/core-base" "9.0.0-rc.4"
-    "@intlify/shared" "9.0.0-rc.4"
-    "@vue/devtools-api" "^6.0.0-beta.3"
+    "@intlify/core-base" "9.1.6"
+    "@intlify/shared" "9.1.6"
+    "@intlify/vue-devtools" "9.1.6"
+    "@vue/devtools-api" "^6.0.0-beta.7"
 
 vue-image-crop-upload@^2.5.0:
   version "2.5.0"

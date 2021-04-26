@@ -19,7 +19,7 @@
   "dependencies": {
     "@dragndrop/vue-dropzone": "0.0.4",
     "@tinymce/tinymce-vue": "^4.0.0",
-    "axios-mapper": "^0.4.4",
+    "axios-mapper": "^0.5.4",
     "chalk": "^4.1.0",
     "clipboard": "^2.0.6",
     "core-js": "^3.6.5",
