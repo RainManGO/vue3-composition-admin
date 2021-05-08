@@ -42,8 +42,8 @@
     <el-submenu
       v-else
       :index="resolvePath(item.path)"
-      popper-append-to-body
     >
+      <!-- popper-append-to-body -->
       <template #title>
         <svg
           v-if="item.meta && item.meta.icon"
@@ -171,7 +171,7 @@ export default defineComponent({
   .nest-menu .el-submenu > .el-submenu__title,
   .el-submenu .el-menu-item {
     min-width: $sideBarWidth !important;
-    background-color: $subMenuBg !important;
+    #background-color: $subMenuBg !important;
 
     &:hover {
       background-color: $subMenuHover !important;
