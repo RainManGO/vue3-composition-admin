@@ -6,35 +6,13 @@
  * @LastEditTime: 2021-01-16 16:09:12
 -->
 <template>
-  <li
-    :class="{completed: todo.done, editing: editing}"
-    class="todo"
-  >
+  <li :class="{completed: todo.done, editing: editing}" class="todo">
     <div class="view">
-      <input
-        :checked="todo.done"
-        class="toggle"
-        type="checkbox"
-        @change="toggleTodo(todo)"
-      >
-      <label
-        @dblclick="editing = true"
-        v-text="todo.text"
-      />
-      <button
-        class="destroy"
-        @click="deleteTodo( todo )"
-      />
+      <input :checked="todo.done" class="toggle" type="checkbox" @change="toggleTodo(todo)">
+      <label @dblclick="editing = true" v-text="todo.text" />
+      <button class="destroy" @click="deleteTodo( todo )" />
     </div>
-    <input
-      v-show="editing"
-      v-focus="editing"
-      :value="todo.text"
-      class="edit"
-      @keyup.enter="doneEdit"
-      @keyup.esc="cancelEdit"
-      @blur="doneEdit"
-    >
+    <input v-show="editing" v-focus="editing" :value="todo.text" class="edit" @keyup.enter="doneEdit" @keyup.esc="cancelEdit" @blur="doneEdit">
   </li>
 </template>
 
@@ -49,21 +27,22 @@ export interface TodoItem {
 export default defineComponent({
   directives: {
     focus: {
-    // 指令的定义
+      // 指令的定义
       mounted(el) {
         el.focus()
-      }
-    }
+      },
+    },
   },
   props: {
     todo: {
       type: Object as PropType<TodoItem>,
-      default: {
-        text: '',
-        done: false
-      }
-    }
-
+      default: () => {
+        return {
+          text: '',
+          done: false,
+        }
+      },
+    },
   },
   emits: ['toggle-todo', 'edit-todo', 'delete-todo'],
   setup(props, { emit }) {
@@ -71,7 +50,7 @@ export default defineComponent({
     const deleteTodo = (todo: TodoItem) => {
       emit('delete-todo', todo)
     }
-    const editTodo = ({ todo, value }: { todo: TodoItem, value: string }) => {
+    const editTodo = ({ todo, value }: { todo: TodoItem; value: string }) => {
       emit('edit-todo', { todo, value })
     }
     const toggleTodo = (todo: TodoItem) => {
@@ -86,14 +65,14 @@ export default defineComponent({
       } else if (editing.value) {
         editTodo({
           todo,
-          value
+          value,
         })
         editing.value = false
       }
     }
 
     const cancelEdit = (e: KeyboardEvent) => {
-      (e.target as HTMLInputElement).value = props.todo.text
+      ;(e.target as HTMLInputElement).value = props.todo.text
       editing.value = false
     }
 
@@ -103,8 +82,8 @@ export default defineComponent({
       editTodo,
       toggleTodo,
       doneEdit,
-      cancelEdit
+      cancelEdit,
     }
-  }
+  },
 })
 </script>
