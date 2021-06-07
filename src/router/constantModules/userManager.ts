@@ -6,7 +6,6 @@
  * @LastEditTime: 2021-01-21 18:04:55
  */
 import { RouteRecordRaw } from 'vue-router'
-
 const UserManagerRouter: Array<RouteRecordRaw> = [
   {
     path: '/login',

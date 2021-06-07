@@ -9,7 +9,7 @@
   <div
     :id="id"
     :class="className"
-    :style="{height: height, width: width}"
+    :style="{height, widthW}"
   />
 </template>
 
