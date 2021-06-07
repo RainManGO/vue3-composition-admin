@@ -17,12 +17,6 @@
         type="checkbox"
         @change="toggleTodo(todo)"
       >
-      <input
-        :checked="todo.done"
-        class="toggle"
-        type="checkbox"
-        @change="toggleTodo(todo)"
-      >
       <label
         @dblclick="editing = true"
         v-text="todo.text"
