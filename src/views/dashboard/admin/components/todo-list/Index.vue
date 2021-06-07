@@ -74,6 +74,7 @@ import storage, { StorageType } from '@/utils/storage'
 const STORAGE_KEY = 'todos'
 
 export default defineComponent({
+  name: 'TodoList',
   components: {
     Todo
   },

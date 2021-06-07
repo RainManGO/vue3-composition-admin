@@ -2,8 +2,8 @@
  * @Description:  to do item
  * @Author: ZY
  * @Date: 2021-01-15 18:50:38
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-16 16:09:12
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-06-02 11:31:16
 -->
 <template>
   <li
@@ -23,7 +23,7 @@
       />
       <button
         class="destroy"
-        @click="deleteTodo( todo )"
+        @click="deleteTodo(todo)"
       />
     </div>
     <input
@@ -47,9 +47,10 @@ export interface TodoItem {
 }
 
 export default defineComponent({
+  name: 'Todo',
   directives: {
     focus: {
-    // 指令的定义
+      // 指令的定义
       mounted(el) {
         el.focus()
       }
@@ -57,16 +58,18 @@ export default defineComponent({
   },
   props: {
     todo: {
-      type: Object as PropType<TodoItem>,
-      default: {
-        text: '',
-        done: false
+      type: {} as PropType<TodoItem>,
+      default: () => {
+        return {
+          text: '',
+          done: false
+        }
       }
     }
-
   },
   emits: ['toggle-todo', 'edit-todo', 'delete-todo'],
   setup(props, { emit }) {
+    console.log(props, 'propspropsprops')
     const editing = ref(false)
     const deleteTodo = (todo: TodoItem) => {
       emit('delete-todo', todo)
