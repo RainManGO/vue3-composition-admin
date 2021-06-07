@@ -25,6 +25,20 @@
         class="destroy"
         @click="deleteTodo(todo)"
       />
+      <input
+        :checked="todo.done"
+        class="toggle"
+        type="checkbox"
+        @change="toggleTodo(todo)"
+      >
+      <label
+        @dblclick="editing = true"
+        v-text="todo.text"
+      />
+      <button
+        class="destroy"
+        @click="deleteTodo( todo )"
+      />
     </div>
     <input
       v-show="editing"
@@ -58,7 +72,7 @@ export default defineComponent({
   },
   props: {
     todo: {
-      type: {} as PropType<TodoItem>,
+      type: Object as PropType<TodoItem>,
       default: () => {
         return {
           text: '',
@@ -96,7 +110,7 @@ export default defineComponent({
     }
 
     const cancelEdit = (e: KeyboardEvent) => {
-      (e.target as HTMLInputElement).value = props.todo.text
+      ;(e.target as HTMLInputElement).value = props.todo.text
       editing.value = false
     }
 
