@@ -197,12 +197,6 @@ vue next 系列:
   yarn start
 ```
 
-or
-
-```shell
-  npm install
-  npm run start
-```
 
 ### 单独启动 Mock
 
@@ -216,10 +210,6 @@ or
 ```shell
     yarn mock
 ```
-or
-```shell
-    npm run mock
-```
 
 mock 需要部署到服务器，单独项目地址：https://github.com/rcyj-FED/admin-tmpl-mock
 mock在线测试地址：https://admin-tmpl-mock-test.rencaiyoujia.cn/
@@ -229,10 +219,6 @@ mock在线测试地址：https://admin-tmpl-mock-test.rencaiyoujia.cn/
 
 ```shell
     yarn  serve:dev
-```
-or
-```shell
-    npm run serve:dev
 ```
 
 多环境命令查看package.json  script:
@@ -252,11 +238,6 @@ or
 ```shell
     yarn  lint
 ```
-or
-```shell
-    npm run lint
-```
-
 
 提交自动检测：
 
