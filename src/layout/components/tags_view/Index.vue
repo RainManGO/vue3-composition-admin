@@ -79,7 +79,7 @@ export default defineComponent({
     const currentRoute = useRoute()
     const { t } = useI18n()
     const scrollPaneRef = ref(null)
-    const { ctx } = instance as any
+    const { proxy } = instance as any
 
     const toLastView = (visitedViews: TagView[], view: TagView) => {
       const latestView = visitedViews.slice(-1)[0]
@@ -146,8 +146,8 @@ export default defineComponent({
       },
       openMenu: (tag: TagView, e: MouseEvent) => {
         const menuMinWidth = 105
-        const offsetLeft = ctx.$el.getBoundingClientRect().left // container margin left
-        const offsetWidth = ctx.$el.offsetWidth // container width
+        const offsetLeft = proxy.$el.getBoundingClientRect().left // container margin left
+        const offsetWidth = proxy.$el.offsetWidth // container width
         const maxLeft = offsetWidth - menuMinWidth // left boundary
         const left = e.clientX - offsetLeft + 15 // 15: margin right
         if (left > maxLeft) {
