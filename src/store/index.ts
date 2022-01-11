@@ -21,9 +21,9 @@ export interface RootState {
     tagViews: TagsViewState
 }
 
-export type Store = AppStore<Pick<RootState, 'app'>> & SettingStore<Pick<RootState, 'settings'>>
-& PermissionStore<Pick<RootState, 'permission'>> & UserStore<Pick<RootState, 'user'>>
-& TagsStore<Pick<RootState, 'tagViews'>>
+export type Store = AppStore<AppState> & SettingStore<SettingsState>
+& PermissionStore<PermissionState> & UserStore<UserState>
+& TagsStore<TagsViewState>
 
 // Plug in logger when in development environment
 const debug = process.env.NODE_ENV !== 'production'
