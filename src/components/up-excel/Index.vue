@@ -78,7 +78,7 @@ export default defineComponent({
         }
         const rawFile = files[0] // only use files[0]
 
-        if (dataMap.isExcel(rawFile)) {
+        if (!dataMap.isExcel(rawFile)) {
           ElMessage.error('Only supports upload .xlsx, .xls, .csv suffix files')
           return false
         }
