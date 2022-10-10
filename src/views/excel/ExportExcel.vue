@@ -8,8 +8,16 @@
 <template>
   <div class="app-container">
     <div>
-      <FilenameOption v-model="filename" />
-      <AutoWidthOption v-model="autoWidth" />
+      <FilenameOption
+        v-model="filename"
+        @input="handleInput"
+        :value="filename"
+      />
+      <AutoWidthOption
+        v-model="autoWidth"
+        :value="autoWidth"
+        @input="handleChange"
+      />
       <BookTypeOption
         :value="bookType"
         @changeinput="changeinput"
@@ -137,10 +145,16 @@ export default defineComponent({
       exportJson2Excel(tHeader, data, dataMap.filename !== '' ? dataMap.filename : undefined, undefined, undefined, dataMap.autoWidth, dataMap.bookType)
       dataMap.downloadLoading = false
     }
+    const handleInput = (val: any) => {
+      dataMap.filename = val
+    }
+    const handleChange = (val: any) => {
+      dataMap.autoWidth = val
+    }
     onMounted(() => {
       fetchData()
     })
-    return { t, ...toRefs(dataMap), handleDownload, fetchData, changeinput }
+    return { t, ...toRefs(dataMap), handleDownload, handleInput, handleChange, fetchData, changeinput }
   }
 })
 </script>
