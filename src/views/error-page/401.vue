@@ -54,7 +54,7 @@
       </el-col>
     </el-row>
     <el-dialog
-      v-model:visible="dialogVisible"
+      v-model="dialogVisible"
       title="随便看"
     >
       <img
