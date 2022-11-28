@@ -9,6 +9,15 @@
     >
       上传
     </el-button>
+    <el-button
+      :style="{background: color, borderColor: color}"
+      icon="el-icon-download"
+      size="mini"
+      type="primary"
+      @click="handleExport"
+    >
+      下载
+    </el-button>
     <el-dialog
       v-model="dialogVisible"
       :modal-append-to-body="false"
@@ -63,7 +72,7 @@ export default defineComponent({
     }
 
   },
-  emits: ['success-callback'],
+  emits: ['success-callback', 'export-callback'],
   setup(_, ctx) {
     let listObj: { [key: string]: UploadObject } = {}
     const dataMap = reactive({
@@ -81,6 +90,11 @@ export default defineComponent({
         listObj = {}
         dataMap.defaultFileList = []
         dataMap.dialogVisible = false
+      },
+
+      // 导出文件按钮触发的事件
+      handleExport: () => {
+        ctx.emit('export-callback')
       },
 
       handleSuccess: (response: any, file: any) => {

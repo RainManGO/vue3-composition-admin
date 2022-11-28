@@ -14,6 +14,7 @@
         :color="uploadButtonColor"
         class="editor-upload-btn"
         @success-callback="imageSuccessCBK"
+        @export-callback="exportContent"
       />
     </div>
   </div>
@@ -66,6 +67,8 @@ import 'tinymce/plugins/visualblocks'
 import 'tinymce/plugins/visualchars'
 import 'tinymce/plugins/wordcount'
 import TinymceEditor from '@tinymce/tinymce-vue' // TinyMCE vue wrapper
+import { saveAs } from 'file-saver'
+import htmlDock from 'html-docx-js/dist/html-docx'
 import EditorImageUpload, { UploadObject } from './components/EditorImage.vue'
 import { plugins, toolbar } from './config'
 import {
@@ -136,6 +139,18 @@ export default defineComponent({
           return `${width}px`
         }
         return width
+      },
+      // 导出按钮操作
+      exportContent: () => {
+        let title = ''
+        const contentStr = props.value
+        if (props.value.includes('</h1>')) {
+          const contentArr = props.value.split('</h1>')[0].split('>')
+          title = `${contentArr[contentArr.length - 1]}.docx`
+        } else {
+          title = 'tinyMce.docx'
+        }
+        saveAs(htmlDock.asBlob(contentStr, { orientation: 'landscape' }), title)
       }
     })
 
