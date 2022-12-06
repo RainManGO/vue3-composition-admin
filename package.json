@@ -30,6 +30,7 @@
     "element-plus": "^1.0.2-beta.35",
     "faker": "^5.1.0",
     "file-saver": "^2.0.5",
+    "html-docx-js": "^0.3.1",
     "js-cookie": "^2.2.1",
     "jszip": "^3.5.0",
     "koa": "^2.13.0",
