@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "dev:test": "vite --mode test",
+    "dev:prod": "vite --mode production",
     "build": "run-p type-check build-only",
+    "build:test": "run-p type-check vite build --mode test",
+    "build:prod": "run-p type-check vite build --mode production",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
@@ -13,7 +17,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.13",
+    "@heroicons/vue": "^2.0.17",
     "autoprefixer": "^10.4.14",
+    "axios": "^1.3.5",
     "pinia": "^2.0.32",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1",
