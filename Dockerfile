@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # 执行 UmiJS 的项目构建
-RUN npm run build
+RUN npm run build:prod
 
 # 使用 Nginx 镜像作为基础镜像
 FROM nginx:latest
